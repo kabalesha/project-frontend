@@ -2,20 +2,27 @@
 }
 
 .heroImg {
-  display: none;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-position: center top;
 
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   @media screen and (max-width: 360px) {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    background-image: url(../../images/Frame.png);
-
-    background-position: center top;
-
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    background-image: url(../../images/mobileFrame.png);
     width: 280px;
     height: 208px;
+  }
+  @media screen and (min-width: 361px) {
+    background-image: url(../../images/tabletFrame.png);
+    width: 518px;
+    height: 386px;
+  }
+  @media screen and (min-width: 768px) {
+    background-image: url(../../images/tabletFrame.png);
+    width: 518px;
+    height: 386px;
   }
 }
