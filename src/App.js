@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 import logo from "./logo.svg";
 import "./App.css";
+=======
+import Header from './components/Header';
+>>>>>>> origin/main
 
 function App() {
   return (
     <div className="App">
+<<<<<<< HEAD
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <svg class="icon-arrow-left" width="16" height="16">
@@ -21,6 +26,9 @@ function App() {
           Learn React
         </a>
       </header>
+=======
+      <Header />
+>>>>>>> origin/main
     </div>
   );
 }
