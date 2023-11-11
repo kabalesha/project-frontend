@@ -21,8 +21,8 @@
     height: 386px;
   }
   @media screen and (min-width: 768px) {
-    background-image: url(../../images/tabletFrame.png);
-    width: 518px;
-    height: 386px;
+    background-image: url(../../images/desctopFrame.png);
+    width: 738px;
+    height: 548px;
   }
 }
