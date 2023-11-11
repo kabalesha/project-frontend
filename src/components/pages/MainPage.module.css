@@ -1,0 +1,23 @@
+.mainPageContainer{
+    width: 1000px;
+    height: 400px;
+    background-color: red;
+}
+
+.heroImg {
+    display: none;
+  
+    @media screen and (max-width: 360px) {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+background-color: aqua;
+      // margin-right: 156px;
+      // margin-top: auto;
+      // margin-right: 139px;
+    }
+  
+    @media screen and (min-width: 1440px) {
+      margin-left: 99px;
+    }
+  }

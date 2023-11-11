@@ -1,8 +1,8 @@
 import React from 'react'
-
+import css from "./MainPage.module.css"
 const MainPage = () => {
   return (
-    <div>MainPage</div>
+    <div className={css.mainPageContainer}><div className={css.heroImg}></div>MainPage</div>
   )
 }
 
