@@ -23,7 +23,7 @@ const Month = () => {
   const quantityDays = year[currentMonth];
 
   return (
-    <div>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(10, 1fr)' }}>
       <MonthItem quantityDays={quantityDays} />
     </div>
   );
