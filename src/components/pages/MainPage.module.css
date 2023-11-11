@@ -1,10 +1,14 @@
 .mainPageContainer {
+  max-width: 1440px;
+  padding: 38.67px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .heroImg {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  /* margin-left: auto; */
+  /* margin-right: auto; */
   background-position: center top;
 
   background-repeat: no-repeat;

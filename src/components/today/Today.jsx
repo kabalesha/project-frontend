@@ -9,7 +9,13 @@ const Today = () => {
 
   return a.map(el => {
     return (
-      <div key={el.id} style={{ display: 'flex', justifyContent: 'center' }}>
+      <div
+        key={el.id}
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+        }}
+      >
         <div>{el.portion}</div>:<div>{el.time}</div>
       </div>
     );
