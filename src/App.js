@@ -1,6 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
 import MainPage from '../src/components/pages/MainPage';
+
+import Header from './components/header/Header';
+function App() {
+  return (
+    <>
+      <Header />
+      <MainPage />
+    </>
+
 import SignUpPage from './components/pages/SignUp/SignUpPage.jsx';
 function App() {
   return (
@@ -22,6 +31,7 @@ function App() {
       {/* <MainPage /> */}
       <SignUpPage/>
     </div>
+
   );
 }
 
