@@ -1,8 +1,8 @@
 import React from 'react';
 import css from './HomePage.module.css';
-import main from '../../css/main.css';
-import Today from '../today/Today';
-import Month from '../month/Month';
+
+import Today from '../../today/Today';
+import Month from '../../month/Month';
 const MainPage = () => {
   return (
     <div className={css.mainPageContainer}>

@@ -1,6 +1,6 @@
 import React from 'react';
 import MonthItem from './MonthItem';
-import css from '../pages/HomePage.module.css';
+import css from '../pages/homePage/HomePage.module.css';
 const Month = () => {
   const date = new Date().getFullYear();
 
