@@ -1,6 +1,6 @@
 import React from 'react';
 import MonthItem from './MonthItem';
-
+import css from '../pages/MainPage.module.css';
 const Month = () => {
   const date = new Date().getFullYear();
 
@@ -25,7 +25,7 @@ const Month = () => {
 
   const value = 100;
   return (
-    <div style={{ display: 'grid' }}>
+    <div style={{ display: 'grid' }} className={css.calendarDiv}>
       <h2>Monts</h2>
       <p> {month}</p>
       <div
