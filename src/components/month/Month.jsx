@@ -18,16 +18,16 @@ const Month = () => {
     { November: '30' },
     { December: '31' },
   ];
-
   const currentMonth = new Date().getMonth();
-
   const quantityDays = year[currentMonth];
-  console.log('first', quantityDays);
+  const arr = Object.keys(year[currentMonth]);
+  const [month] = arr;
+
   const value = 100;
   return (
     <div style={{ display: 'grid' }}>
       <h2>Monts</h2>
-      {/* <p> {month}</p> */}
+      <p> {month}</p>
       <div
         style={{
           outline: '1px solid red',

@@ -1,12 +1,19 @@
 import React from 'react';
 
 const MonthItem = ({ quantityDays, value }) => {
+  const arr = Object.values(quantityDays);
+  const [day] = arr;
+  const i = [];
+  let n = 0;
+  while (n < day) {
+    n++;
+    i.push(n);
+  }
   const handleClick = el => {
-    console.log('i', el);
     alert(el);
   };
   return i.map((el, idx) => (
-    <div style={{ display: 'block' }}>
+    <div style={{ display: 'block' }} key={el}>
       <div
         onClick={() => handleClick(idx)}
         key={el}
