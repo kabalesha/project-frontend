@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import MainPage from '../src/components/pages/MainPage';
+import HomePage from '../src/components/pages/HomePage';
 import SignUpPage from './components/pages/SignUp/SignUpPage.jsx';
 function App() {
   return (
@@ -19,8 +19,8 @@ function App() {
           Learn React
         </a>
       </header> */}
-      {/* <MainPage /> */}
-      <SignUpPage/>
+      <HomePage />
+      {/* <SignUpPage /> */}
     </div>
   );
 }
