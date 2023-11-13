@@ -21,6 +21,10 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.mainPageProgressWater {
 }
 @media screen and (max-width: 360px) {
   .heroImg {

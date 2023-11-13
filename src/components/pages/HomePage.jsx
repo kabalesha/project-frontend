@@ -8,7 +8,15 @@ const MainPage = () => {
     <div className={css.mainPageContainer}>
       <div style={{ width: '738px' }} className={css.mainPageHero}>
         <div className={css.heroImg} />
-        <button>Add Water</button>
+      </div>
+      <div className={css.mainPageProgressWater}>
+        <label for="file" style={{ marginRight: 'auto' }}>
+          Today
+        </label>
+        <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
+          <progress id="file" value="46" max="100" />
+          <button>Add Water</button>
+        </div>
       </div>
       <div className={css.mainPageCalendar}>
         <div
