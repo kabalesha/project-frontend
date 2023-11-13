@@ -6,22 +6,14 @@ import Month from '../month/Month';
 const MainPage = () => {
   return (
     <div className={css.mainPageContainer}>
-      <div style={{ width: '738px' }}>
+      <div style={{ width: '738px' }} className={css.mainPageHero}>
         <div className={css.heroImg} />
         <button>Add Water</button>
       </div>
-      <div
-        style={{
-          width: '544px',
-          height: '680px',
-          padding: '24px',
-          outline: '1px solid red',
-          backgroundColor: 'rgba(64, 123, 255, 0.3)',
-        }}
-      >
+      <div className={css.mainPageCalendar}>
         <div
           style={{
-            width: '544px',
+            // width: '544px',
             height: '260px',
             outline: '1px solid red',
           }}
