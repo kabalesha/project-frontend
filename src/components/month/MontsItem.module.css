@@ -1,0 +1,28 @@
+.calendarItem {
+  /* display: inherit; */
+  background-color: blue;
+  border-radius: 20px;
+  width: 34px;
+  height: 34px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.cardOverlay {
+  position: relative;
+  overflow: hidden;
+}
+.exempl {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+
+  background-color: red;
+}
+.calendarItem:hover,
+.calendarItem:focus {
+  display: block;
+  opacity: 1;
+  background-color: red;
+}
