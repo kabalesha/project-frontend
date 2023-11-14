@@ -21,16 +21,20 @@ const handleRejected = (state, { error, payload }) => {
   state.isLoading = false;
   state.error = payload ?? error.message;
 };
-const portionOfDrinking = createSlice({
+const portionOfDrinkingSlice = createSlice({
   name: 'portion',
-  initialState,
-
-  extraReducers: builder => {
-    builder
-      .addCase(thunkPortionOfDrinking.fulfilled, handleFulfilled)
-      //   .addCase(getProfileThunk.fulfilled, handleFulfilledProfile)
-      .addMatcher(({ type }) => type.endsWith('/pending'), handlePending)
-      .addMatcher(({ type }) => type.endsWith('/rejected'), handleRejected);
+  // initialState,
+  initialState: [],
+  reducers: {
+    add: (state, action) => [...state, action.payload],
   },
+  // extraReducers: builder => {
+  //   builder
+  //     .addCase(thunkPortionOfDrinking.fulfilled, handleFulfilled)
+  //     //   .addCase(getProfileThunk.fulfilled, handleFulfilledProfile)
+  //     .addMatcher(({ type }) => type.endsWith('/pending'), handlePending)
+  //     .addMatcher(({ type }) => type.endsWith('/rejected'), handleRejected);
+  // },
 });
-export const portionDrink = portionOfDrinking.reducer;
+export const portionDrink = portionOfDrinkingSlice.reducer;
+export const { add } = portionOfDrinkingSlice.actions;

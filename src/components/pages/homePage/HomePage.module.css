@@ -1,0 +1,60 @@
+.mainPageContainer {
+  max-width: 1440px;
+  padding: 38.67px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.mainPageCalendar {
+  width: 544px;
+  height: 680px;
+  padding: 24px;
+  outline: 1px solid red;
+  background-color: rgba(64, 123, 255, 0.3);
+}
+.mainPageHero {
+  position: relative;
+}
+.heroImg {
+  display: block;
+  background-position: center top;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.mainPageProgressWater {
+}
+@media screen and (max-width: 360px) {
+  .heroImg {
+    background-image: url(../../../images/mobileFrame.png);
+    width: 280px;
+    height: 208px;
+  }
+}
+@media screen and (min-width: 361px) {
+  .heroImg {
+    background-image: url(../../../images/tabletFrame.png);
+    width: 518px;
+    height: 386px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .heroImg {
+    background-image: url(../../../images/desctopFrame.png);
+    width: 738px;
+    height: 548px;
+  }
+}
+@media screen and (min-width: 1216px) {
+  .mainPageCalendar {
+    position: absolute;
+    top: 38.67px;
+    right: 0;
+  }
+}
+
+/* .mainPageHero {
+  position: relative;
+} */
