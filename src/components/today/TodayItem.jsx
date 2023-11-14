@@ -12,7 +12,6 @@ const Today = () => {
   const dispath = useDispatch();
   const addPortion = value => {
     dispath(add(value));
-    console.log('addPortion', value);
   };
   return a.map(el => {
     return (
