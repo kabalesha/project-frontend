@@ -13,9 +13,7 @@ const Today = () => {
   const addPortion = value => {
     dispath(add(value));
   };
-  const remoteDataPortion = idx => {
-    setIdx(idx);
-  };
+
   return (
     <>
       {showModal && (
@@ -23,7 +21,7 @@ const Today = () => {
           <TodayForm addPortion={addPortion} idx={idx} />
         </Modal>
       )}
-      <TodayList remoteDataPortion={remoteDataPortion} />
+      <TodayList />
     </>
   );
 };

@@ -1,16 +1,18 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { quantityDrinkSelector } from '../../redux/selectors';
+import { del } from '../../redux/portionOfDrinking/slicePortionOfDrinking';
 
-const TodayList = ({ remoteDataPortion }) => {
+const TodayList = () => {
   const drinkingList = useSelector(quantityDrinkSelector);
+  const dispath = useDispatch();
 
   return ([] && drinkingList).map((el, idx) => {
     return (
       <div key={idx} style={{ display: 'flex', justifyContent: 'center' }}>
         <div>{el.time}</div>_______<div>{el.portion}</div>
-        <button onClick={() => remoteDataPortion(idx)}>Remove</button>
-        <button>Del</button>
+        <button>Remove</button>
+        <button onClick={() => dispath(del(idx))}>Del</button>
       </div>
     );
   });
