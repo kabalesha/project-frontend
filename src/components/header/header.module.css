@@ -1,96 +1,70 @@
-.headerContainer{
-display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap:94px;
-    background-color: transparent;
-    margin-top: 12px;
-        margin-bottom: 49px;
-        margin-left: auto;
-        margin-right: auto;
-        height: 48px;
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 94px;
+  background-color: transparent;
+  margin-left: auto;
+  margin-right: auto;
+  height: 48px;
 }
 @media screen and (min-width: 768px) {
-    .headerContainer{
-       gap: 512px; 
-    }
+  .headerContainer {
+    gap: 512px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
-.headerContainer {
-     gap: 1024px;
-    }
+  .headerContainer {
+    padding: 12px 112px 49px 112px;
+  }
 }
-   
 
- 
 /* logo */
-.logo_text{
-    display: block;
-   
-}
-.logo_btn{
-    display: flex;
-    align-items:  center;
-    gap:10px;
-    width: 102px;
-    height: 48;
-border: none;
-    background-color: transparent;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 0px;
-    padding-right: 0px;
+.logo {
+  width: 102px;
+  height: 48px;
 }
 
-.logo_text{
-    display: block;
-  flex-wrap: wrap;
-color: #407BFF;
-text-align: left;
-
- font-weight: 700;
-        font-size: 12px;
-        letter-spacing: -0.64px;
-        line-height: calc(16 / 12);
+.logo_btn {
+  background-color: transparent;
+  border: none;
 }
 
 /* sign in */
 .signIn_btn {
-    display: flex;
-    align-items: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    gap: 10px;
-    border: none;
-    background-color: transparent;
-    
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  gap: 10px;
+  border: none;
+  background-color: transparent;
 }
 
 @media screen and (min-width: 1440px) {
-    .signIn_btn{
+  .signIn_btn {
     gap: 8px;
-    }
+  }
 }
 
 .signInText {
-    color: #407BFF;
-    font-size: 16px;
-    line-height: calc(20 / 16);
+  color: #407bff;
+  font-size: 16px;
+  line-height: calc(20 / 16);
 }
 @media screen and (min-width: 768px) {
-    .signInText{
+  .signInText {
     font-size: 18px;
-        line-height: calc(24 / 18);
-    }
+    line-height: calc(24 / 18);
+  }
 }
 .signInText:hover {
-    color: #FF9D43;
+  color: #ff9d43;
 }
 
-.round_icon{
-  border-radius:50%; 
+.round_icon {
+  border-radius: 50%;
   border-color: black;
   fill: black;
 }
-
