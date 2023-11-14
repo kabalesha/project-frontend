@@ -21,7 +21,7 @@ const TodayForm = ({ addPortion }) => {
   return (
     <>
       <form onSubmit={handleSbmit}>
-        <input onChange={handleChange} name="time" value={time} />
+        <input type="time" onChange={handleChange} name="time" value={time} />
         <input onChange={handleChange} name="portion" value={portion} />
         <button type="submit">Submit</button>
         <button>Remove</button>
