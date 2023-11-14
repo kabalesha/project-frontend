@@ -26,7 +26,7 @@ function App() {
       </header> */}
       {/* <Header /> */}
       <HomePage />
-      <Modal>{children}</Modal>
+
       {/* <SignUpPage /> */}
     </div>
   );
