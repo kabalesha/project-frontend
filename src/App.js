@@ -10,23 +10,21 @@ import MainPage from './components/pages/homePage/HomePage.jsx';
 import SignUpPage from './components/pages/SignUp/SignUpPage.jsx';
 import Main from './components/main/Main.jsx';
 import Header from './components/header/Header';
-
 import './App.css';
+// import HomePage from './components/pages/homePage/HomePage';
 
-import HomePage from './components/pages/homePage/HomePage';
+// function App() {
+//   return (
+//     <div className="App">
+//       {/* <Header /> */}
+//       <HomePage />
 
-function App() {
-  return (
-    <div className="App">
-      {/* <Header /> */}
-      <HomePage />
+//       {/* <SignUpPage /> */}
+//     </div>
+//   );
+// }
 
-      {/* <SignUpPage /> */}
-    </div>
-  );
-}
-
-export const AppRouter = () => {
+const AppRouter = () => {
   return (
     <>
       <Router>
@@ -42,4 +40,4 @@ export const AppRouter = () => {
   );
 };
 
-export default App;
+export default AppRouter;
