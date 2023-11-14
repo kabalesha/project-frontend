@@ -6,7 +6,7 @@ const TodayForm = ({ addPortion }) => {
   //   const activIdx = useSelector(activIdxSelector);
   const [time, setTime] = useState('');
   const [portion, setPortion] = useState('');
-
+  const [counter, setCounter] = useState(50);
   const handleSbmit = e => {
     e.preventDefault();
     addPortion({ time, portion });
@@ -24,9 +24,11 @@ const TodayForm = ({ addPortion }) => {
       <h3>Add Water</h3>
       <h5>Choose a value : </h5>
       <h4> Amount of water</h4>
-      <button>--</button>
-      <h3> 50 ml </h3>
-      <button>++</button>
+      {counter >= 50 && (
+        <button onClick={() => setCounter(counter - 50)}>--</button>
+      )}
+      <h3> {counter} ml </h3>
+      <button onClick={() => setCounter(counter + 50)}>++</button>
       <form onSubmit={handleSbmit}>
         <label>
           Recording time :
@@ -34,9 +36,13 @@ const TodayForm = ({ addPortion }) => {
         </label>
         <label>
           Enter the value of the water used :
-          <input onChange={handleChange} name="portion" value={portion} />
+          <input
+            onChange={handleChange}
+            name="portion"
+            value={portion || counter}
+          />
         </label>
-        <h3> 50 ml </h3>
+        <h3> {counter} </h3>
         <button type="submit">Save</button>
       </form>
     </div>
