@@ -1,9 +1,13 @@
 // import logo from './logo.svg';
+import { useDispatch } from 'react-redux';
 import './App.css';
+import Modal from './components/modalWindow/Modal';
 // import Header from './components/header/Header';
 import HomePage from './components/pages/homePage/HomePage';
 // import SignUpPage from './components/pages/SignUp/SignUpPage.jsx';
 function App() {
+  const dispath = useDispatch();
+  const addPortionWater = () => {};
   return (
     <div className="App">
       {/* <header className="App-header">
@@ -22,6 +26,7 @@ function App() {
       </header> */}
       {/* <Header /> */}
       <HomePage />
+      <Modal>{children}</Modal>
       {/* <SignUpPage /> */}
     </div>
   );
