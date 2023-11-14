@@ -9,6 +9,8 @@ const TodayList = () => {
     return (
       <div key={el.id} style={{ display: 'flex', justifyContent: 'center' }}>
         <div>{el.time}</div>_______<div>{el.portion}</div>
+        <button>Remove</button>
+        <button>Del</button>
       </div>
     );
   });

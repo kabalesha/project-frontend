@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 // import { useSelector } from 'react-redux';
 // import { activIdxSelector } from 'redux/selectors';
+import css from './TodayForm.module.css';
 const TodayForm = ({ addPortion }) => {
   //   const activIdx = useSelector(activIdxSelector);
   const [time, setTime] = useState('');
@@ -19,16 +20,26 @@ const TodayForm = ({ addPortion }) => {
   };
 
   return (
-    <>
+    <div className={css.addWaterDiv}>
+      <h3>Add Water</h3>
+      <h5>Choose a value : </h5>
+      <h4> Amount of water</h4>
+      <button>--</button>
+      <h3></h3>
+      <button>++</button>
       <form onSubmit={handleSbmit}>
-        <input type="time" onChange={handleChange} name="time" value={time} />
-        <input onChange={handleChange} name="portion" value={portion} />
-        <button type="submit">Submit</button>
-        <button>Remove</button>
-        <button>Del</button>
-        {/* <button>{activIdx !== null ? 'Update Task' : 'Add Task'}</button> */}
+        <label>
+          Recording time :
+          <input type="time" onChange={handleChange} name="time" value={time} />
+        </label>
+        <label>
+          Enter the value of the water used :
+          <input onChange={handleChange} name="portion" value={portion} />
+        </label>
+        <h3> 50 ml </h3>
+        <button type="submit">Save</button>
       </form>
-    </>
+    </div>
   );
 };
 

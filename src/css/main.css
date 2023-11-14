@@ -1,10 +1,7 @@
 /* @import '~node_modules/modern-normalize/modern-normalize.css'; */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
-
-/* 
-@font-face {
-
+/* @font-face {
   font-family: 'Roboto';
   src: url('./fonts/Roboto-Bold.ttf') format('ttf');
   font-weight: 700;
@@ -23,9 +20,7 @@
   src: url('./fonts/Roboto-Regular.ttf') format('ttf');
   font-weight: 400;
   font-style: normal;
-
 } */
-
 
 body {
   margin: 0;
