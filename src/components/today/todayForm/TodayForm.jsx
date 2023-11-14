@@ -25,7 +25,7 @@ const TodayForm = ({ addPortion }) => {
       <h5>Choose a value : </h5>
       <h4> Amount of water</h4>
       <button>--</button>
-      <h3></h3>
+      <h3> 50 ml </h3>
       <button>++</button>
       <form onSubmit={handleSbmit}>
         <label>
