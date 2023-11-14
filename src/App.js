@@ -1,3 +1,22 @@
+
+
+
+import './App.css';
+
+import HomePage from './components/pages/homePage/HomePage';
+
+function App() {
+
+
+  return (
+    <div className="App">
+      
+      {/* <Header /> */}
+      <HomePage />
+
+      {/* <SignUpPage /> */}
+    </div>
+
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import MainPage from './components/pages/MainPage.jsx';
@@ -21,7 +40,11 @@ const AppRouter = () => {
       </Routes>
       </Router>
       </>
+
   );
 };
+
+
+export default App;
 
 export default AppRouter;
