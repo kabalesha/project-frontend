@@ -1,5 +1,7 @@
 import React from 'react';
 import TodayForm from './todayForm/TodayForm';
+import { useDispatch } from 'react-redux';
+import { add } from '../../redux/portionOfDrinking/slicePortionOfDrinking';
 
 const Today = () => {
   const a = [
@@ -7,7 +9,9 @@ const Today = () => {
     { id: 2, portion: 200, time: '9:00' },
     { id: 3, portion: 250, time: '11:00' },
   ];
+  const dispath = useDispatch();
   const addPortion = value => {
+    dispath(add(value));
     console.log('addPortion', value);
   };
   return a.map(el => {

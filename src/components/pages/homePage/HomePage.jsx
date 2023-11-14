@@ -10,7 +10,7 @@ const MainPage = () => {
         <div className={css.heroImg} />
       </div>
       <div className={css.mainPageProgressWater}>
-        <label for="file" style={{ marginRight: 'auto' }}>
+        <label htmlFor="file" style={{ marginRight: 'auto' }}>
           Today
         </label>
         <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
