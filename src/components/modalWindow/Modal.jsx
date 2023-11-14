@@ -9,7 +9,7 @@ const ModalRoot = document.querySelector('#modal-root');
 const Modal = ({ children }) => {
   const dispath = useDispatch();
   return createPortal(
-    <div class={css.hystmodal}>
+    <div className={css.hystmodal}>
       <div className={css.modalDiv}>
         <div className="modal-dialog">
           <div className="modal-content">

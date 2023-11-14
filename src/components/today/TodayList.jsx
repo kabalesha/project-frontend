@@ -5,11 +5,17 @@ import { quantityDrinkSelector } from '../../redux/selectors';
 const TodayList = () => {
   const drinkingList = useSelector(quantityDrinkSelector);
   console.log('first', drinkingList);
-  return ([] && drinkingList).map(el => {
+  return ([] && drinkingList).map((el, idx) => {
     return (
-      <div key={el.id} style={{ display: 'flex', justifyContent: 'center' }}>
+      <div key={idx} style={{ display: 'flex', justifyContent: 'center' }}>
         <div>{el.time}</div>_______<div>{el.portion}</div>
-        <button>Remove</button>
+        <button
+          onClick={() => {
+            console.log('first');
+          }}
+        >
+          Remove
+        </button>
         <button>Del</button>
       </div>
     );
