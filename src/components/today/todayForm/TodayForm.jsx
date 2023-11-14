@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 // import { useSelector } from 'react-redux';
 // import { activIdxSelector } from 'redux/selectors';
 import css from './TodayForm.module.css';
-const TodayForm = ({ addPortion }) => {
+const TodayForm = ({ addPortion, idx }) => {
+  console.log('form', idx);
   //   const activIdx = useSelector(activIdxSelector);
   const [time, setTime] = useState('');
   const [portion, setPortion] = useState('');
