@@ -1,6 +1,6 @@
 import React from 'react';
 import css from './HomePage.module.css';
-
+import '../../../css/main.css';
 import Today from '../../today/Today';
 import Month from '../../month/Month';
 const MainPage = () => {

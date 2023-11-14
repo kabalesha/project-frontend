@@ -2,24 +2,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
 /* @font-face {
-    font-family: "Roboto";
-    src: url("./fonts/Roboto-Bold.ttf") format("ttf");
-    font-weight: 700;
-    font-style: normal;
+  font-family: 'Roboto';
+  src: url('./fonts/Roboto-Bold.ttf') format('ttf');
+  font-weight: 700;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: "Roboto";
-    src: url("./fonts/Roboto-Medium.ttf") format("ttf");
-    font-weight: 500;
-    font-style: normal;
+  font-family: 'Roboto';
+  src: url('./fonts/Roboto-Medium.ttf') format('ttf');
+  font-weight: 500;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: "Roboto";
-    src: url("./fonts/Roboto-Regular.ttf") format("ttf");
-    font-weight: 400;
-    font-style: normal;
+  font-family: 'Roboto';
+  src: url('./fonts/Roboto-Regular.ttf') format('ttf');
+  font-weight: 400;
+  font-style: normal;
 } */
 
 body {
