@@ -50,7 +50,7 @@ export const Input = styled.input`
 //   }
 `;
 
-export const RegisterButton = styled.button`
+export const LogInButton = styled.button`
   margin: 16px 0;
   padding: 10px 30px;
   font-size: 16px;
@@ -66,12 +66,3 @@ export const RegisterButton = styled.button`
     width: 336px;
   }
 `;
-
-export const SignInLink = styled.p`
-color: #407BFF;
-font-size: 16px;
-font-style: normal;
-font-weight: 400;
-line-height: 20px;
-margin: 0;
-`

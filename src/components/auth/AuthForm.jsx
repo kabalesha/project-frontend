@@ -1,10 +1,10 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
-import { register } from '../../shared/api/auth';
+import { login } from '../../shared/api/auth';
 import { useNavigate } from 'react-router-dom'; 
 
-import { RegisterButton, Label, Input, Form, Title, SignInLink } from '../../components/auth/AuthForm.styled';
+import { LogInButton, Label, Input, Form, Title } from '../../components/auth/AuthForm.styled';
 
 const AuthForm = ({ onSubmit }) => {
   const dispatch = useDispatch();
@@ -18,7 +18,7 @@ const AuthForm = ({ onSubmit }) => {
     },
     onSubmit: async (values) => {
       try {
-        await dispatch(register({
+        await dispatch(login({
           email: values.email,
           password: values.password,
         }));
@@ -30,14 +30,14 @@ const AuthForm = ({ onSubmit }) => {
 
         navigate('/MainPage');
       } catch (error) {
-        console.error('Реєстрація не вдалась', error);
+        console.error('Не вдалий вхід', error);
       }
     },
   });
 
   return (
     <div>
-      <Title>Sign up</Title>
+      <Title>Sign in</Title>
       <Form onSubmit={formik.handleSubmit}>
         <div>
           <Label>Enter your email</Label>
@@ -63,22 +63,7 @@ const AuthForm = ({ onSubmit }) => {
             {...formik.getFieldProps('password')}
           />
         </div>
-        <div>
-          <Label>Repeat password</Label>
-          <Input
-            type="password"
-            name="password"
-            placeholder="Repeat password"
-            autoComplete="off"
-            minLength={8}
-            required
-            {...formik.getFieldProps('repeatPassword')}
-          />
-        </div>
-        <RegisterButton type="submit">Sign Up</RegisterButton>
-        <SignInLink>
-          {/* <Link to="/signin">Sign in</Link> */}
-        </SignInLink>
+        <LogInButton type="submit">Sign In</LogInButton>
       </Form>
     </div>
   );
