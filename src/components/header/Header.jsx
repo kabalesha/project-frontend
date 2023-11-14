@@ -1,13 +1,23 @@
 import React from 'react';
-// import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import css from './header.module.css';
 import logoPNG from '../../icons/Logo.png';
 
 const Header = () => {
+  const navigate = useNavigate();
+
+  const handleLogoClick = () => {
+    navigate('/MainPage');
+  };
+
   return (
     <div>
       <header className={css.headerContainer}>
-        <button className={css.logo_btn} type="button">
+        <button
+          className={css.logo_btn}
+          type="button"
+          onClick={handleLogoClick}
+        >
           <img className={css.logo} src={logoPNG} alt="Logo" />
         </button>
 
@@ -23,10 +33,3 @@ const Header = () => {
 };
 
 export default Header;
-//  const dispath = useDispatch();
-//   return (
-//     <div>
-//       Header
-//       <button type="submit" onClick={() => dispath()}></button>
-//     </div>
-//   );
