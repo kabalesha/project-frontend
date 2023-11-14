@@ -29,15 +29,17 @@ import Header from './components/header/Header';
 const AppRouter = () => {
   return (
 <>
-    <Header/>
-    <Router>
-      <Routes>
-        {/* <Route path="/login" element={<Login />} /> */}
-        <Route index element={<Navigate to="/Main" />} />
-        <Route path="/SignUpPage" element={<SignUpPage />} />
-        <Route path="/MainPage" element={<MainPage />} />
-        <Route path="/Main" element={<Main />} />
-      </Routes>
+      <Router>
+      <Header />
+        <Routes>
+          <Route
+            path="/"
+            element={<Navigate to="/Main" />}
+          />
+          <Route path="/SignUpPage" element={<SignUpPage />} />
+          <Route path="/MainPage" element={<MainPage />} />
+          <Route path="/Main" element={<Main />} />
+        </Routes>
       </Router>
       </>
 
