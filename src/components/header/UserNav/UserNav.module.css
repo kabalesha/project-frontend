@@ -1,0 +1,43 @@
+.userNav {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+   
+}
+.name{
+color: var(--primery-color-black);
+font-size: 18px;
+line-height: calc(24/18);
+font-family: Roboto;
+margin-right: 8px;
+margin-top: 0;
+margin-bottom: 0;
+}
+
+.userPhoto {
+    border-radius: 50%;
+    margin-right: 6px;
+    width: 28px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.open_user_menu {
+   border: none;
+   background-color: transparent;
+   padding-top: 16px;
+ padding-bottom: 16px;
+ padding-left: 0;
+ padding-right: 0;
+
+}
+
+.user_icon{
+    width: 16px;
+    height: 16px;
+
+}
+
+
+
+
