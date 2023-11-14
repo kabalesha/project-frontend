@@ -15,7 +15,7 @@
     background-position: bottom;
     background-size: contain;
     background-repeat: no-repeat;
-
+    
     width: 320px;
     height: 100%;
     margin: auto;
@@ -30,7 +30,8 @@
   @media screen and (min-width: 1440px) {
     background-image: url(${imgBubblesDesc});
     width: 1440px;
-    padding: 0 112px;
+    /* padding: 0 112px; */
+
   }
   `;
 
@@ -60,7 +61,7 @@
 
   export const AuthFormContainer = styled.div`
 @media screen and (min-width: 768px) {
-    margin-top: 40px;
+    padding-top: 40px;
   }
 
   @media screen and (min-width: 1440px) {

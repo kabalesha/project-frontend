@@ -1,35 +1,50 @@
-// import logo from './logo.svg';
-import { useDispatch } from 'react-redux';
+
+
+
 import './App.css';
-import Modal from './components/modalWindow/Modal';
-// import Header from './components/header/Header';
+
 import HomePage from './components/pages/homePage/HomePage';
-// import SignUpPage from './components/pages/SignUp/SignUpPage.jsx';
+
 function App() {
-  const dispath = useDispatch();
-  const addPortionWater = () => {};
+
+
   return (
     <div className="App">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
+      
       {/* <Header /> */}
       <HomePage />
 
       {/* <SignUpPage /> */}
     </div>
+
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import MainPage from './components/pages/MainPage.jsx';
+// import Login from '../pages/Login';
+import SignUpPage from './components/pages/SignUp/SignUpPage.jsx'
+import Main from './components/main/Main.jsx';
+import Header from './components/header/Header';
+
+
+const AppRouter = () => {
+  return (
+<>
+    <Header/>
+    <Router>
+      <Routes>
+        {/* <Route path="/login" element={<Login />} /> */}
+        <Route index element={<Navigate to="/Main" />} />
+        <Route path="/SignUpPage" element={<SignUpPage />} />
+        <Route path="/MainPage" element={<MainPage />} />
+        <Route path="/Main" element={<Main />} />
+      </Routes>
+      </Router>
+      </>
+
   );
-}
+};
+
 
 export default App;
+
+export default AppRouter;
