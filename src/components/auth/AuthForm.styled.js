@@ -24,7 +24,7 @@ export const Label = styled.label`
 export const Input = styled.input`
 
   width: 254px;
-  padding: 10px 12px;
+  padding: 12px 10px;
   font-size: 16px;
   border-radius: 6px;
   border: 1px solid #D7E3FF;
@@ -54,15 +54,20 @@ export const RegisterButton = styled.button`
   margin: 16px 0;
   padding: 10px 30px;
   font-size: 16px;
+  line-height: 1.25;
   font-weight: 500;
   width: 280px;
   border: none;
   border-radius: 10px;
+  box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
   cursor: pointer;
   color: #FFFFFF;
   background-color: #407BFF;
 
   @media screen and (min-width: 768px) {
     width: 336px;
+    padding: 10px 30px;
+    font-size: 18px;
+    line-height: 1.33;
   }
 `;

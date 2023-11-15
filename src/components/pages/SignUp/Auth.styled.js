@@ -51,11 +51,9 @@
   @media screen and (min-width: 1440px) {
       display: flex;
       background-image: url(${imgBottleDesc});
-      background-size: contain;
-      height: 588px;
-      // background-position: left 50%;
-      // padding-top: 100px;
-     
+      background-size: 58%;
+    background-position: top 30px left;
+    background-repeat: no-repeat;
   } 
   `;
 

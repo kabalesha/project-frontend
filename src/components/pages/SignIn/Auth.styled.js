@@ -12,22 +12,25 @@ import { Link } from 'react-router-dom';
 import { Form } from 'formik';
 
 export const Wrapper = styled.section`
+margin: auto;
   background-image: url(${imgHomeBgBubblePhone});
-  background-size: cover;
+  background-size: contain;
+
   background-position: bottom center;
   background-repeat: no-repeat;
 
   @media screen and (min-width: 768px) {
     background-image: url(${imgHomeBgBubbleTablet});
-    background-size: cover;
+    background-size: 680px ;
+  
     background-position: bottom center;
     background-repeat: no-repeat;
   }
 
   @media screen and (min-width: 1440px) {
     background-image: url(${imgHomeBgbubbles});
-    background-size: contain;
-    background-position: bottom center;
+    background-size: 1404px;
+    background-position: top;
     background-repeat: no-repeat;
   }
 `;
@@ -37,20 +40,20 @@ export const Box = styled.div`
 
   background-image: url(${imgHomeBgButlePhone});
   background-size: 100%;
-  background-position: center bottom 20px;
+  background-position: center;
   background-repeat: no-repeat;
 
   @media screen and (min-width: 768px) {
     background-image: url(${imgHomeBgButleTablet});
-    background-size: 100%;
-    background-position: right -100px bottom 56px;
+    background-size: 85%;
+    background-position: bottom 100px left 110px;
     background-repeat: no-repeat;
   }
 
   @media screen and (min-width: 1440px) {
     background-image: url(${imgHomeBgButle});
-    background-size: 70%;
-    background-position: top 0px left -81px;
+    background-size: 65%;
+    background-position: top 0px left -20%;
     background-repeat: no-repeat;
     margin-top: 0%;
   }
@@ -68,6 +71,7 @@ export const AllForm = styled.div`
 export const Title = styled.h1`
   margin-bottom: 16px;
   display: block;
+  color: #2F2F2F;
   font-size: 26px;
   font-weight: 500;
   line-height: 32px;
@@ -102,7 +106,7 @@ export const StyledForm = styled(Form)`
 
   @media screen and (min-width: 1440px) {
     align-items: flex-end;
-    margin-right: 104px;
+    margin-right: 198px;
   }
 `;
 
@@ -122,7 +126,7 @@ export const StyledInput = styled.input`
   border-radius: 6px;
   margin-bottom: 10px;
   font-weight: 400;
-  min-width: 280px;
+  width: 258px;
   font-size: 16px;
   line-height: 20px;
   color: ${color.primary.blue};
@@ -141,12 +145,12 @@ export const StyledInput = styled.input`
   }
 
   @media screen and (min-width: 768px) {
-    min-width: 336px;
+    min-width: 314px;
     margin-bottom: 16px;
   }
 
   @media screen and (min-width: 1440px) {
-    min-width: 384px;
+    min-width: 362px;
   }
 `;
 
@@ -172,17 +176,17 @@ export const SigninButton = styled.button`
   box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
   border-radius: 10px;
   border: none;
-  min-width: 280px;
+  width: 280px;
   padding: 8px 30px;
   color: ${color.primary.white};
   font-weight: 500;
   font-size: 16px;
-  line-height: 20px;
+  line-height: 1.25;
   @media screen and (min-width: 768px) {
     padding: 10px 30px;
     min-width: 336px;
     font-size: 18px;
-    line-height: 24px;
+    line-height: 1.33;
   }
 
   @media screen and (min-width: 1440px) {
@@ -199,7 +203,7 @@ export const LinkToPage = styled(Link)`
   margin-bottom: 6px;
   color: ${color.primary.blue};
   @media screen and (min-width: 1440px) {
-    margin-left: 730px;
+  margin-left: 860px;
   }
 `;
 export const ErrorM = styled.div`
