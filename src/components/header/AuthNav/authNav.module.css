@@ -4,27 +4,39 @@
     align-items: center;
     padding-top: 10px;
     padding-bottom: 10px;
+    padding-right: 0;
+    padding-left: 0;
     gap: 10px;
     border: none;
     background-color: transparent;
+
     
+}
+@media screen and (min-width: 1440px) {
+    .signIn_btn {
+width: 90px;
+}
 }
 
 @media screen and (min-width: 1440px) {
     .signIn_btn{
     gap: 8px;
+    
+    
     }
 }
 
 .signInText {
     color:#407BFF;
-    font-size: 16px;
-    line-height: calc(20 / 16);
+font-size: 16px;
+font-weight: 400;
+   
+    
 }
 @media screen and (min-width: 768px) {
     .signInText{
-    font-size: 18px;
-        line-height: calc(24 / 18);
+   
+       
     }
 }
 .signInText:hover {
@@ -35,5 +47,7 @@
   border-radius:50%; 
   border-color:#2F2F2F;
  background-color: transparent;
+ width: 28px;
+ height: 28px;
 }
 

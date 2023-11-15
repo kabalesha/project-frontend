@@ -1,8 +1,15 @@
 import React from 'react';
 import icon from './outline.png';
 import css from './authNav.module.css';
+import { useNavigate } from 'react-router-dom';
 
-const AuthNav = () => {
+const AuthNav = () =>
+{
+  const navigates = useNavigate()
+  const handleClick = () => {
+    navigates('/signin')
+  }
+
   return (
     <>
       <button type="button" className={css.signIn_btn}>

@@ -1,15 +1,12 @@
 import React from "react"
 import css from "./logo.module.css"
 import logo from "./../../../images/logo.png"
-// import { useNavigate } from "react-router-dom"
+
 
 
 const Logo = () => {
-  //    const navigate = useNavigate();
-
-  // const handleLogoClick = () => {
-  //   navigate('/MainPage');
-  // };
+   
+  
     return (
         <div className={css.logo} >
         <button type="button" className={css.logo_link} >
