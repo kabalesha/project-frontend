@@ -19,12 +19,12 @@
 .signInText {
     color:#407BFF;
     font-size: 16px;
-    line-height: calc(20 / 16);
+ 
 }
 @media screen and (min-width: 768px) {
     .signInText{
     font-size: 18px;
-        line-height: calc(24 / 18);
+ 
     }
 }
 .signInText:hover {
@@ -35,5 +35,7 @@
   border-radius:50%; 
   border-color:#2F2F2F;
  background-color: transparent;
+ width: 28px;
+ height: 28px;
 }
 
