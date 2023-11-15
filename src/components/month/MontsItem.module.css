@@ -35,3 +35,29 @@
   opacity: 1;
   background-color: red;
 }
+@media screen and (max-width: 320px) {
+  .calendar {
+    outline: 1px solid red;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: '22px';
+  }
+}
+@media screen and (min-width: 321px) {
+  .heroImg {
+  }
+}
+@media screen and (min-width: 768px) {
+  .heroImg {
+  }
+}
+@media screen and (min-width: 1216px) {
+  .heroImg {
+  }
+  .mainPageCalendar {
+    position: absolute;
+    top: 38.67px;
+    right: 0;
+  }
+}

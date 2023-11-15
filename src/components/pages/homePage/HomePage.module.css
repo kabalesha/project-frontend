@@ -1,11 +1,12 @@
-.mainPageContainer {
+.mainPageContainer,
+.mainPageCalendar {
   margin-left: auto;
   margin-right: auto;
   /* background-color: blue; */
   padding-left: 20px;
   padding-right: 20px;
 }
-.mainPageCalendar {
+ {
 }
 .mainPageHero {
   position: relative;
@@ -32,6 +33,12 @@
     background-image: url(../../../images/mobileFrame.png);
     width: 280px;
     height: 208px;
+  }
+  .mainPageCalendar {
+    width: 280;
+    height: 506;
+    box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.3);
+    background-color: rgba(64, 123, 255, 0.3);
   }
 }
 @media screen and (min-width: 321px) {

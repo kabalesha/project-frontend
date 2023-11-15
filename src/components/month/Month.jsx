@@ -25,13 +25,13 @@ const Month = () => {
 
   const value = 100;
   return (
-    <div style={{ display: 'grid' }} className={css.calendarDiv}>
+    <>
       <h2>Monts</h2>
       <p> {month}</p>
       <div className={css.calendar}>
         <MonthItem quantityDays={quantityDays} value={value} />
       </div>
-    </div>
+    </>
   );
 };
 
