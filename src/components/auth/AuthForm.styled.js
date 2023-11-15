@@ -50,7 +50,7 @@ export const Input = styled.input`
 //   }
 `;
 
-export const LogInButton = styled.button`
+export const RegisterButton = styled.button`
   margin: 16px 0;
   padding: 10px 30px;
   font-size: 16px;

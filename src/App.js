@@ -1,43 +1,31 @@
-import React from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Navigate,
-} from 'react-router-dom';
-import MainPage from './components/pages/homePage/HomePage.jsx';
-// import Login from '../pages/Login';
-import SignUpPage from './components/pages/SignUp/SignUpPage.jsx';
+import { Route, Routes, Router } from 'react-router-dom';
+import SharedLayout from './components/layout/Layout.jsx';
 import Main from './components/main/Main.jsx';
-import Header from './components/header/Header';
-import './App.css';
-// import HomePage from './components/pages/homePage/HomePage';
+import PrivateRoute from './PrivateRoute.jsx';
+import RestrictedRoute from './RestrictedRoute.jsx';
+import { lazy } from 'react';
 
-// function App() {
-//   return (
-//     <div className="App">
-//       {/* <Header /> */}
-//       <HomePage />
+const HomePage = lazy(() => import('./components/pages/homePage/HomePage.jsx'));
+const SignInPage = lazy(() => import('./components/pages/SignIn/SignInPage.jsx'));
+const SignUpPage = lazy(() => import('./components/pages/SignUp/SignUpPage.jsx'));
 
-//       {/* <SignUpPage /> */}
-//     </div>
-//   );
-// }
-
-const AppRouter = () => {
+const App = () => {
   return (
-    <>
-      <Router>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Navigate to="/Main" />} />
-          <Route path="/SignUpPage" element={<SignUpPage />} />
-          <Route path="/MainPage" element={<MainPage />} />
-          <Route path="/Main" element={<Main />} />
-        </Routes>
-      </Router>
-    </>
+    <Routes>
+      <Route path="/" element={<SharedLayout />}>
+        <Route index element={<RestrictedRoute component={Main} />} />
+        <Route path="Home" element={<PrivateRoute component={HomePage} />} />
+        <Route
+          path="signin"
+          element={<RestrictedRoute component={SignInPage} />}
+        />
+        <Route
+          path="signup"
+          element={<RestrictedRoute component={SignUpPage} />}
+        />
+      </Route>
+      </Routes>
   );
 };
 
-export default AppRouter;
+export default App;

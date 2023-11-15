@@ -3,7 +3,7 @@ import css from './HomePage.module.css';
 import '../../../css/main.css';
 import Today from '../../today/Today';
 import Month from '../../month/Month';
-const MainPage = () => {
+const HomePage = () => {
   return (
     <div className={css.mainPageContainer}>
       <div style={{ width: '738px' }} className={css.mainPageHero}>
@@ -35,4 +35,4 @@ const MainPage = () => {
   );
 };
 
-export default MainPage;
+export default HomePage;
