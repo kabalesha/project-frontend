@@ -1,33 +1,30 @@
 import React from 'react';
 import css from './HomePage.module.css';
+import classNames from 'classnames';
 import '../../../css/main.css';
 import Today from '../../today/Today';
 import Month from '../../month/Month';
+import { useDispatch } from 'react-redux';
+import { modalShow } from '../../../redux/showModal/sliceShowModal';
 const HomePage = () => {
+const dispath = useDispatch();
   return (
     <div className={css.mainPageContainer}>
-      <div style={{ width: '738px' }} className={css.mainPageHero}>
-        <div className={css.heroImg} />
-      </div>
-      <div className={css.mainPageProgressWater}>
-        <label htmlFor="file" style={{ marginRight: 'auto' }}>
-          Today
-        </label>
-        <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
-          <progress id="file" value="46" max="100" />
-          <button>Add Water</button>
-        </div>
-      </div>
-      <div className={css.mainPageCalendar}>
-        <div
-          style={{
-            // width: '544px',
-            height: '260px',
-            outline: '1px solid red',
-          }}
+      <div className={css.heroImg} />
+
+      <div className={css.todayProgress}>
+        <h2>Today</h2>
+        <progress id="file" value="46" max="100" />
+        <button
+          className={css.btnAddWater}
+          onClick={() => dispath(modalShow(true))}
         >
-          <Today />
-        </div>
+          Add Water
+        </button>
+      </div>
+
+      <div className={css.mainPageCalendar}>
+        <Today />
 
         <Month />
       </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import MonthItem from './MonthItem';
-import css from '../pages/homePage/HomePage.module.css';
+import css from './MontsItem.module.css';
 const Month = () => {
   const date = new Date().getFullYear();
 
@@ -25,20 +25,19 @@ const Month = () => {
 
   const value = 100;
   return (
-    <div style={{ display: 'grid' }} className={css.calendarDiv}>
-      <h2>Monts</h2>
-      <p> {month}</p>
+    <div className={css.currentMonth}>
       <div
         style={{
-          outline: '1px solid red',
-          display: 'grid',
-
-          gridTemplateColumns: 'repeat(10, 1fr)',
-          gap: '22px',
-          width: '544px',
-          height: '332px',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'baseline',
         }}
       >
+        <h2>Monts</h2>
+        <p> {month}</p>
+      </div>
+
+      <div className={css.calendar}>
         <MonthItem quantityDays={quantityDays} value={value} />
       </div>
     </div>

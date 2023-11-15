@@ -1,19 +1,17 @@
-.mainPageContainer {
-  max-width: 1440px;
-  padding: 38.67px;
+.mainPageContainer,
+.mainPageCalendar {
   margin-left: auto;
   margin-right: auto;
+  /* background-color: blue; */
+  padding-left: 20px;
+  padding-right: 20px;
 }
-.mainPageCalendar {
-  width: 544px;
-  height: 680px;
-  padding: 24px;
-  outline: 1px solid red;
-  background-color: rgba(64, 123, 255, 0.3);
+.todayProgress {
+  margin-top: 16px;
+  padding-left: 8px;
+  padding-right: 8px;
 }
-.mainPageHero {
-  position: relative;
-}
+
 .heroImg {
   display: block;
   background-position: center top;
@@ -24,34 +22,91 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.btnAddWater {
+  width: 280px;
+  height: 36px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(64, 123, 255, 1);
+  margin-left: auto;
+}
 .mainPageProgressWater {
 }
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 320px) {
+  .mainPageContainer {
+    max-width: 320;
+    padding-left: 20;
+    padding-right: 20;
+  }
   .heroImg {
     background-image: url(../../../images/mobileFrame.png);
     width: 280px;
     height: 208px;
   }
+  .mainPageCalendar {
+    width: 280;
+    height: 506;
+    box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.3);
+    background-color: rgba(64, 123, 255, 0.3);
+  }
 }
-@media screen and (min-width: 361px) {
+
+@media screen and (min-width: 321px) {
+  .heroImg {
+    background-image: url(../../../images/mobileFrame.png);
+
+    width: 280px;
+    height: 208px;
+  }
+  .btnAddWater {
+    width: 280px;
+    height: 36px;
+  }
+}
+@media screen and (min-width: 768px) {
   .heroImg {
     background-image: url(../../../images/tabletFrame.png);
     width: 518px;
     height: 386px;
   }
+  .todayProgress {
+    width: 704px;
+    height: 90px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .btnAddWater {
+    width: 336px;
+    height: 44px;
+  }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1216px) {
+  .mainPageContainer {
+    width: 1216px;
+    position: relative;
+  }
   .heroImg {
     background-image: url(../../../images/desctopFrame.png);
     width: 738px;
     height: 548px;
-  }
-}
-@media screen and (min-width: 1216px) {
-  .mainPageCalendar {
+    margin-left: 0;
     position: absolute;
-    top: 38.67px;
-    right: 0;
+    left: -10%;
+    z-index: -1;
+  }
+  .todayProgress {
+    position: absolute;
+    top: 548px;
+    width: 592px;
+    height: 90px;
+  }
+  .btnAddWater {
+    width: 178px;
+    height: 44px;
   }
 }
 
