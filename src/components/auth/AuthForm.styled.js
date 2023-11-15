@@ -35,18 +35,16 @@ export const Input = styled.input`
   color: #2F2F2F;
   line-height: 1.25;
 }
-  :-moz-placeholder {
   color: #2F2F2F;
-}
-::placeholder {
-  color: #2F2F2F;
-}
-
+  &::placeholder {
+    color: #9EBBFF;
+  }
+  
  @media screen and (min-width: 768px) {
     width: 314px;
     
   }
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1440px) {
     width: 362px;
     
   }
