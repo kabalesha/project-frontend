@@ -6,6 +6,8 @@ const initialState = {
   isLoading: false,
   error: '',
   profile: null,
+  isLoggedIn: false,
+  isRefreshing: false,
 };
 const handleFulfilledSignUp = (state, action) => {
   console.log('action', action.payload);
@@ -46,3 +48,4 @@ const authSlice = createSlice({
 });
 export const authReducer = authSlice.reducer;
 export const { logOut } = authSlice.actions;
+export const selectAccessToken = state => state.auth.access_token;
