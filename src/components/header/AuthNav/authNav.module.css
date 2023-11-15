@@ -35,7 +35,7 @@ font-weight: 400;
 }
 @media screen and (min-width: 768px) {
     .signInText{
-   
+font-size: 18px;
        
     }
 }
