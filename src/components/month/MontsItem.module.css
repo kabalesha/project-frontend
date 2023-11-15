@@ -1,17 +1,30 @@
+.currentMonth {
+  padding-left: 8px;
+  padding-right: 8px;
+
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.3);
+  background-color: rgba(64, 123, 255, 0.3);
+}
 .calendarItem {
-  /* display: inherit; */
-  background-color: blue;
+  text-align: center;
+  display: grid;
+  border: 1px solid;
+  border-color: rgba(255, 157, 67, 1);
   border-radius: 20px;
   width: 34px;
   height: 34px;
   align-items: center;
   margin-bottom: 8px;
 }
-.cardOverlay {
+/* .cardOverlay {
   position: relative;
   overflow: hidden;
-}
-.exempl {
+} */
+/* .exempl {
   position: absolute;
   top: 0;
   left: 0;
@@ -19,10 +32,56 @@
   height: 100px;
 
   background-color: red;
-}
+} */
 .calendarItem:hover,
 .calendarItem:focus {
   display: block;
   opacity: 1;
   background-color: red;
+}
+@media screen and (max-width: 320px) {
+  .currentMonth {
+    width: 280px;
+    height: 506px;
+  }
+  .calendar {
+    height: 460px;
+    outline: 1px solid red;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: '22px';
+  }
+}
+@media screen and (min-width: 321px) {
+  .currentMonth {
+    width: 280px;
+    height: 506px;
+  }
+  .calendar {
+    outline: 1px solid red;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 22px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .currentMonth {
+    width: 704px;
+    height: 360px;
+  }
+  .calendar {
+    grid-template-columns: repeat(10, 1fr);
+    gap: 10px;
+    height: 340px;
+  }
+}
+@media screen and (min-width: 1216px) {
+  .currentMonth {
+    margin-right: 0;
+  }
+  .mainPageCalendar {
+  }
 }

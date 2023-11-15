@@ -19,10 +19,7 @@ const MonthItem = ({ quantityDays, value }) => {
         key={el}
         className={css.calendarItem}
       >
-        <div className={css.cardOverlay}>
-          <div className={css.exempl}></div>
-          {el}
-        </div>
+        {el}
       </div>
       <span style={{ fontSize: '12px' }}>{value} %</span>
     </div>
