@@ -1,13 +1,18 @@
 .todayList {
   padding: 24px, 8px, 24px, 8px;
-  background-color: rgba(64, 123, 255, 0.3);
+
   margin-left: auto;
   margin-right: auto;
   gap: 24px;
-  box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.3);
 }
 
 .todayCalendar {
+}
+@media screen and (max-width: 320px) {
+  .todayList {
+    width: 264px;
+    height: 258px;
+  }
 }
 @media screen and (min-width: 321px) {
   .todayList {
