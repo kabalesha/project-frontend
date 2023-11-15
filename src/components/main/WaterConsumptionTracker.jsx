@@ -6,7 +6,7 @@ const WaterConsumptionTracker = () => {
     const navigate = useNavigate();
 
     const handleButtonClick = () => {
-        navigate('/SignUpPage');
+        navigate('/signup');
     };
 
     return (

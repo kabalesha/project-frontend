@@ -6,12 +6,11 @@ import { RegistrationPageContainer, ImageContainer, AuthFormContainer } from './
 import { useNavigate } from 'react-router-dom';
 
 
-const SignUpPage = () => {
+const SignUpPage = ({ redirectTo }) => {
   const navigate = useNavigate();
   
   const handleFormSubmit = async () => {
-   
-    navigate('/MainPage');
+    navigate(redirectTo);
   };
 
   return (
