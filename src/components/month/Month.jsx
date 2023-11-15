@@ -26,8 +26,17 @@ const Month = () => {
   const value = 100;
   return (
     <div className={css.currentMonth}>
-      <h2>Monts</h2>
-      <p> {month}</p>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'baseline',
+        }}
+      >
+        <h2>Monts</h2>
+        <p> {month}</p>
+      </div>
+
       <div className={css.calendar}>
         <MonthItem quantityDays={quantityDays} value={value} />
       </div>
