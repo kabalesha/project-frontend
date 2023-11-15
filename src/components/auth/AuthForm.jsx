@@ -2,8 +2,9 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 import { register } from '../../shared/api/auth';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate, Link } from 'react-router-dom'; 
 import { RegisterButton, Label, Input, Form, Title, SignInLink } from '../../components/auth/AuthForm.styled';
+
 
 
 const AuthForm = ({ onSubmit }) => {
@@ -76,9 +77,9 @@ const AuthForm = ({ onSubmit }) => {
           />
         </div>
         <RegisterButton type="submit">Sign Up</RegisterButton>
-        {/* <SignInLink>
+         <SignInLink>
           <Link to="/signin">Sign in</Link>
-        </SignInLink> */}
+        </SignInLink>
       </Form>
    </div>
  )

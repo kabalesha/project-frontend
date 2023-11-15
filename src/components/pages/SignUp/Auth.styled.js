@@ -30,9 +30,8 @@
   @media screen and (min-width: 1440px) {
     background-image: url(${imgBubblesDesc});
     width: 1440px;
-    /* padding: 0 112px; */
-
-  }
+    background-position: top;
+    }
   `;
 
   export const ImageContainer = styled.div`
@@ -51,22 +50,22 @@
   @media screen and (min-width: 1440px) {
       display: flex;
       background-image: url(${imgBottleDesc});
-      background-size: 58%;
+      background-size: 60%;
     background-position: top 30px left;
     background-repeat: no-repeat;
   } 
   `;
 
   export const AuthFormContainer = styled.div`
-@media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     padding-top: 40px;
   }
 
   @media screen and (min-width: 1440px) {
   position: absolute;
-  top: 50%;
+  top: 47%;
   right: 0;
   transform: translate(0, -50%);
-  padding-right: 216px;
+  padding-right: 402px;
   }
   `;
