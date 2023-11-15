@@ -1,16 +1,31 @@
-// import logo from './logo.svg';
-import './App.css';
-import MainPage from '../src/components/pages/MainPage';
+import { Route, Routes, Router } from 'react-router-dom';
+import SharedLayout from './components/layout/Layout.jsx';
+import Main from './components/main/Main.jsx';
+import PrivateRoute from './PrivateRoute.jsx';
+import RestrictedRoute from './RestrictedRoute.jsx';
+import { lazy } from 'react';
 
-import Header from './components/header/Header';
-function App() {
+const HomePage = lazy(() => import('./components/pages/homePage/HomePage.jsx'));
+const SignInPage = lazy(() => import('./components/pages/SignIn/SignInPage.jsx'));
+const SignUpPage = lazy(() => import('./components/pages/SignUp/SignUpPage.jsx'));
+
+const App = () => {
   return (
-    <>
-      <Header />
-      <MainPage />
-    </>
+    <Routes>
+      <Route path="/" element={<SharedLayout />}>
+        <Route index element={<RestrictedRoute component={Main} />} />
+        <Route path="Home" element={<PrivateRoute component={HomePage} />} />
+        <Route
+          path="signin"
+          element={<RestrictedRoute component={SignInPage} />}
+        />
+        <Route
+          path="signup"
+          element={<RestrictedRoute component={SignUpPage} />}
+        />
+      </Route>
+      </Routes>
   );
-}
+};
 
 export default App;
-//

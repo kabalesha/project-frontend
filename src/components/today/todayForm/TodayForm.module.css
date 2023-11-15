@@ -1,0 +1,20 @@
+.addWaterDiv {
+  background-color: red;
+}
+@media screen and (max-width: 320px) {
+  .heroImg {
+  }
+}
+
+@media screen and (min-width: 321px) {
+  .heroImg {
+  }
+}
+@media screen and (min-width: 768px) {
+  .heroImg {
+  }
+}
+@media screen and (min-width: 1216px) {
+  .mainPageContainer {
+  }
+}
