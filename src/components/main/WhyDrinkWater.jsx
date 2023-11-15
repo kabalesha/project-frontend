@@ -3,7 +3,7 @@ import css from "./Main.module.css";
 
 const WhyDrinkWater = () => {
     return (
-    <div className={css.wrap}>
+    <div className={css.wrap_reasons}>
         <p className={css.list_title}>Why drink water</p>
         <ul className={css.list}>
                 <li className={css.item}>
