@@ -1,28 +1,33 @@
-import React from 'react';
-
-import AuthForm from '../../auth/AuthForm.jsx'
-import { RegistrationPageContainer, ImageContainer, AuthFormContainer } from './Auth.styled.js'
+import { useDispatch, useSelector } from 'react-redux';
+import Signin from './Signin';
 
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+// import { refreshUser, signInUser } from '../../store/auth/thunk';
+import { selectAccessToken } from '../../../redux/auth/sliceUser';
 
-
-const SignUpPage = () => {
+const SigninPage = () => {
+  const dispatch = useDispatch();
+  const isAuth = useSelector(selectAccessToken);
   const navigate = useNavigate();
-  
-  const handleFormSubmit = async () => {
-   
-    navigate('/MainPage');
+
+  const signin = body => {
+  //   dispatch(signInUser(body));
   };
 
+  // useEffect(() => {
+  //   isAuth && navigate('/sighup');
+  // }, [isAuth, navigate]);
+
+  // useEffect(() => {
+  //   dispatch(refreshUser());
+  // }, [dispatch]);
+
   return (
-    <RegistrationPageContainer>
-      <ImageContainer>
-      <AuthFormContainer>
-        <AuthForm onSubmit={handleFormSubmit}/>
-      </AuthFormContainer>
-       </ImageContainer >
-    </RegistrationPageContainer>
+    <>
+      <Signin signin={signin} />
+    </>
   );
 };
 
-export default SignUpPage
+export default SigninPage;
