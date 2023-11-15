@@ -61,6 +61,7 @@
     background-image: url(../../../images/desctopFrame.png);
     width: 738px;
     height: 548px;
+    margin-left: 0;
   }
   .mainPageCalendar {
     position: absolute;
