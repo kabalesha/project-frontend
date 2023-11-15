@@ -10,8 +10,10 @@
   background-color: rgba(64, 123, 255, 0.3);
 }
 .calendarItem {
-  /* display: inherit; */
-  background-color: blue;
+  text-align: center;
+  display: grid;
+  border: 1px solid;
+  border-color: rgba(255, 157, 67, 1);
   border-radius: 20px;
   width: 34px;
   height: 34px;
