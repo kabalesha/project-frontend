@@ -29,13 +29,7 @@
   }
 }
 @media screen and (min-width: 1216px) {
-  .heroImg {
-    width: 738px;
-    height: 548px;
-  }
-  .mainPageCalendar {
-    position: absolute;
-    top: 38.67px;
-    right: 0;
+  .todayList {
+    margin-right: 0;
   }
 }

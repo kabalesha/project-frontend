@@ -18,10 +18,10 @@
   align-items: center;
   margin-bottom: 8px;
 }
-.cardOverlay {
+/* .cardOverlay {
   position: relative;
   overflow: hidden;
-}
+} */
 /* .exempl {
   position: absolute;
   top: 0;
@@ -77,11 +77,9 @@
   }
 }
 @media screen and (min-width: 1216px) {
-  .heroImg {
+  .currentMonth {
+    margin-right: 0;
   }
   .mainPageCalendar {
-    position: absolute;
-    top: 38.67px;
-    right: 0;
   }
 }

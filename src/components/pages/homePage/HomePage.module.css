@@ -11,9 +11,7 @@
   padding-left: 8px;
   padding-right: 8px;
 }
-.mainPageHero {
-  position: relative;
-}
+
 .heroImg {
   display: block;
   background-position: center top;
@@ -23,7 +21,6 @@
   background-position: center;
   margin-left: auto;
   margin-right: auto;
-  box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
 }
 
 .btnAddWater {
@@ -88,16 +85,28 @@
   }
 }
 @media screen and (min-width: 1216px) {
+  .mainPageContainer {
+    width: 1216px;
+    position: relative;
+  }
   .heroImg {
     background-image: url(../../../images/desctopFrame.png);
     width: 738px;
     height: 548px;
     margin-left: 0;
-  }
-  .mainPageCalendar {
     position: absolute;
-    top: 38.67px;
-    right: 0;
+    left: -10%;
+    z-index: -1;
+  }
+  .todayProgress {
+    position: absolute;
+    top: 548px;
+    width: 592px;
+    height: 90px;
+  }
+  .btnAddWater {
+    width: 178px;
+    height: 44px;
   }
 }
 
