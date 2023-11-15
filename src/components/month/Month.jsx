@@ -1,6 +1,6 @@
 import React from 'react';
 import MonthItem from './MonthItem';
-import css from '../pages/homePage/HomePage.module.css';
+import css from './MontsItem.module.css';
 const Month = () => {
   const date = new Date().getFullYear();
 
@@ -25,13 +25,13 @@ const Month = () => {
 
   const value = 100;
   return (
-    <>
+    <div className={css.currentMonth}>
       <h2>Monts</h2>
       <p> {month}</p>
       <div className={css.calendar}>
         <MonthItem quantityDays={quantityDays} value={value} />
       </div>
-    </>
+    </div>
   );
 };
 

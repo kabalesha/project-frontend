@@ -9,7 +9,7 @@ const MainPage = () => {
     <div className={css.mainPageContainer}>
       <div className={css.heroImg} />
 
-      <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
+      <div className={css.todayProgress}>
         <h2>Today</h2>
         <progress id="file" value="46" max="100" />
         <button>Add Water</button>
