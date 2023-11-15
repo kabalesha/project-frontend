@@ -28,17 +28,7 @@ const Month = () => {
     <div style={{ display: 'grid' }} className={css.calendarDiv}>
       <h2>Monts</h2>
       <p> {month}</p>
-      <div
-        style={{
-          outline: '1px solid red',
-          display: 'grid',
-
-          gridTemplateColumns: 'repeat(10, 1fr)',
-          gap: '22px',
-          width: '544px',
-          height: '332px',
-        }}
-      >
+      <div className={css.calendar}>
         <MonthItem quantityDays={quantityDays} value={value} />
       </div>
     </div>

@@ -1,15 +1,17 @@
 import React from 'react';
 import css from './HomePage.module.css';
+import classNames from 'classnames';
 import '../../../css/main.css';
 import Today from '../../today/Today';
 import Month from '../../month/Month';
 const MainPage = () => {
   return (
     <div className={css.mainPageContainer}>
-      <div style={{ width: '738px' }} className={css.mainPageHero}>
-        <div className={css.heroImg} />
-      </div>
-      <div className={css.mainPageProgressWater}>
+      <div className={css.heroImg} />
+
+      <div
+        className={classNames(css.mainPageProgressWater, css.mainPageContainer)}
+      >
         <label htmlFor="file" style={{ marginRight: 'auto' }}>
           Today
         </label>

@@ -1,3 +1,12 @@
+@media screen and (max-width: 320px) {
+  .calendar {
+    outline: 1px solid red;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: '22px';
+  }
+}
 .calendarItem {
   /* display: inherit; */
   background-color: blue;
@@ -11,7 +20,7 @@
   position: relative;
   overflow: hidden;
 }
-.exempl {
+/* .exempl {
   position: absolute;
   top: 0;
   left: 0;
@@ -19,7 +28,7 @@
   height: 100px;
 
   background-color: red;
-}
+} */
 .calendarItem:hover,
 .calendarItem:focus {
   display: block;

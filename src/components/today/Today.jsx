@@ -3,10 +3,11 @@ import TodayItem from './TodayItem';
 import { useDispatch } from 'react-redux';
 
 import { modalShow } from '../../redux/showModal/sliceShowModal';
+import { css } from 'styled-components';
 const Today = () => {
   const dispath = useDispatch();
   return (
-    <div>
+    <div className={css.mainPageContainer}>
       <TodayItem />
       <button
         style={{ border: 'none' }}
