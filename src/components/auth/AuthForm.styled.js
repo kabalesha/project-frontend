@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { Link } from 'react-router-dom';
+
 export const Title = styled.h1`
 text-align: start;
 color: #2F2F2F;
@@ -41,13 +43,13 @@ export const Input = styled.input`
 }
 
  @media screen and (min-width: 768px) {
-    width: 310px;
+    width: 314px;
     
   }
-//   @media screen and (min-width: 768px) {
-//     width: 358px;
+  @media screen and (min-width: 768px) {
+    width: 362px;
     
-//   }
+  }
 `;
 
 export const RegisterButton = styled.button`
@@ -69,5 +71,23 @@ export const RegisterButton = styled.button`
     padding: 10px 30px;
     font-size: 18px;
     line-height: 1.33;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 384px;
+    padding: 10px 30px;
+    font-size: 18px;
+    line-height: 1.33;
+  }
+`;
+
+export const SignInLink = styled(Link)`
+  display: block;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  text-decoration: none;
+  margin-bottom: 6px;
+  color: #407BFF;
   }
 `;
