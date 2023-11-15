@@ -9,27 +9,14 @@ const MainPage = () => {
     <div className={css.mainPageContainer}>
       <div className={css.heroImg} />
 
-      <div
-        className={classNames(css.mainPageProgressWater, css.mainPageContainer)}
-      >
-        <label htmlFor="file" style={{ marginRight: 'auto' }}>
-          Today
-        </label>
-        <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
-          <progress id="file" value="46" max="100" />
-          <button>Add Water</button>
-        </div>
+      <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
+        <h2>Today</h2>
+        <progress id="file" value="46" max="100" />
+        <button>Add Water</button>
       </div>
+
       <div className={css.mainPageCalendar}>
-        <div
-          style={{
-            // width: '544px',
-            height: '260px',
-            outline: '1px solid red',
-          }}
-        >
-          <Today />
-        </div>
+        <Today />
 
         <Month />
       </div>

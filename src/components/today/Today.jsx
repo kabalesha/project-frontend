@@ -1,13 +1,14 @@
 import React from 'react';
 import TodayItem from './TodayItem';
 import { useDispatch } from 'react-redux';
-
+import css from './Today.module.css';
 import { modalShow } from '../../redux/showModal/sliceShowModal';
-import { css } from 'styled-components';
+
 const Today = () => {
   const dispath = useDispatch();
   return (
-    <div className={css.mainPageContainer}>
+    <div className={css.todayList}>
+      <h3>Today</h3>
       <TodayItem />
       <button
         style={{ border: 'none' }}
