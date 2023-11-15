@@ -12,7 +12,7 @@ const MainPage = () => {
       <div className={css.todayProgress}>
         <h2>Today</h2>
         <progress id="file" value="46" max="100" />
-        <button>Add Water</button>
+        <button className={css.btnAddWater}>Add Water</button>
       </div>
 
       <div className={css.mainPageCalendar}>

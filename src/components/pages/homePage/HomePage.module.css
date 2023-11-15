@@ -23,6 +23,17 @@
   background-position: center;
   margin-left: auto;
   margin-right: auto;
+  box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
+}
+
+.btnAddWater {
+  width: 280px;
+  height: 36px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(64, 123, 255, 1);
+  margin-left: auto;
 }
 .mainPageProgressWater {
 }
@@ -44,14 +55,7 @@
     background-color: rgba(64, 123, 255, 0.3);
   }
 }
-@media screen and (max-width: 320px) {
-  .heroImg {
-    background-image: url(../../../images/mobileFrame.png);
 
-    width: 280px;
-    height: 208px;
-  }
-}
 @media screen and (min-width: 321px) {
   .heroImg {
     background-image: url(../../../images/mobileFrame.png);
@@ -59,12 +63,28 @@
     width: 280px;
     height: 208px;
   }
+  .btnAddWater {
+    width: 280px;
+    height: 36px;
+  }
 }
 @media screen and (min-width: 768px) {
   .heroImg {
     background-image: url(../../../images/tabletFrame.png);
     width: 518px;
     height: 386px;
+  }
+  .todayProgress {
+    width: 704px;
+    height: 90px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .btnAddWater {
+    width: 336px;
+    height: 44px;
   }
 }
 @media screen and (min-width: 1216px) {
