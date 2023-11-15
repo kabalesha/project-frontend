@@ -1,14 +1,18 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { quantityDrinkSelector } from '../../redux/selectors';
+import { del } from '../../redux/portionOfDrinking/slicePortionOfDrinking';
 
 const TodayList = () => {
   const drinkingList = useSelector(quantityDrinkSelector);
-  console.log('first', drinkingList);
-  return ([] && drinkingList).map(el => {
+  const dispath = useDispatch();
+
+  return ([] && drinkingList).map((el, idx) => {
     return (
-      <div key={el.id} style={{ display: 'flex', justifyContent: 'center' }}>
+      <div key={idx} style={{ display: 'flex', justifyContent: 'center' }}>
         <div>{el.time}</div>_______<div>{el.portion}</div>
+        <button>Remove</button>
+        <button onClick={() => dispath(del(idx))}>Del</button>
       </div>
     );
   });
