@@ -13,6 +13,7 @@ const WaterConsumptionTracker = () => {
   };
 
   return (
+    <div className={css.bg_img}>
     <div className={css.wrap_benefits}>
       <div className={css.head_benefits}>
         <h1 className={css.title_benefits}>Water consumption tracker</h1>
@@ -35,8 +36,9 @@ const WaterConsumptionTracker = () => {
           </li>
         </ul>
       </div>
-      <button type='button' className={css.btn}>Try tracker</button>
-    </div>  
+      <button type='button' onClick={handleButtonClick} className={css.btn}>Try tracker</button>
+      </div> 
+      </div>
   );
 };
 
