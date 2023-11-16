@@ -1,30 +1,61 @@
-.container {
-    margin: 0 auto;
+.wrapper {
+    min-height: calc(100vh - 70px);
+
+    background-image: url('./../../images/BgBottleMob.png');
+    background-size: cover;
+    background-position: bottom center;
+    background-repeat: no-repeat;
 
     @media screen and (min-width: 768px) {
-        max-width: 768px;
+        background-image: url('./../../images/BgBottleTab.png');
+        background-size: cover;
+        background-position: bottom center;
+        background-repeat: no-repeat;
     }
-    
+
     @media screen and (min-width: 1440px) {
-        max-width: 1440px;
+        background-image: url('./../../images/BgBottleDesk.png'),
+            url('./../../images/BgBubblesDesk.png');
+        background-size: contain;
+        background-position: bottom center;
+        background-repeat: no-repeat;
     }
 }
 
-.wrapper {
+.container {
+    width: 320px;
+    margin: 0 auto;
+    padding: 0 20px;
+
+    @media screen and (min-width: 768px) {
+        width: 768px;
+        padding: 0 32px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        width: 1440px;
+        padding: 0 112px;
+    }
+}
+
+.wrapper_content {
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 40px;
+    padding-top: 24px;
 
     @media screen and (min-width: 768px) {
-        justify-content: flex-end;
         gap: 60px;
+        padding-top: 40px;
     }
 
     @media screen and (min-width: 1440px) {
+        display: flex;
         flex-direction: row;
         align-items: flex-end;
         gap: 81px;
+        padding: 80px 98px 185px 104px;
     }
 }
 

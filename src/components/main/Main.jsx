@@ -5,10 +5,12 @@ import WhyDrinkWater from './WhyDrinkWater.jsx';
 
 const Main = () => {
     return (
-        <div className={css.container}>
-            <div className={css.wrapper}>
-                <WaterConsumptionTracker />
-                <WhyDrinkWater />
+        <div className={css.wrapper}>
+            <div className={css.container}>
+                <div className={css.wrapper_content}>
+                    <WaterConsumptionTracker />
+                    <WhyDrinkWater />
+                </div>
             </div>
         </div>
   );
