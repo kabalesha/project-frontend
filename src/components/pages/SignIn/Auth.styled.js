@@ -174,6 +174,9 @@ export const StyledPasswordInput = styled.div`
 export const SigninButton = styled.button`
   background-color: ${color.primary.blue};
   box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
+  &:hover {
+    box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.34);
+  }
   border-radius: 10px;
   border: none;
   width: 280px;
@@ -182,6 +185,8 @@ export const SigninButton = styled.button`
   font-weight: 500;
   font-size: 16px;
   line-height: 1.25;
+  
+ 
   @media screen and (min-width: 768px) {
     padding: 10px 30px;
     min-width: 336px;
@@ -202,6 +207,9 @@ export const LinkToPage = styled(Link)`
   text-decoration: none;
   margin-bottom: 6px;
   color: ${color.primary.blue};
+   &:hover {
+    color: #FF9D43;
+  }
   @media screen and (min-width: 1440px) {
   margin-left: 860px;
   }
