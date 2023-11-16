@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 // import { refreshUser, signInUser } from '../../store/auth/thunk';
 import { selectAccessToken } from '../../../redux/auth/sliceUser';
+import { thunkSignIn } from '../../../redux/auth/thunkUser';
 
 const SigninPage = () => {
   const dispatch = useDispatch();
@@ -12,7 +13,7 @@ const SigninPage = () => {
   const navigate = useNavigate();
 
   const signin = body => {
-  //   dispatch(signInUser(body));
+    dispatch(thunkSignIn(body));
   };
 
   // useEffect(() => {

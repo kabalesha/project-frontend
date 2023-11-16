@@ -51,6 +51,16 @@
     box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.3);
     background-color: rgba(64, 123, 255, 0.3);
   }
+  .todayProgress {
+    width: 280px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .btnAddWater {
+    width: 280px;
+    height: 36px;
+  }
 }
 
 @media screen and (min-width: 321px) {
@@ -59,6 +69,16 @@
 
     width: 280px;
     height: 208px;
+  }
+  .btnAddWater {
+    width: 280px;
+    height: 36px;
+  }
+  .todayProgress {
+    width: 280px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
   .btnAddWater {
     width: 280px;

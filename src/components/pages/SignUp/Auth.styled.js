@@ -1,25 +1,23 @@
-  import styled from 'styled-components';
+import styled from 'styled-components';
 
-  import imgBottleMob from "../../../images/mobileFrame.png";  
-  import imgBottleTab from "../../../images/bottleTab.png";
-  import imgBottleDesc from "../../../images/desctopFrame.png";
+import imgBottleMob from '../../../images/mobileFrame.png';
+import imgBottleTab from '../../../images/bottleTab.png';
+import imgBottleDesc from '../../../images/desctopFrame.png';
 
-  import imgBubblesMob from "../../../images/bubblesMob.png"
-  
-  import imgBubblesDesc from "../../../images/bubblesDesc.png"
-  
-  
-  export const RegistrationPageContainer = styled.section`
-    
-    background-image: url(${imgBubblesMob});
-    background-position: bottom;
-    background-size: contain;
-    background-repeat: no-repeat;
-    
-    width: 320px;
-    height: 100%;
-    margin: auto;
-    padding: 0 20px;
+import imgBubblesMob from '../../../images/bubblesMob.png';
+
+import imgBubblesDesc from '../../../images/bubblesDesc.png';
+
+export const RegistrationPageContainer = styled.section`
+  background-image: url(${imgBubblesMob});
+  background-position: bottom;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  width: 320px;
+  height: 100%;
+  margin: auto;
+  padding: 0 20px;
 
   @media screen and (min-width: 768px) {
     background-image: none;
@@ -31,41 +29,37 @@
     background-image: url(${imgBubblesDesc});
     width: 1440px;
     background-position: top;
-    }
-  `;
+  }
+`;
 
-  export const ImageContainer = styled.div`
-     background-image: url(${imgBottleMob});
-     background-repeat: no-repeat;
-     background-size: 280px;
-     background-position: bottom 19% right 100%;
-     min-height: 96vh;
-    
-     @media screen and (min-width: 768px) {
-      background-image: url(${imgBottleTab});
-     background-size: contain;
-     background-position: top -150% right 100%;
+export const ImageContainer = styled.div`
+  background-image: url(${imgBottleMob});
+  background-repeat: no-repeat;
+  background-size: 280px;
+  background-position: absolute;
+  min-height: 96vh;
+
+  @media screen and (min-width: 768px) {
+    background-image: url(${imgBottleTab});
+    background-size: contain;
+    background-position: top -150% right 100%;
   }
 
   @media screen and (min-width: 1440px) {
-      display: flex;
-      background-image: url(${imgBottleDesc});
-      background-size: 60%;
-    background-position: top 30px left;
-    background-repeat: no-repeat;
-  } 
-  `;
+    background-image: url(${imgBottleDesc});
+  }
+`;
 
-  export const AuthFormContainer = styled.div`
+export const AuthFormContainer = styled.div`
   @media screen and (min-width: 768px) {
     padding-top: 40px;
   }
 
   @media screen and (min-width: 1440px) {
-  position: absolute;
-  top: 47%;
-  right: 0;
-  transform: translate(0, -50%);
-  padding-right: 402px;
+    position: absolute;
+    top: 47%;
+    right: 0;
+    transform: translate(0, -50%);
+    padding-right: 402px;
   }
-  `;
+`;

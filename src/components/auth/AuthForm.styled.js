@@ -29,13 +29,19 @@ export const Input = styled.input`
   padding: 12px 10px;
   font-size: 16px;
   border-radius: 6px;
+  color: #407BFF;
+  background-color: #FFFFFF;
   border: 1px solid #D7E3FF;
+  &:focus {
+    outline: none;
+    border-color: #D7E3FF;
+    box-shadow: 0 0 5px #D7E3FF;
+  }
 
   ::-webkit-input-placeholder {
   color: #2F2F2F;
   line-height: 1.25;
 }
-  color: #2F2F2F;
   &::placeholder {
     color: #9EBBFF;
   }
@@ -60,6 +66,9 @@ export const RegisterButton = styled.button`
   border: none;
   border-radius: 10px;
   box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
+  &:hover {
+    box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.34);
+  }
   cursor: pointer;
   color: #FFFFFF;
   background-color: #407BFF;
@@ -87,5 +96,11 @@ export const SignInLink = styled(Link)`
   text-decoration: none;
   margin-bottom: 6px;
   color: #407BFF;
+
+  &:hover {
+    color: #FF9D43;
   }
+  }
+
+  
 `;

@@ -108,6 +108,7 @@ const Signin = ({ signin }) => {
                     <Field
                       as={StyledInput}
                       // type={passwordVisible ? 'text' : 'password'}
+                      type="password"
                       name="password"
                       placeholder="Password"
                       required
