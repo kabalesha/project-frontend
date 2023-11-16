@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { signUpThunk, thunkLogin, thunkSignIn } from './thunkUser';
+import { signUpThunk, thunkRefresh, thunkSignIn } from './thunkUser';
 
 const initialState = {
   access_token: '',
@@ -12,10 +12,10 @@ const initialState = {
 const handleFulfilledSignUp = (state, action) => {
   console.log('action', action.payload);
 };
-const handleFulfilledSignIn = (state, action) => {
-  console.log('signIn', action.payload);
+const handleFulfilledUser = (state, action) => {
   state.isLoading = false;
   state.access_token = action.payload.access_token;
+  state.profile = action.payload.user;
 };
 
 const handlePending = state => {
@@ -40,8 +40,8 @@ const authSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(signUpThunk.fulfilled, handleFulfilledSignUp)
-      .addCase(thunkSignIn.fulfilled, handleFulfilledSignIn)
-      //   .addCase(getProfileThunk.fulfilled, handleFulfilledProfile)
+      .addCase(thunkSignIn.fulfilled, handleFulfilledUser)
+      .addCase(thunkRefresh.fulfilled, handleFulfilledUser)
       .addMatcher(({ type }) => type.endsWith('/pending'), handlePending)
       .addMatcher(({ type }) => type.endsWith('/rejected'), handleRejected);
   },
