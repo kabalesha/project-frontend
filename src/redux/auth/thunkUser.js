@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { logIn, signIn, signUp } from '../../api/ApiAuthUser';
+import { logIn, refresh, signIn, signUp } from '../../api/ApiAuthUser';
 // export const getProfileThunk = createAsyncThunk('get/profile', () =>
 //   getProfile()
 // );
@@ -19,6 +19,18 @@ export const thunkSignIn = createAsyncThunk(
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
+    }
+  }
+);
+export const thunkRefresh = createAsyncThunk(
+  'authUser/current',
+  async rejectWithValue => {
+    try {
+      const data = await refresh();
+      return data;
+    } catch (error) {
+      console.log('first');
+      return rejectWithValue('');
     }
   }
 );

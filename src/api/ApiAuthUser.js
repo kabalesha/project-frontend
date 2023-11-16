@@ -19,3 +19,10 @@ export const signIn = async body => {
   setToken(data.token);
   return data;
 };
+export const refresh = async () => {
+  const token = localStorage.getItem('token');
+  setToken(token);
+  const { data } = await instance.get('/users/current');
+  setToken(data.token);
+  return data;
+};
