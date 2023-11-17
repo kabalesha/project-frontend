@@ -11,6 +11,13 @@
   padding-left: 8px;
   padding-right: 8px;
 }
+.todayPercent {
+  display: flex;
+  justify-content: space-between;
+  width: 391px;
+}
+.percentEl {
+}
 
 .heroImg {
   display: block;
@@ -96,12 +103,16 @@
     height: 90px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 0px;
+    padding-right: 0px;
   }
   .btnAddWater {
     width: 336px;
     height: 44px;
+    margin-left: 12px;
+  }
+  progress#todayProgress {
+    width: 356px;
   }
 }
 @media screen and (min-width: 1216px) {
