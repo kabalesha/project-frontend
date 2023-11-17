@@ -105,6 +105,9 @@
     margin-right: auto;
     padding-left: 0px;
     padding-right: 0px;
+
+    display: flex;
+    align-items: center;
   }
   .btnAddWater {
     width: 336px;

@@ -13,21 +13,23 @@ const HomePage = () => {
       <div className={css.heroImg} />
 
       <div className={css.todayProgress}>
-        <h2>Today</h2>
         <div>
-          <progress id={css.todayProgress} value="46" max="100" />
-          <button
-            className={css.btnAddWater}
-            onClick={() => dispath(modalShow(true))}
-          >
-            Add Water
-          </button>
-          <div className={css.todayPercent}>
-            <span className={css.percentEl}>| 0%</span>
-            <span className={css.percentEl}>| 50%</span>
-            <span className={css.percentEl}>| 100%</span>
+          <h2>Today</h2>
+          <div style={{ width: '391px' }}>
+            <progress id={css.todayProgress} value="46" max="100" />
+            <div className={css.todayPercent}>
+              <span className={css.percentEl}>| 0%</span>
+              <span className={css.percentEl}>| 50%</span>
+              <span className={css.percentEl}>| 100%</span>
+            </div>
           </div>
         </div>
+        <button
+          className={css.btnAddWater}
+          onClick={() => dispath(modalShow(true))}
+        >
+          Add Water
+        </button>
       </div>
 
       <div className={css.mainPageCalendar}>
