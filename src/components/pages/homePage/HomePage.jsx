@@ -15,7 +15,7 @@ const HomePage = () => {
       <div className={css.todayProgress}>
         <div>
           <h2>Today</h2>
-          <div style={{ width: '391px' }}>
+          <div>
             <progress id={css.todayProgress} value="46" max="100" />
             <div className={css.todayPercent}>
               <span className={css.percentEl}>| 0%</span>
