@@ -29,7 +29,6 @@ export const thunkRefresh = createAsyncThunk(
       const data = await refresh();
       return data;
     } catch (error) {
-      console.log('first');
       return rejectWithValue('');
     }
   }

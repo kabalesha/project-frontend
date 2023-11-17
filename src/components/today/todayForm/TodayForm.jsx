@@ -5,18 +5,20 @@ import css from './TodayForm.module.css';
 const TodayForm = ({ addPortion }) => {
   //   const activIdx = useSelector(activIdxSelector);
   const [time, setTime] = useState('');
-  const [portion, setPortion] = useState('');
+
   const [counter, setCounter] = useState(50);
   const handleSbmit = e => {
     e.preventDefault();
-    addPortion({ time, portion });
+    console.log('time', time);
+
+    addPortion({ time, counter });
     setTime('');
-    setPortion('');
+    setCounter(50);
   };
   const handleChange = e => {
     e.target.name === 'time'
       ? setTime(e.target.value)
-      : setPortion(e.target.value);
+      : setCounter(e.target.value);
   };
 
   return (
@@ -36,11 +38,7 @@ const TodayForm = ({ addPortion }) => {
         </label>
         <label>
           Enter the value of the water used :
-          <input
-            onChange={handleChange}
-            name="portion"
-            value={portion || counter}
-          />
+          <input onChange={handleChange} name="portion" value={counter} />
         </label>
         <h3> {counter} </h3>
         <button type="submit">Save</button>
