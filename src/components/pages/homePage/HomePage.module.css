@@ -105,9 +105,12 @@
   }
 }
 @media screen and (min-width: 1216px) {
-  .mainPageContainer {
+  .mainPageContainer,
+  .mainPageCalendar {
     width: 1216px;
     position: relative;
+    padding-left: 0px;
+    padding-right: 0px;
   }
   .heroImg {
     background-image: url(../../../images/desctopFrame.png);
@@ -123,10 +126,16 @@
     top: 548px;
     width: 592px;
     height: 90px;
+    padding-left: 0px;
+    padding-right: 0px;
   }
   .btnAddWater {
     width: 178px;
     height: 44px;
+    margin-left: 23px;
+  }
+  progress#todayProgress {
+    width: 391px;
   }
 }
 

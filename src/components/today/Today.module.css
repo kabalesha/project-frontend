@@ -31,5 +31,7 @@
 @media screen and (min-width: 1216px) {
   .todayList {
     margin-right: 0;
+    width: 592px;
+    height: 252px;
   }
 }

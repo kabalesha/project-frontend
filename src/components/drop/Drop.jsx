@@ -1,13 +1,14 @@
 import React from 'react';
-
+import css from './Drop.module.css';
 const Drop = () => {
   return (
-    <div class="dropdown">
-      <button class="dropbtn">Dropdown</button>
-      <div class="dropdown-content">
-        <a href="#">Link 1</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
+    <div className={css.dropdown}>
+      <button className={css.dropbtn}>Dropdown</button>
+      <div className={css.dropdownContent}>
+        <p href="#">Link 1</p>
+        <p href="#">Link 1</p>
+        <p href="#">Link 2</p>
+        <p href="#">Link 3</p>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import React from 'react';
 import MonthItem from './MonthItem';
 import css from './MontsItem.module.css';
+
 const Month = () => {
   const date = new Date().getFullYear();
 

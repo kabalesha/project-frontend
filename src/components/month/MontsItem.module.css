@@ -39,6 +39,28 @@
   opacity: 1;
   background-color: red;
 }
+
+.divWrapper {
+  position: relative;
+  display: inline-block;
+}
+.dropdownContent {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+/* Links inside the dropdown */
+.dropdownContent button {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
 @media screen and (max-width: 320px) {
   .currentMonth {
     width: 280px;
@@ -80,6 +102,8 @@
 }
 @media screen and (min-width: 1216px) {
   .currentMonth {
+    width: 592px;
+
     margin-right: 0;
   }
   .mainPageCalendar {

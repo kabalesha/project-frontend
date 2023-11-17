@@ -1,6 +1,11 @@
 import React from 'react';
 import css from './MontsItem.module.css';
+import Drop from '../drop/Drop';
+
 const MonthItem = ({ quantityDays, value }) => {
+  const handleFocus = idx => {
+    console.log('idx', idx);
+  };
   const arr = Object.values(quantityDays);
   const [day] = arr;
   const i = [];
@@ -13,7 +18,7 @@ const MonthItem = ({ quantityDays, value }) => {
     alert(el);
   };
   return i.map((el, idx) => (
-    <div style={{ display: 'block' }} key={el}>
+    <div className={css.divWrapper} key={el}>
       <div
         onClick={() => handleClick(idx)}
         key={el}

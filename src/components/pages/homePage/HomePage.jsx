@@ -14,7 +14,7 @@ const HomePage = () => {
 
       <div className={css.todayProgress}>
         <h2>Today</h2>
-        <progress id="file" value="46" max="100" />
+        <progress id={css.todayProgress} value="46" max="100" />
         <button
           className={css.btnAddWater}
           onClick={() => dispath(modalShow(true))}
