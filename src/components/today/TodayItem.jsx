@@ -7,11 +7,13 @@ import { showModalSelector } from '../../redux/selectors';
 import TodayList from './TodayList';
 
 const Today = () => {
-  const [idx, setIdx] = useState('');
   const showModal = useSelector(showModalSelector);
   const dispath = useDispatch();
+  const [data, setData] = useState(null);
+  const remove = data => {
+    setData(data);
+  };
   const addPortion = value => {
-    console.log('value', value);
     dispath(add(value));
   };
 
@@ -19,10 +21,10 @@ const Today = () => {
     <>
       {showModal && (
         <Modal>
-          <TodayForm addPortion={addPortion} idx={idx} />
+          <TodayForm addPortion={addPortion} data={data} />
         </Modal>
       )}
-      <TodayList />
+      <TodayList remove={remove} />
     </>
   );
 };

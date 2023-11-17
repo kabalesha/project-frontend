@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 // import { useSelector } from 'react-redux';
 // import { activIdxSelector } from 'redux/selectors';
 import css from './TodayForm.module.css';
-const TodayForm = ({ addPortion }) => {
-  //   const activIdx = useSelector(activIdxSelector);
-  const [time, setTime] = useState('');
+const TodayForm = ({ addPortion, data }) => {
+  console.log('data', data);
 
+  const [time, setTime] = useState('');
   const [counter, setCounter] = useState(50);
+  useEffect(() => {
+    setTime('' ?? data.time);
+  }, [data.time]);
+
   const handleSbmit = e => {
     e.preventDefault();
     console.log('time', time);
@@ -38,7 +42,7 @@ const TodayForm = ({ addPortion }) => {
         </label>
         <label>
           Enter the value of the water used :
-          <input onChange={handleChange} name="portion" value={counter} />
+          <input onChange={handleChange} name="counter" value={counter} />
         </label>
         <h3> {counter} </h3>
         <button type="submit">Save</button>
