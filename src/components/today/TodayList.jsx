@@ -6,12 +6,15 @@ import { del } from '../../redux/portionOfDrinking/slicePortionOfDrinking';
 const TodayList = () => {
   const drinkingList = useSelector(quantityDrinkSelector);
   const dispath = useDispatch();
+  const handleClick = value => {
+    console.log('value', value);
+  };
 
   return ([] && drinkingList).map((el, idx) => {
     return (
       <div key={idx}>
         <div>{el.time}</div>_______<div>{el.portion}</div>
-        <button>Remove</button>
+        <button onClick={() => handleClick(idx)}>Remove</button>
         <button onClick={() => dispath(del(idx))}>Del</button>
       </div>
     );
