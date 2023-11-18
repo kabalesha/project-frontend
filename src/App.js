@@ -6,15 +6,22 @@ import RestrictedRoute from './RestrictedRoute.jsx';
 import { lazy } from 'react';
 
 const HomePage = lazy(() => import('./components/pages/homePage/HomePage.jsx'));
-const SignInPage = lazy(() => import('./components/pages/SignIn/SignInPage.jsx'));
-const SignUpPage = lazy(() => import('./components/pages/SignUp/SignUpPage.jsx'));
+const SignInPage = lazy(() =>
+  import('./components/pages/SignIn/SignInPage.jsx')
+);
+const SignUpPage = lazy(() =>
+  import('./components/pages/SignUp/SignUpPage.jsx')
+);
 
 const App = () => {
   return (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<RestrictedRoute component={Main} />} />
-        <Route path="home" element={<PrivateRoute component={HomePage} />} />
+        <Route
+          path="HomePage"
+          element={<PrivateRoute component={HomePage} />}
+        />
         <Route
           path="signin"
           element={<RestrictedRoute component={SignInPage} />}
@@ -24,7 +31,7 @@ const App = () => {
           element={<RestrictedRoute component={SignUpPage} />}
         />
       </Route>
-      </Routes>
+    </Routes>
   );
 };
 
