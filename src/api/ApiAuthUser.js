@@ -29,3 +29,9 @@ export const refresh = async () => {
   setToken(data.token);
   return data;
 };
+export const logOut = async () => {
+  const token = localStorage.getItem('token');
+  setToken(token);
+  await instance.post('/auth/logout', token);
+  localStorage.removeItem('token');
+};
