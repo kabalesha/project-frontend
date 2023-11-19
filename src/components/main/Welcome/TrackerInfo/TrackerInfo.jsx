@@ -1,17 +1,15 @@
-// import { SubTitle } from 'CommonStyle/Title/Title.styled';
-
-import css from './Main.module.css';
+import { SubTitle } from '../Title/Title.jsx';
 import {
   InfoItems,
   InfoList,
   TrackerInfoContainer,
-} from './WhyDrinkWater.styled';
+} from './TrackerInfo.styled';
 
-export const WhyDrinkWater = () => {
+export const TrackerInfo = () => {
   return (
     <>
       <TrackerInfoContainer>
-        <h3 className={css.list_title}>Why drink water</h3>
+        <SubTitle>Why drink water</SubTitle>
         <InfoList>
           <InfoItems>Supply of nutrients to all organs</InfoItems>
           <InfoItems>Providing oxygen to the lungs</InfoItems>
