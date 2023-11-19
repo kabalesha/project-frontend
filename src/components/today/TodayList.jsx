@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { quantityDrinkSelector } from '../../redux/selectors';
 import { del } from '../../redux/portionOfDrinking/slicePortionOfDrinking';
-
+import { modalShow } from '../../redux/showModal/sliceShowModal';
 const TodayList = () => {
   const drinkingList = useSelector(quantityDrinkSelector);
   const dispath = useDispatch();
@@ -11,7 +11,7 @@ const TodayList = () => {
     return (
       <div key={idx}>
         <div>{el.time}</div>_______<div>{el.portion}</div>
-        <button>Remove</button>
+        <button onClick={() => dispath(modalShow(true))}>Edit</button>
         <button onClick={() => dispath(del(idx))}>Del</button>
       </div>
     );

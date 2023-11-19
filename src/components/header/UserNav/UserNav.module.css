@@ -1,0 +1,80 @@
+.signInText {
+    /* color: #407bff; */
+    font-size: 16px;
+    padding-right: 4px;
+}
+
+.user_icon {
+    border-radius: 50%;
+    border-color: #2F2F2F;
+    background-color: transparent;
+    width: 28px;
+    height: 28px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+}
+
+.arrow {
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    background-color: white;
+    border: none;
+}
+
+.signIn_btn {
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    gap: 10px;
+    border: none;
+    background-color: transparent;
+}
+
+.modal {
+    position: absolute;
+    top: 48px;
+    right: 15px;
+    width: 118px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.2);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.btns {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    color: #407bff;
+    background-color: white;
+    border: none;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.25;
+    padding: 0;
+}
+
+.btns:last-child {
+    margin-bottom: 0;
+}
+
+.icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+}
+
+.btns:last-child .icon {
+    margin-right: 10px;
+}
