@@ -2,15 +2,30 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import css from '../UserNav/UserNav.module.css';
-import icon from '../AuthNav/outline.png';
+import icon from '../AuthNav/outline.png'
+import SettingsModal from '../../modals/SettingModal/SettingModal.jsx'
 const UserNav = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isModalOpen, setModalOpen] = useState(false);
+  const [isSettingsModalOpen, setSettingsModalOpen] = useState(false);
 
   const handleArrowClick = () => {
     setModalOpen(!isModalOpen);
   };
+
+  const handleSettingsClick = () => {
+    setSettingsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+  };
+
+ const handleCloseSettingsModal = () => {
+   setSettingsModalOpen(false);
+    setModalOpen(false);
+};
 
   return (
     <div className={css.wrapper}>
@@ -36,8 +51,8 @@ const UserNav = () => {
 
       {isModalOpen && (
         <div className={css.modal}>
-          {/* Додайте посилання на налаштування і логаут */}
-          <button className={css.btns}>
+
+          <button onClick={handleSettingsClick} className={css.btns}>
             <span className={css.icon}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -83,6 +98,10 @@ const UserNav = () => {
           </button>
         </div>
       )}
+        {isSettingsModalOpen && (
+        <SettingsModal onClose={handleCloseSettingsModal} />
+)}
+  
     </div>
   );
 };
