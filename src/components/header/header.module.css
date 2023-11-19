@@ -7,9 +7,10 @@
     margin-left: auto;
     margin-right: auto;
     padding-left: 20px;
-        padding-right: 20px;
- height: 48px;
-    
+    padding-right: 20px;
+    height: 48px;
+    margin-top: 12px;
+
 }
 
 
@@ -20,4 +21,3 @@
         padding: 12px 112px 49px 112px;
     }
 }
-
