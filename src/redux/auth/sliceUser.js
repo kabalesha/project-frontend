@@ -11,6 +11,7 @@ const initialState = {
 };
 const handleFulfilledSignUp = (state, action) => {
   console.log('action', action.payload);
+  state.isLoading = false;
 };
 const handleFulfilledUser = (state, action) => {
   state.isLoading = false;
