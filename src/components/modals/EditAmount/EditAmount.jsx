@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { createPortal } from 'react-dom';
 import { modalShow } from '../../../redux/showModal/sliceShowModal';
 import css from './Modal.module.css';
+
 const ModalRoot = document.querySelector('#modal-root');
 const EditAmount = ({ children }) => {
   const dispath = useDispatch();

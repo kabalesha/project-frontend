@@ -2,8 +2,8 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import css from '../UserNav/UserNav.module.css';
-import icon from '../AuthNav/outline.png'
-import SettingsModal from '../../modals/SettingModal/SettingModal.jsx'
+import icon from '../AuthNav/outline.png';
+import SettingsModal from '../../modals/SettingModal/SettingModal.jsx';
 const UserNav = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -22,10 +22,10 @@ const UserNav = () => {
     setModalOpen(false);
   };
 
- const handleCloseSettingsModal = () => {
-   setSettingsModalOpen(false);
+  const handleCloseSettingsModal = () => {
+    setSettingsModalOpen(false);
     setModalOpen(false);
-};
+  };
 
   return (
     <div className={css.wrapper}>
@@ -51,7 +51,6 @@ const UserNav = () => {
 
       {isModalOpen && (
         <div className={css.modal}>
-
           <button onClick={handleSettingsClick} className={css.btns}>
             <span className={css.icon}>
               <svg
@@ -98,10 +97,9 @@ const UserNav = () => {
           </button>
         </div>
       )}
-        {isSettingsModalOpen && (
+      {isSettingsModalOpen && (
         <SettingsModal onClose={handleCloseSettingsModal} />
-)}
-  
+      )}
     </div>
   );
 };
