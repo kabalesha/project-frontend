@@ -15,6 +15,7 @@ export const signUp = async body => {
   return data;
 };
 export const signIn = async body => {
+  console.log('body', body);
   const { data } = await instance.post('/users/login', body);
   setToken(data.token);
   return data;
@@ -22,7 +23,7 @@ export const signIn = async body => {
 export const refresh = async () => {
   const token = localStorage.getItem('token');
   setToken(token);
-  const { data } = await instance.get('/users/current');
+  const { data } = await instance.get('/user/current');
   setToken(data.token);
   return data;
 };
