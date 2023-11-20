@@ -1,7 +1,9 @@
 import axios from 'axios';
+
 export const instance = axios.create({
   baseURL: 'https://project-backend-7eyy.onrender.com/api',
 });
+
 const setToken = token => {
   // const token = localStorage.getItem('token');
   localStorage.setItem('token', token);
@@ -31,7 +33,7 @@ export const refresh = async () => {
 };
 export const logOut = async () => {
   const token = localStorage.getItem('token');
-  setToken(token);
-  await instance.post('/auth/logout', token);
-  localStorage.removeItem('token');
+  const { data } = await instance.post('/auth/logout', token);
+  console.log('data', data);
+  return data;
 };
