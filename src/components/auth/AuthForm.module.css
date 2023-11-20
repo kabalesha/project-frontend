@@ -1,0 +1,149 @@
+.title {
+  text-align: start;
+  color: #2f2f2f;
+  font-size: 26px;
+  line-height: 1.23;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+.form {
+  text-align: start;
+}
+
+.passwordToggle {
+  top: 50%;
+  left: 50%;
+
+  cursor: pointer;
+  font-size: 14px;
+  color: #407bff;
+}
+
+.label {
+  display: block;
+  font-size: 18px;
+  line-height: 1.33;
+  margin-bottom: 8px;
+  margin-top: 16px;
+}
+.input {
+  width: 280px;
+  padding: 12px 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  color: #407bff;
+  background-color: #ffffff;
+  border: 1px solid #d7e3ff;
+  &:focus {
+    outline: none;
+    border-color: #d7e3ff;
+    box-shadow: 0 0 5px #d7e3ff;
+  }
+
+  ::-webkit-input-placeholder {
+    color: #2f2f2f;
+    line-height: 1.25;
+  }
+  &::placeholder {
+    color: #9ebbff;
+  }
+}
+.inputError {
+  color: #ef5050;
+}
+
+.error {
+  font-size: 14px;
+  color: #ef5050;
+  padding-top: 4px;
+}
+
+.passwordToggle {
+  position: relative;
+  display: block;
+  height: 16px;
+  width: 16px;
+}
+
+svg.eye {
+  position: absolute;
+  top: -31px;
+  right: -115px;
+  height: 16px;
+  width: 16px;
+  fill: none;
+  stroke: #407bff;
+}
+
+.btn {
+  margin: 16px 0;
+  padding: 10px 30px;
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 500;
+  width: 280px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
+  &:hover {
+    box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.34);
+  }
+  cursor: pointer;
+  color: #ffffff;
+  background-color: #407bff;
+}
+
+.link {
+  display: block;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  text-decoration: none;
+  margin-bottom: 6px;
+  color: #407bff;
+
+  &:hover {
+    color: #ff9d43;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .input {
+    width: 336px;
+  }
+
+  .btn {
+    width: 336px;
+    padding: 10px 30px;
+    font-size: 18px;
+    line-height: 1.33;
+  }
+
+  svg.eye {
+    top: -31px;
+    right: 56px;
+    height: 16px;
+    width: 16px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .input {
+    width: 384px;
+  }
+
+  .btn {
+    width: 384px;
+    padding: 10px 30px;
+    font-size: 18px;
+    line-height: 1.33;
+  }
+
+  svg.eye {
+    top: -31px;
+    right: -167px;
+    height: 16px;
+    width: 16px;
+  }
+}
