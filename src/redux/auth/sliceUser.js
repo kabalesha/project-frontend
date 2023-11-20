@@ -23,6 +23,9 @@ const handleFulfilledUser = (state, action) => {
   state.access_token = action.payload.access_token;
   state.profile = action.payload.user;
 };
+const handleFulfilledRefresh=(state, action)=>{
+if(state.)
+}
 const handleFulfilledLogOut = (state, action) => {
   console.log('logout', action.payload);
   state.access_token = '';
@@ -54,7 +57,7 @@ const authSlice = createSlice({
     builder
       .addCase(signUpThunk.fulfilled, handleFulfilledSignUp)
       .addCase(thunkSignIn.fulfilled, handleFulfilledUser)
-      .addCase(thunkRefresh.fulfilled, handleFulfilledUser)
+      .addCase(thunkRefresh.fulfilled, handleFulfilledRefresh)
       .addCase(thunkLogOut.fulfilled, handleFulfilledLogOut)
       .addMatcher(({ type }) => type.endsWith('/pending'), handlePending)
       .addMatcher(({ type }) => type.endsWith('/rejected'), handleRejected);

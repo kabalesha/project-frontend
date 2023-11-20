@@ -24,12 +24,11 @@ export const signIn = async body => {
   setToken(data.token);
   return data;
 };
-export const refresh = async () => {
-  const token = localStorage.getItem('token');
-  setToken(token);
+export const refresh = async body => {
+  const { data } = await instance.get('/auth/refresh');
 
-  const { data } = await instance.get('/user/current');
-  setToken(data.token);
+  console.log('data', data.email);
+
   return data;
 };
 export const logOut = async () => {
