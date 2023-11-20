@@ -18,18 +18,16 @@ export const signUp = async body => {
   return data;
 };
 export const signIn = async body => {
-  console.log('body', body);
-  const { data } = await instance.post('/auth/signin', body);
-  console.log('data', data);
+  const data = await instance.post('/auth/signin', body);
+  console.log('signin', data);
   setToken(data.token);
   return data;
 };
 export const refresh = async body => {
-  const { data } = await instance.get('/auth/refresh');
-
-  console.log('data', data.email);
-
-  return data;
+  return { email: 'alex22@gmail.com' };
+  // const { data } = await instance.get('/auth/refresh');
+  // console.log('data', data);
+  // return data;
 };
 export const logOut = async () => {
   const token = localStorage.getItem('token');

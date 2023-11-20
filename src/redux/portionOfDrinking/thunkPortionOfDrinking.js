@@ -1,4 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { getPortionOfWater } from '../../api/ApiPortionWater';
 
 // export const getProfileThunk = createAsyncThunk('get/profile', () =>
 //   getProfile()
