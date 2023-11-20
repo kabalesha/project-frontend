@@ -7,7 +7,7 @@ export const WelcomeStyledLayout = styled.section`
   padding-bottom: 40px;
   background-size: 100%;
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     padding-top: 80px;
     padding-bottom: 294px;
     background-image: url(${bg});
