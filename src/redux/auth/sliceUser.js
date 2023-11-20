@@ -26,6 +26,9 @@ const handleFulfilledUser = (state, action) => {
 const handleFulfilledRefresh = (state, action) => {
   console.log('action.payload', action.payload);
   console.log('state', state.auth);
+  state.isLoading = false;
+  state.access_token = action.payload.access_token;
+  state.profile = action.payload.user;
 };
 const handleFulfilledLogOut = (state, action) => {
   console.log('logout', action.payload);

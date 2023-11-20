@@ -18,20 +18,24 @@ export const signUp = async body => {
   return data;
 };
 export const signIn = async body => {
-  const data = await instance.post('/auth/signin', body);
-  console.log('signin', data);
+  const { data } = await instance.post('/auth/signin', body);
+
   setToken(data.token);
   return data;
 };
 export const refresh = async body => {
-  return { email: 'alex22@gmail.com' };
-  // const { data } = await instance.get('/auth/refresh');
-  // console.log('data', data);
-  // return data;
+  const token = localStorage.getItem('token');
+  console.log('body', body);
+  console.log('token', token);
+  setToken(token);
+  console.log(await instance('/auth/refresh', body));
+  const { data } = await instance('/auth/refresh', body);
+
+  console.log('data', data);
+  return data;
 };
 export const logOut = async () => {
   const token = localStorage.getItem('token');
   const { data } = await instance.post('/auth/logout', token);
-  console.log('data', data);
   return data;
 };

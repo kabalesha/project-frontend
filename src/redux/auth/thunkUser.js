@@ -17,7 +17,7 @@ export const thunkSignIn = createAsyncThunk(
   async (body, { rejectWithValue }) => {
     try {
       const data = await signIn(body);
-      console.log('data', data);
+
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
@@ -25,16 +25,19 @@ export const thunkSignIn = createAsyncThunk(
   }
 );
 export const thunkRefresh = createAsyncThunk(
-  'authUser/current',
+  'auth/refresh',
   async (body, { rejectWithValue }) => {
-    try {
-      const data = await refresh(body);
-      console.log('second', '444');
-      return data;
-    } catch (error) {
-      console.log('first', '555');
-      return rejectWithValue('');
-    }
+    const data = await refresh({ email: 'alex22@gmail.com' });
+    console.log('data', data);
+    return data;
+    // try {
+    //   const data = await refresh(body);
+    //   console.log('data', data);
+    //   return data;
+    // } catch (error) {
+    //   console.log('first', '555');
+    //   return rejectWithValue('');
+    // }
   }
 );
 export const thunkLogOut = createAsyncThunk(
