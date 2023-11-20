@@ -13,7 +13,6 @@ const SignUpPage = ({ redirectTo }) => {
   const navigate = useNavigate();
 
   const handleFormSubmit = async body => {
-    console.log('first', body);
     navigate(redirectTo);
   };
 

@@ -11,7 +11,7 @@ const Header = () => {
       <header className={css.headerContainer}>
         <Logo />
         <AuthNav />
-        {/* <UserNav /> */}
+        <UserNav />
       </header>
     </>
   );

@@ -4,6 +4,8 @@ import { useState } from 'react';
 import css from '../UserNav/UserNav.module.css';
 import icon from '../AuthNav/outline.png';
 import SettingsModal from '../../modals/SettingModal/SettingModal.jsx';
+import { thunkLogOut } from '../../../redux/auth/thunkUser';
+
 const UserNav = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -76,7 +78,7 @@ const UserNav = () => {
             </span>
             Settings
           </button>
-          <button className={css.btns}>
+          <button className={css.btns} onClick={() => dispatch(thunkLogOut())}>
             <span className={css.icon}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

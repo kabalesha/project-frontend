@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { refresh, signIn, signUp } from '../../api/ApiAuthUser';
+import { logOut, refresh, signIn, signUp } from '../../api/ApiAuthUser';
+
 // export const getProfileThunk = createAsyncThunk('get/profile', () =>
 //   getProfile()
 // );
@@ -31,6 +32,16 @@ export const thunkRefresh = createAsyncThunk(
     } catch (error) {
       console.log('first');
       return rejectWithValue('');
+    }
+  }
+);
+export const thunkLogOut = createAsyncThunk(
+  'auth/logout',
+  async rejectWithValue => {
+    try {
+      return logOut();
+    } catch (error) {
+      return rejectWithValue(error.response.data.message);
     }
   }
 );

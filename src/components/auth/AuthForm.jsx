@@ -14,7 +14,7 @@ import {
 import { signUpThunk } from '../../redux/auth/thunkUser';
 
 const AuthForm = ({ onSubmit }, handleFormSubmit) => {
-  console.log('first', handleFormSubmit);
+  // console.log('first', handleFormSubmit);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -28,9 +28,9 @@ const AuthForm = ({ onSubmit }, handleFormSubmit) => {
       try {
         await dispatch(
           signUpThunk({
-            name: 'Alex',
             email: values.email,
             password: values.password,
+            repeatPassword: values.repeatPassword,
           })
         );
         // handleFormSubmit({
