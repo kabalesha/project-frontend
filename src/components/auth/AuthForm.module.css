@@ -51,6 +51,7 @@
 }
 .inputError {
   color: #ef5050;
+  border-color: #ef5050;
 }
 
 .error {

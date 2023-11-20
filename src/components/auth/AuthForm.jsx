@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
-import * as Yup from 'yup'
-import { register } from '../../shared/api/auth';
+import * as Yup from 'yup';
 import { useNavigate, Link } from 'react-router-dom';
 
 

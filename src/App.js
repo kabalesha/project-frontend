@@ -20,7 +20,7 @@ const App = () => {
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<RestrictedRoute component={WelcomePage} />} />
         <Route
-          path="HomePage"
+          path="home"
           element={<PrivateRoute component={HomePage} />}
         />
         <Route
