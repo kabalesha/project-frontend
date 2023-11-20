@@ -1,0 +1,62 @@
+.container {
+  background-image: url('../../../images/bubblesMob.png');
+  background-position: bottom;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  width: 320px;
+  height: 100%;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.img_container {
+  background-image: url('../../../images/mobileFrame.png');
+  background-repeat: no-repeat;
+  background-size: 280px;
+  background-position: center bottom 30%;
+  min-height: 96vh;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    background-image: none;
+    width: 768px;
+    padding: 0 32px;
+  }
+
+  .img_container {
+    background-image: url('../../../images/BgBottleTab.png');
+    background-size: contain;
+    background-position: center top -60px;
+    width: 736px;
+    height: 548px;
+  }
+
+  .form_container {
+    padding-top: 40px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    background-image: url('../../../images/bubblesDesc.png');
+    width: 1440px;
+    background-position: top;
+  }
+
+  .img_container {
+    background-image: url('../../../images/desctopFrame.png');
+    background-position: left -200px top;
+    width: 916px;
+    height: 680px;
+  }
+
+  .form_container {
+    position: absolute;
+    top: 47%;
+    right: 0;
+    transform: translate(0, -50%);
+    padding-right: 402px;
+  }
+}

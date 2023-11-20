@@ -1,11 +1,7 @@
 import React from 'react';
 
 import AuthForm from '../../auth/AuthForm.jsx';
-import {
-  RegistrationPageContainer,
-  ImageContainer,
-  AuthFormContainer,
-} from './Auth.styled.js';
+import css from './SignUpPage.module.css'
 
 import { useNavigate } from 'react-router-dom';
 
@@ -17,13 +13,13 @@ const SignUpPage = ({ redirectTo }) => {
   };
 
   return (
-    <RegistrationPageContainer>
-      <ImageContainer>
-        <AuthFormContainer>
+    <section className={css.container}>
+      <div className={css.img_container}>
+        <div className={css.form_container}>
           <AuthForm onSubmit={handleFormSubmit} />
-        </AuthFormContainer>
-      </ImageContainer>
-    </RegistrationPageContainer>
+        </div>
+      </div>
+    </section>
   );
 };
 
