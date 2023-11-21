@@ -11,6 +11,7 @@ const Today = () => {
   const showModal = useSelector(showModalSelector);
   const dispath = useDispatch();
   const addPortion = value => {
+    console.log('value', value);
     dispath(add(value));
   };
 
