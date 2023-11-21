@@ -4,18 +4,18 @@ import { Layout } from './layout.styled';
 import { Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { thunkRefresh } from '../../redux/auth/thunkUser';
-import { currentUserEmailSelector } from '../../redux/selectors';
-
+// import { currentUserEmailSelector } from '../../redux/selectors';
+import { selectUserToken } from '../../redux/selectors';
 const SharedLayout = () => {
   const dispath = useDispatch();
-
+  const isLoggedIn = useSelector(selectUserToken);
   useEffect(() => {
     dispath(thunkRefresh());
   }, [dispath]);
 
   return (
     <Layout>
-      <Header />
+      <Header isAuthenticated={isLoggedIn} />
       <main>
         <Suspense>
           <Outlet />

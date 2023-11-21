@@ -2,9 +2,9 @@ import styled from 'styled-components';
 import bg from '../../../../images/BgBottleDesk.png';
 import bgTablet from '../../../../images/BgBottleTab.png';
 import bgMobile from '../../../../images/BgBottleMob.png';
-import bb from '../../../../images/bubblesDesc.png';
-import bbTablet from '../../../../images/bubblesTab.png';
-import bbMobile from '../../../../images/bubblesMob.png';
+// import bb from '../../../../images/bubblesDesc.png';
+// import bbTablet from '../../../../images/bubblesTab.png';
+// import bbMobile from '../../../../images/bubblesMob.png';
 export const WelcomeStyledLayout = styled.section`
   padding-bottom: 40px;
   background-size: 100%;

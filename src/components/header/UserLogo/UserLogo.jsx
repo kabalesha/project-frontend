@@ -10,7 +10,9 @@ import {
 import icon from '../../../icons/icons.svg';
 import { useSelector } from 'react-redux';
 import { selectorUserProfile } from '../../../redux/selectors.js';
-import UserNav from '../UserNav/UserNav';
+// import UserNav from '../UserNav/UserNav';
+import UserLogoModal from '../UserLogoModal/UserLogoModal';
+
 const UserLogo = () => {
   const userProfile = useSelector(selectorUserProfile);
   const name = userProfile.userName;
@@ -44,7 +46,7 @@ const UserLogo = () => {
           </svg>
         </UserLogoIcon>
       </UserLogoBtn>
-      <UserNav isOpen={isModalOpen} onClose={handleModalClose} />
+      <UserLogoModal isOpen={isModalOpen} onClose={handleModalClose} />
     </UserLogoContainer>
   );
 };
