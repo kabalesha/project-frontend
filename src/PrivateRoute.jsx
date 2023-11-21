@@ -8,7 +8,7 @@ const PrivateRoute = ({ component: Component, redirectTo = '/' }) => {
   //   return !isLoggedIn && !isRefreshing ? (
   //     <SignInPage to={redirectTo} />
   //   ) : (
-  return <Component />;
+  <Component />;
 };
 
 export default PrivateRoute;

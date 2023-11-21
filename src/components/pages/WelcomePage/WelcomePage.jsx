@@ -4,17 +4,18 @@ import React from 'react';
 
 import { Tracker } from './Tracker.styled';
 import WelcomeLayout from '../../../components/main/Welcome/WelcomeLayout/WelcomeLayout.jsx';
+import { Wrapper } from '../../header/Header.styled.jsx';
 
 const WelcomePage = () => {
   return (
     <>
       <WelcomeLayout>
-        <div>
+        <Wrapper>
           <Tracker>
             <TrackerBenefits />
             <TrackerInfo />
           </Tracker>
-        </div>
+        </Wrapper>
       </WelcomeLayout>
     </>
   );
