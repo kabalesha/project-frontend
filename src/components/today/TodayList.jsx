@@ -9,8 +9,9 @@ const TodayList = () => {
 
   return ([] && drinkingList).map((el, idx) => {
     return (
-      <div key={idx}>
-        <div>{el.time}</div>_______<div>{el.portion}</div>
+      <div key={idx} style={{ display: 'flex' }}>
+        <div>{el.time}</div>_______
+        <div>{el.portion}</div>
         <button onClick={() => dispath(modalShow(true))}>Edit</button>
         <button onClick={() => dispath(del(idx))}>Del</button>
       </div>
