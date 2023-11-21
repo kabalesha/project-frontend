@@ -26,13 +26,13 @@ export const thunkSignIn = createAsyncThunk(
 );
 
 export const thunkRefresh = createAsyncThunk(
-  'authUser/current',
-  async rejectWithValue => {
+  'auth/refresh',
+  async ({ rejectWithValue }) => {
     try {
       const data = await refresh();
+
       return data;
     } catch (error) {
-      console.log('first');
       return rejectWithValue('');
     }
   }

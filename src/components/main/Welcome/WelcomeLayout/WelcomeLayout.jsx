@@ -1,7 +1,7 @@
 import { WelcomeStyledLayout } from './WelcomeLayout.styled';
-import BgDesk from '../../../../images/BgBottleDesk.png';
-import BgTab from '../../../../images/BgBottleTab.png';
-import BgMob from '../../../../images/BgBottleMob.png';
+import BgDesk from '../../../../images/bubblesMob.png';
+import BgTab from '../../../../images/bubblesMob.png';
+import BgMob from '../../../../images/bubblesMob.png';
 
 const WelcomeLayout = ({ children }) => {
   return (

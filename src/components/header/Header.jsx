@@ -5,16 +5,20 @@ import AuthNav from './AuthNav/AuthNav.jsx';
 import mainCss from './../../css/main.css';
 import UserNav from './UserNav/UserNav.jsx';
 
-const Header = () => {
-  return (
-    <>
-      <header className={css.headerContainer}>
-        <Logo />
-        <AuthNav />
-        <UserNav />
-      </header>
-    </>
-  );
-};
+import HeaderLogo from './logo/headerLogo/headerLogo.jsx';
+import UserLogo from './UserLogo/UserLogo.jsx';
+import UserAuth from './UserAuth/UserAuth.jsx';
+import { HeaderContainer, Navigation, Wrapper } from './Header.styled.jsx';
+
+const Header = ({ isAuthenticated }) => (
+  <HeaderContainer>
+    <Wrapper>
+      <Navigation>
+        <HeaderLogo isAuthenticated={isAuthenticated} />
+        {isAuthenticated ? <UserLogo /> : <UserAuth />}
+      </Navigation>
+    </Wrapper>
+  </HeaderContainer>
+);
 
 export default Header;

@@ -20,15 +20,27 @@ const handleFulfilledSignUp = (state, action) => {
 };
 const handleFulfilledUser = (state, action) => {
   state.isLoading = false;
-  state.access_token = action.payload.access_token;
+  state.access_token = action.payload.token;
   state.profile = action.payload.user;
 };
+const handleFulfilledRefresh = (state, action) => {
+  console.log('action', action.payload);
+  if (!action.payload) {
+    localStorage.setItem('token', '');
+    state.access_token = '';
+    state.isLoading = false;
+    state.error = '';
+    state.profile = null;
+  } else {
+    return;
+  }
+};
 const handleFulfilledLogOut = (state, action) => {
-  console.log('logout', action.payload);
   state.access_token = '';
   state.isLoading = false;
   state.error = '';
   state.profile = null;
+  localStorage.setItem('root', '');
 };
 
 const handlePending = state => {
@@ -54,7 +66,7 @@ const authSlice = createSlice({
     builder
       .addCase(signUpThunk.fulfilled, handleFulfilledSignUp)
       .addCase(thunkSignIn.fulfilled, handleFulfilledUser)
-      .addCase(thunkRefresh.fulfilled, handleFulfilledUser)
+      .addCase(thunkRefresh.fulfilled, handleFulfilledRefresh)
       .addCase(thunkLogOut.fulfilled, handleFulfilledLogOut)
       .addMatcher(({ type }) => type.endsWith('/pending'), handlePending)
       .addMatcher(({ type }) => type.endsWith('/rejected'), handleRejected);
