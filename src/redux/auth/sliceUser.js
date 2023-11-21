@@ -22,6 +22,7 @@ const handleFulfilledUser = (state, action) => {
   state.isLoading = false;
   state.access_token = action.payload.token;
   state.profile = action.payload.user;
+  state.isLoggedIn = true;
 };
 const handleFulfilledRefresh = (state, action) => {
   console.log('action', action.payload);
