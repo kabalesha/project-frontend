@@ -15,7 +15,7 @@ const SigninPage = ({ redirectTo }) => {
     <section className={css.container}>
       <div className={css.img_container}>
         <div className={css.form_container}>
-           <Signin onSubmit={handleFormSubmit}/>
+          <Signin onSubmit={handleFormSubmit} />
         </div>
       </div>
     </section>
