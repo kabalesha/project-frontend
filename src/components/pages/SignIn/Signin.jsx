@@ -1,143 +1,119 @@
-import Container from '../../container/Container';
-
-import React from 'react';
-// import { useSelector } from 'react-redux';
-// import { Link } from 'react-router-dom';
-// import { errorSelector } from '../../store/auth/selectors';
-// import sprite from '../../img/sprites.svg';
-import {
-  Wrapper,
-  Box,
-  Label,
-  StyledForm,
-  StyledInput,
-  SigninButton,
-  Title,
-  LinkToPage,
-  ErrorM,
-  StyledPasswordInput,
-  AllForm,
-} from './Auth.styled';
-import { Formik, Field, ErrorMessage } from 'formik';
+import React, { useState } from 'react';
+import css from '../../auth/AuthForm.module.css';
+import { useDispatch } from 'react-redux';
+import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { useNavigate, Link } from 'react-router-dom';
+import { thunkSignIn } from '../../../redux/auth/thunkUser';
+import icons from '../../../icons/icons.svg';
 
-// function Signin({ signin }) {
-//   const [email, setEmail] = useState('');
-//   const [password, setPassword] = useState('');
-//   const error = useSelector(errorSelector);
+const Signin = ({ onSubmit }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-//   const handleSubmit = e => {
-//     e.preventDefault();
-//     signin({ email, password });
-//   };
-const validationSchema = Yup.object().shape({
-  email: Yup.string().email('Invalid email').required('Email is required'),
-  password: Yup.string().required('Password is required'),
-});
+  const [showPassword, setShowPassword] = useState(false);
 
-const initialValues = {
-  email: '',
-  password: '',
-};
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      password: '',
+    },
+    onSubmit: async values => {
+      try {
+        await dispatch(
+          thunkSignIn({
+            email: values.email,
+            password: values.password,
+          })
+        );
 
-const Signin = ({ signin }) => {
-  // const [passwordVisible, setPasswordVisible] = useState(false);
-  // const error = useSelector(errorSelector);
-  const handleSubmit = (values, { setSubmitting }) => {
-    signin(values);
-    setSubmitting(false);
+        formik.resetForm();
+
+        navigate('/home');
+      } catch (error) {
+        console.error('Login failed', error);
+      }
+    },
+    validationSchema: Yup.object().shape({
+      email: Yup.string().email('Invalid email').required('Email is required'),
+      password: Yup.string()
+        .required('Password is required')
+        .min(8, 'Password must be at least 8 characters long')
+        .max(64, 'Password must not exceed 64 characters'),
+    }),
+  });
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
   };
 
-  // const togglePasswordVisibility = () => {
-  //   setPasswordVisible(!passwordVisible);
-  // };
-
   return (
-    <Wrapper>
-      <Container>
-        <Box>
-          <AllForm>
-            {/* {error && <h4>{error}</h4>} */}
+    <div>
+      <h1 className={css.title}>Sign in</h1>
+      <form className={css.form} onSubmit={formik.handleSubmit}>
+        <div>
+          <label className={css.label}>Enter your email</label>
+          <input
+            className={`${css.input} ${
+              formik.touched.email && formik.errors.email
+                ? css.inputError
+                : ''
+            }`}
+            type="email"
+            name="email"
+            placeholder="E-mail"
+            minLength={3}
+            required
+            {...formik.getFieldProps('email')}
+          />
+          {formik.touched.email && formik.errors.email && (
+            <div className={css.error}>{formik.errors.email}</div>
+          )}
+        </div>
+        <div>
+          <label className={css.label}>Enter your password</label>
+          <input
+            className={`${css.input} ${
+              formik.touched.password && formik.errors.password
+                ? css.inputError
+                : ''
+            }`}
+            type={showPassword ? 'text' : 'password'}
+            name="password"
+            placeholder="Password"
+            autoComplete="off"
+            minLength={8}
+            required
+            {...formik.getFieldProps('password')}
+          />
+          <div
+            className={css.passwordToggle}
+            onClick={togglePasswordVisibility}
+          >
+            {showPassword ? (
+              <svg className={css.eye}>
+                <use href={icons + '#eye'} />
+              </svg>
+            ) : (
+              <svg className={css.eye}>
+                <use href={icons + '#hidden'} />
+              </svg>
+            )}
+          </div>
 
-            {/* <Form onSubmit={handleSubmit}>
-              <div>
-                <Label>Enter your email</Label>
-                <Input
-                  type="email"
-                  name="email"
-                  value={email}
-                  placeholder="Email"
-                  onChange={({ target: { value } }) => setEmail(value)}
-                  required
-                />
-              </div>
-              <div>
-                <Label>Enter your password</Label>
-                <Input
-                  type="password"
-                  name="password"
-                  value={password}
-                  placeholder="Password"
-                  onChange={({ target: { value } }) => setPassword(value)}
-                  required
-                />
-              </div>
-              <RegisterButton type="submit">Sign In</RegisterButton>
-            </Form> */}
-            <Formik
-              initialValues={initialValues}
-              validationSchema={validationSchema}
-              onSubmit={handleSubmit}
-            >
-              <StyledForm>
-                <Title>Sign In</Title>
-                <div>
-                  <Label>Enter your email</Label>
-                  <Field
-                    as={StyledInput}
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    required
-                  />
-                  <ErrorMessage name="email" component={ErrorM} />
-                </div>
-                <div>
-                  <Label>Enter your password</Label>
-                  <StyledPasswordInput>
-                    <Field
-                      as={StyledInput}
-                      // type={passwordVisible ? 'text' : 'password'}
-                      type="password"
-                      name="password"
-                      placeholder="Password"
-                      required
-                    />
-                    {/* <span onClick={togglePasswordVisibility}>
-                      {passwordVisible ? ( */}
-                        {/* <svg className="eye">
-                          <use href={sprite + '#eye'} />
-                        </svg>
-                      ) : (
-                        <svg className="eye">
-                          <use href={sprite + '#hidden'} />
-                        </svg>
-                      )}
-                    </span> */}
-                  </StyledPasswordInput>
-                  <ErrorMessage name="password" component={ErrorM} />
-                </div>
-                <SigninButton type="submit">Sign In</SigninButton>
-              </StyledForm>
-            </Formik>
+          {formik.touched.password && formik.errors.password && (
+            <div className={css.error}>{formik.errors.password}</div>
+          )}
+        </div>
 
-            {/* <LinkToPage to="/forgot-password">Forgot password?</LinkToPage> */}
-
-            <LinkToPage to="/signup">Sign up</LinkToPage>
-          </AllForm>
-        </Box>
-      </Container>
-    </Wrapper>
+        <button className={css.btn} type="submit">
+          Sign In
+        </button>
+        <Link className={css.link} to="/signup">
+          Sign Up
+        </Link>
+      </form>
+    </div>
   );
 };
 
