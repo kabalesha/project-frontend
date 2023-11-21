@@ -1,14 +1,16 @@
+import React from 'react';
 import { useSelector } from 'react-redux';
-import SignInPage from './components/pages/SignIn/SignInPage';
+import HomePage from './components/pages/homePage/HomePage';
 
-const PrivateRoute = ({ component: Component, redirectTo = '/' }) => {
+const PrivateRoute = ({ component: Component, redirectTo = '/', ...rest }) => {
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
   const isRefreshing = useSelector(state => state.auth.isRefreshing);
 
-  //   return !isLoggedIn && !isRefreshing ? (
-  //     <SignInPage to={redirectTo} />
-  //   ) : (
-  <Component />;
+  return isLoggedIn || isRefreshing ? (
+    <Component {...rest} />
+  ) : (
+    <HomePage to={redirectTo} />
+  );
 };
 
 export default PrivateRoute;
