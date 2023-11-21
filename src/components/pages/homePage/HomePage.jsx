@@ -6,6 +6,7 @@ import Today from '../../today/Today';
 import Month from '../../month/Month';
 import { useDispatch } from 'react-redux';
 import { modalShow } from '../../../redux/showModal/sliceShowModal';
+import { thunkRefresh } from '../../../redux/auth/thunkUser';
 const HomePage = () => {
   const dispath = useDispatch();
   return (

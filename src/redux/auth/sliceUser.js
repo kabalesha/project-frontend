@@ -20,22 +20,27 @@ const handleFulfilledSignUp = (state, action) => {
 };
 const handleFulfilledUser = (state, action) => {
   state.isLoading = false;
-  state.access_token = action.payload.access_token;
+  state.access_token = action.payload.token;
   state.profile = action.payload.user;
 };
 const handleFulfilledRefresh = (state, action) => {
-  console.log('action.payload', action.payload);
-  console.log('state', state.auth);
-  state.isLoading = false;
-  state.access_token = action.payload.access_token;
-  state.profile = action.payload.user;
+  console.log('action', action.payload);
+  if (!action.payload) {
+    localStorage.setItem('token', '');
+    state.access_token = '';
+    state.isLoading = false;
+    state.error = '';
+    state.profile = null;
+  } else {
+    return;
+  }
 };
 const handleFulfilledLogOut = (state, action) => {
-  console.log('logout', action.payload);
   state.access_token = '';
   state.isLoading = false;
   state.error = '';
   state.profile = null;
+  localStorage.setItem('root', '');
 };
 
 const handlePending = state => {

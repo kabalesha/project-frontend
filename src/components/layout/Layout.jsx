@@ -9,10 +9,9 @@ import { currentUserEmailSelector } from '../../redux/selectors';
 const SharedLayout = () => {
   const dispath = useDispatch();
 
-  const currentUserEmail = useSelector(currentUserEmailSelector);
   useEffect(() => {
-    dispath(thunkRefresh(currentUserEmail));
-  }, [currentUserEmail, dispath]);
+    dispath(thunkRefresh());
+  }, [dispath]);
 
   return (
     <Layout>
