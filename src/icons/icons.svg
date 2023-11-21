@@ -57,5 +57,8 @@
 <symbol id="close" viewBox="0 0 24 24">
 <path d="M6 18L18 6M6 6L18 18" stroke="#407BFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </symbol>
+<symbol id="arrow-down" viewBox="0 0 32 32">
+      <path d="M16.706 21.707a1.002 1.002 0 0 1-1.414 0l-10-10a.996.996 0 0 1 .025-1.388 1.002 1.002 0 0 1 1.388-.025l9.293 9.293 9.293-9.293a1.013 1.013 0 0 1 .714-.318.993.993 0 0 1 .725.293.992.992 0 0 1 .293.725 1.001 1.001 0 0 1-.318.714l-10 10z"/>
+    </symbol>
 </defs>
 </svg>

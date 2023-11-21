@@ -1,33 +1,24 @@
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
 import Signin from './Signin';
+import css from '../SignUp/SignUpPage.module.css';
 
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
-// import { refreshUser, signInUser } from '../../store/auth/thunk';
-import { selectAccessToken } from '../../../redux/auth/sliceUser';
-import { thunkSignIn } from '../../../redux/auth/thunkUser';
 
-const SigninPage = () => {
-  const dispatch = useDispatch();
-  const isAuth = useSelector(selectAccessToken);
+const SigninPage = ({ redirectTo }) => {
   const navigate = useNavigate();
 
-  const signin = body => {
-    dispatch(thunkSignIn(body));
+  const handleFormSubmit = async body => {
+    navigate(redirectTo);
   };
 
-  // useEffect(() => {
-  //   isAuth && navigate('/sighup');
-  // }, [isAuth, navigate]);
-
-  // useEffect(() => {
-  //   dispatch(refreshUser());
-  // }, [dispatch]);
-
   return (
-    <>
-      <Signin signin={signin} />
-    </>
+    <section className={css.container}>
+      <div className={css.img_container}>
+        <div className={css.form_container}>
+          <Signin onSubmit={handleFormSubmit} />
+        </div>
+      </div>
+    </section>
   );
 };
 

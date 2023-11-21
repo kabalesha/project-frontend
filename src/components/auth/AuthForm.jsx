@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
-import * as Yup from 'yup'
-import { register } from '../../shared/api/auth';
+import * as Yup from 'yup';
 import { useNavigate, Link } from 'react-router-dom';
 
 
@@ -12,8 +11,7 @@ import icons from '../../icons/icons.svg'
 import { signUpThunk } from '../../redux/auth/thunkUser';
 
 
-const AuthForm = ({ onSubmit }, handleFormSubmit) => {
-  // console.log('first', handleFormSubmit);
+const AuthForm = ({ onSubmit }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -35,8 +33,8 @@ const AuthForm = ({ onSubmit }, handleFormSubmit) => {
             repeatPassword: values.repeatPassword,
           })
         );
-        handleFormSubmit({
-          name:values.name,
+       onSubmit({
+          name: values.name,
           email: values.email,
           password: values.password,
         });
@@ -46,7 +44,7 @@ const AuthForm = ({ onSubmit }, handleFormSubmit) => {
           onSubmit(values);
         }
 
-        navigate('/home');
+        navigate('/signin');
       } catch (error) {
         console.error('Registration failed', error);
       }

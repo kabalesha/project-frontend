@@ -9,7 +9,10 @@ const TodayForm = ({ addPortion }) => {
   const [counter, setCounter] = useState(50);
   const handleSbmit = e => {
     e.preventDefault();
-    addPortion({ time, portion });
+    console.log('first', portion);
+    console.log('first', counter);
+    setPortion(counter);
+    addPortion({ time, portion: counter });
     setTime('');
     setPortion('');
   };

@@ -8,13 +8,14 @@
   height: 100%;
   margin: auto;
   padding: 0 20px;
+  margin-top: 24px;
 }
 
 .img_container {
   background-image: url('../../../images/mobileFrame.png');
   background-repeat: no-repeat;
   background-size: 280px;
-  background-position: center bottom 30%;
+  background-position: center bottom;
   min-height: 96vh;
 }
 
@@ -28,7 +29,7 @@
   .img_container {
     background-image: url('../../../images/BgBottleTab.png');
     background-size: contain;
-    background-position: center top -60px;
+    background-position: center top -40px;
     width: 736px;
     height: 548px;
   }
@@ -47,15 +48,15 @@
 
   .img_container {
     background-image: url('../../../images/desctopFrame.png');
-    background-position: left -200px top;
-    width: 916px;
+    background-position: left -100px top;
+    width: 850px;
     height: 680px;
   }
 
   .form_container {
     position: absolute;
-    top: 47%;
-    right: 0;
+    top: 53%;
+    right: -10%;
     transform: translate(0, -50%);
     padding-right: 402px;
   }

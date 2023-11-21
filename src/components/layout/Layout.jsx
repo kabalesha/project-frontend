@@ -7,6 +7,7 @@ import { thunkRefresh } from '../../redux/auth/thunkUser';
 
 const SharedLayout = () => {
   const dispath = useDispatch();
+
   useEffect(() => {
     dispath(thunkRefresh());
   }, [dispath]);
