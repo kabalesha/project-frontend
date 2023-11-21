@@ -5,14 +5,17 @@ import { add } from '../../redux/portionOfDrinking/slicePortionOfDrinking';
 import Modal from '../modalWindow/Modal';
 import { showModalSelector } from '../../redux/selectors';
 import TodayList from './TodayList';
+import { addPortionOfWater } from '../../api/ApiPortionWater';
+import { thunkPortionAddDrinking } from '../../redux/portionOfDrinking/thunkPortionOfDrinking';
 
 const Today = () => {
   const [idx, setIdx] = useState('');
   const showModal = useSelector(showModalSelector);
   const dispath = useDispatch();
   const addPortion = value => {
+    dispath(thunkPortionAddDrinking(value));
     console.log('value', value);
-    dispath(add(value));
+    // dispath(add(value));
   };
 
   return (

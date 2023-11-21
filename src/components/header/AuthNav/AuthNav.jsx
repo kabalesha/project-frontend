@@ -9,12 +9,7 @@ const AuthNav = () => {
   const dispath = useDispatch();
   const navigate = useNavigate();
   const handleSignIn = () => {
-    dispath(
-      thunkSignIn({
-        email: 'alex@gmail.com',
-        password: '123456',
-      })
-    );
+    dispath(thunkSignIn());
   };
   const handleClick = () => {
     navigate('/signin');

@@ -4,7 +4,7 @@ export const instance = axios.create({
   baseURL: 'https://project-backend-7eyy.onrender.com/api',
 });
 
-const setToken = token => {
+export const setToken = token => {
   // const token = localStorage.getItem('token');
   localStorage.setItem('token', token);
   const a = localStorage.getItem('token');
