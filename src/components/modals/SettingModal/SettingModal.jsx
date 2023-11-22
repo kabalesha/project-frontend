@@ -16,7 +16,7 @@ const SettingsModal = ({ onClose }) => {
   const [showOutdatedPassword, setShowOutdatedPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showRepeatPassword, setShowRepeatPassword] = useState(false);
-  const [gender, setGender] = useState('');
+  const [gender, setGender] = useState('man');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const dispath = useDispatch();
@@ -33,11 +33,13 @@ const SettingsModal = ({ onClose }) => {
       case 'name':
         setName(event.target.value);
         break;
+      case 'gender':
+        setGender(event.target.value);
+        break;
 
       default:
         break;
     }
-    if (event.target.name === 'man') console.log('first', 'first');
   };
 
   const handleSubmit = e => {
@@ -147,7 +149,7 @@ const SettingsModal = ({ onClose }) => {
               <div className={css.modal_gender_block}>
                 <p className={css.modal_gender_text}>Your gender identity</p>
                 <input
-                  checked={gender === gender.woman}
+                  checked={gender === 'woman'}
                   onChange={handleChange}
                   type="radio"
                   className={css.gender_input}
@@ -159,7 +161,7 @@ const SettingsModal = ({ onClose }) => {
                   Woman
                 </label>
                 <input
-                  checked={gender === gender.man}
+                  checked={gender === 'man'}
                   onChange={handleChange}
                   type="radio"
                   className={css.gender_input}
