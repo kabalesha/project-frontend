@@ -25,7 +25,6 @@ const handleFulfilledUser = (state, action) => {
   state.isLoggedIn = true;
 };
 const handleFulfilledRefresh = (state, action) => {
-  console.log('action', action.payload);
   if (!action.payload) {
     state.access_token = '';
 

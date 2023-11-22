@@ -3,6 +3,8 @@ import css from './SettingsModal.module.css';
 import img from '../../../components/header/AuthNav/outline.png';
 import { ReactComponent as UploadIcon } from '../SettingModal/outline.svg';
 import { ReactComponent as EyeIcon } from '../SettingModal/eye.svg';
+import { updateUserThunk } from '../../../redux/auth/thunkUser';
+import { useDispatch } from 'react-redux';
 
 const SettingsModal = ({ onClose }) => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -13,7 +15,7 @@ const SettingsModal = ({ onClose }) => {
   const [showOutdatedPassword, setShowOutdatedPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showRepeatPassword, setShowRepeatPassword] = useState(false);
-
+  const dispath = useDispatch();
   const handleFileChange = event => {
     const file = event.target.files[0];
     setSelectedFile(file);
@@ -21,7 +23,16 @@ const SettingsModal = ({ onClose }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(e.currentTarget);
+    dispath(
+      updateUserThunk({
+        outdatedPassword,
+        newPassword,
+        repeatPassword,
+        showOutdatedPassword,
+        showNewPassword,
+        showRepeatPassword,
+      })
+    );
   };
 
   const handleTogglePassword = inputType => {
@@ -85,7 +96,7 @@ const SettingsModal = ({ onClose }) => {
           </li>
         </ul>
 
-        <form className={css.modal_form_user}>
+        <form className={css.modal_form_user} onSubmit={handleSubmit}>
           <div className={css.all_inp_cont}>
             <div className={css.user_info_container}>
               <div className={css.modal_gender_block}>
