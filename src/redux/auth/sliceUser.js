@@ -28,7 +28,7 @@ const handleFulfilledRefresh = (state, action) => {
   console.log('action', action.payload);
   if (!action.payload) {
     state.access_token = '';
-    state.isLoading = false;
+
     state.error = '';
     state.profile = null;
     // state.isLoggedIn = true;
