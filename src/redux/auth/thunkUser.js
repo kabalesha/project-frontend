@@ -27,21 +27,21 @@ export const thunkSignIn = createAsyncThunk(
 
 export const thunkRefresh = createAsyncThunk(
   'auth/refresh',
-  async ({ rejectWithValue }) => {
+  async (_, { rejectWithValue }) => {
     try {
       const data = await refresh();
 
       return data;
     } catch (error) {
-      return rejectWithValue('');
+      return rejectWithValue(error.message);
     }
   }
 );
 export const thunkLogOut = createAsyncThunk(
   'auth/logout',
-  async rejectWithValue => {
+  async (_, { rejectWithValue }) => {
     try {
-      return logOut();
+      return await logOut();
     } catch (error) {
       return rejectWithValue(error.response.data.message);
     }

@@ -9,15 +9,15 @@ import {
 } from './UserLogo.styled';
 import icon from '../../../icons/icons.svg';
 import { useSelector } from 'react-redux';
-import { selectorUserProfile } from '../../../redux/selectors.js';
+import { currentUserEmailSelector } from '../../../redux/selectors.js';
 // import UserNav from '../UserNav/UserNav';
 import UserLogoModal from '../UserLogoModal/UserLogoModal';
 
 const UserLogo = () => {
-  const userProfile = useSelector(selectorUserProfile);
+  const userProfile = useSelector(currentUserEmailSelector);
   const name = userProfile.userName;
   const avatar = userProfile.avatarURL;
-  const defaultName = name ? name.slice(0, 1).toUpperCase() : 'V';
+  const defaultName = name ? name.slice(0, 1).toUpperCase() : 'A';
 
   const [isModalOpen, setModalOpen] = useState(false);
 
