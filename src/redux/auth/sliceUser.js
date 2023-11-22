@@ -31,7 +31,7 @@ const handleFulfilledRefresh = (state, action) => {
     state.isLoading = false;
     state.error = '';
     state.profile = null;
-    state.isLoggedIn = true;
+    // state.isLoggedIn = true;
   } else {
     return;
   }
