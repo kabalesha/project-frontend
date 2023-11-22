@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
+import * as Yup from 'yup'; // Import Yup for validation
+import { useFormik } from 'formik';
 import css from './SettingsModal.module.css';
 import img from '../../../components/header/AuthNav/outline.png';
 import { ReactComponent as UploadIcon } from '../SettingModal/outline.svg';
 import { ReactComponent as EyeIcon } from '../SettingModal/eye.svg';
 
 const SettingsModal = ({ onClose }) => {
-  const [selectedFile, setSelectedFile] = useState(null);
+  const [selectedFile, setSelectedFile] = useState('');
 
   const [outdatedPassword, setOutdatedPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
@@ -14,14 +16,31 @@ const SettingsModal = ({ onClose }) => {
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showRepeatPassword, setShowRepeatPassword] = useState(false);
 
+  const validationSchema = Yup.object().shape({
+    newPassword: Yup.string()
+      .required('New password is required')
+      .min(8, 'Password must be at least 8 characters long')
+      .max(64, 'Password must not exceed 64 characters'),
+    repeatPassword: Yup.string()
+      .oneOf([Yup.ref('newPassword'), null], 'Passwords must match')
+      .required('Repeat password is required'),
+  });
+
+  const formik = useFormik({
+    initialValues: {
+      newPassword: '',
+      repeatPassword: '',
+    },
+    validationSchema,
+    onSubmit: async values => {
+      // Handle form submission logic here
+      console.log(values);
+    },
+  });
+
   const handleFileChange = event => {
     const file = event.target.files[0];
-    setSelectedFile(file);
-  };
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    console.log(e.currentTarget);
+    setSelectedFile(URL.createObjectURL(file));
   };
 
   const handleTogglePassword = inputType => {
@@ -85,7 +104,7 @@ const SettingsModal = ({ onClose }) => {
           </li>
         </ul>
 
-        <form className={css.modal_form_user}>
+        <form className={css.modal_form_user} onSubmit={formik.handleSubmit}>
           <div className={css.all_inp_cont}>
             <div className={css.user_info_container}>
               <div className={css.modal_gender_block}>
@@ -166,11 +185,12 @@ const SettingsModal = ({ onClose }) => {
                 <div className={css.inputContainer}>
                   <input
                     type={showNewPassword ? 'text' : 'password'}
-                    value={newPassword}
-                    onChange={e => setNewPassword(e.target.value)}
+                    value={formik.values.newPassword}
+                    onChange={formik.handleChange('newPassword')}
+                    onBlur={formik.handleBlur('newPassword')}
                     placeholder="Password"
                     id="newPas"
-                    className={`${css.modal_input} ${css.modal_input_password}`}
+                    className={`${css.modal_input} ${css.modal_input_password} ${formik.touched.repeatPassword && formik.errors.repeatPassword ? css.inputError : ''}`}
                   />
                   <div
                     className={css.togglePasswordIcon}
@@ -181,6 +201,9 @@ const SettingsModal = ({ onClose }) => {
                     <EyeIcon />
                   </div>
                 </div>
+                {formik.touched.newPassword && formik.errors.newPassword && (
+                  <div className={css.error}>{formik.errors.newPassword}</div>
+                )}
               </div>
               <div className={css.passwordInputContainer}>
                 <label htmlFor="repeatPas" className={css.password_label}>
@@ -190,11 +213,12 @@ const SettingsModal = ({ onClose }) => {
                 <div className={css.inputContainer}>
                   <input
                     type={showRepeatPassword ? 'text' : 'password'}
-                    value={repeatPassword}
-                    onChange={e => setRepeatPassword(e.target.value)}
+                    value={formik.values.repeatPassword}
+                    onChange={formik.handleChange('repeatPassword')}
+                     onBlur={formik.handleBlur('repeatPassword')}
                     placeholder="Password"
                     id="repeatPas"
-                    className={`${css.modal_input} ${css.modal_input_password}`}
+                    className={`${css.modal_input} ${css.modal_input_password} ${formik.touched.repeatPassword && formik.errors.repeatPassword ? css.inputError : ''}`}
                   />
                   <div
                     className={css.togglePasswordIcon}
@@ -205,6 +229,9 @@ const SettingsModal = ({ onClose }) => {
                     <EyeIcon />
                   </div>
                 </div>
+                {formik.touched.repeatPassword && formik.errors.repeatPassword && (
+                  <div className={css.error}>{formik.errors.repeatPassword}</div>
+                )}
               </div>
             </div>
           </div>
@@ -231,7 +258,7 @@ const SettingsModal = ({ onClose }) => {
         </button>
       </div>
     </div>
-  );
+  )
 };
 
 export default SettingsModal;
