@@ -16,7 +16,7 @@ const Modal = ({ children }) => {
             <div className="modal-header">
               <button
                 type="button"
-                className="btn btn-secondary"
+                className="btn btn-secondary "
                 data-bs-dismiss="modal"
                 onClick={() => dispath(modalShow(false))}
               >

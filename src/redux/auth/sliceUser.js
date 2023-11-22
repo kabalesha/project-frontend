@@ -27,7 +27,6 @@ const handleFulfilledUser = (state, action) => {
 const handleFulfilledRefresh = (state, action) => {
   if (!action.payload) {
     state.access_token = '';
-
     state.error = '';
     state.profile = null;
     // state.isLoggedIn = true;
@@ -54,14 +53,20 @@ const handleRejected = (state, { error, payload }) => {
 const authSlice = createSlice({
   name: 'auth',
   initialState,
-  // reducers: {
-  //   logOut: state => {
-  //     state.access_token = '';
-  //     state.isLoading = false;
-  //     state.error = '';
-  //     state.profile = null;
-  //   },
-  // },
+  reducers: {
+    update: (state, action) => {
+      state.profile = {
+        ...state.profile,
+        ...action.payload,
+      };
+    },
+    //   logOut: state => {
+    //     state.access_token = '';
+    //     state.isLoading = false;
+    //     state.error = '';
+    //     state.profile = null;
+    //   },
+  },
   extraReducers: builder => {
     builder
       .addCase(signUpThunk.fulfilled, handleFulfilledSignUp)
@@ -77,4 +82,5 @@ const authSlice = createSlice({
 });
 export const authReducer = authSlice.reducer;
 // export const { logOut } = authSlice.actions;
+export const { update } = authSlice.actions;
 // export const selectAccessToken = state => state.auth.access_token;

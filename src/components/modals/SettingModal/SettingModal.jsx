@@ -5,6 +5,7 @@ import { ReactComponent as UploadIcon } from '../SettingModal/outline.svg';
 import { ReactComponent as EyeIcon } from '../SettingModal/eye.svg';
 import { updateUserThunk } from '../../../redux/auth/thunkUser';
 import { useDispatch } from 'react-redux';
+import { update } from '../../../redux/auth/sliceUser';
 
 const SettingsModal = ({ onClose }) => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -32,13 +33,11 @@ const SettingsModal = ({ onClose }) => {
       case 'name':
         setName(event.target.value);
         break;
-      case 'gender':
-        setName(event.target.value);
-        break;
 
       default:
         break;
     }
+    if (event.target.name === 'man') console.log('first', 'first');
   };
 
   const handleSubmit = e => {
@@ -46,6 +45,16 @@ const SettingsModal = ({ onClose }) => {
     console.log(e.target.email);
     dispath(
       updateUserThunk({
+        outdatedPassword,
+        newPassword,
+        repeatPassword,
+        name,
+        email,
+        gender,
+      })
+    );
+    dispath(
+      update({
         outdatedPassword,
         newPassword,
         repeatPassword,
@@ -138,6 +147,7 @@ const SettingsModal = ({ onClose }) => {
               <div className={css.modal_gender_block}>
                 <p className={css.modal_gender_text}>Your gender identity</p>
                 <input
+                  checked={gender === gender.woman}
                   onChange={handleChange}
                   type="radio"
                   className={css.gender_input}
@@ -149,6 +159,7 @@ const SettingsModal = ({ onClose }) => {
                   Woman
                 </label>
                 <input
+                  checked={gender === gender.man}
                   onChange={handleChange}
                   type="radio"
                   className={css.gender_input}
