@@ -4,7 +4,7 @@ import React from 'react';
 
 import { Tracker } from './Tracker.styled';
 import WelcomeLayout from '../../../components/main/Welcome/WelcomeLayout/WelcomeLayout.jsx';
-import { Wrapper } from '../../header/Header.styled.jsx';
+import { Wrapper } from '../../main/Welcome/WelcomeLayout/WelcomeLayout.styled.jsx';
 
 const WelcomePage = () => {
   return (
