@@ -6,11 +6,17 @@ import {
   ModalMenuIcon,
 } from './UserLogoModal.styled';
 import icon from '../../../icons/icons.svg';
+import { useDispatch } from 'react-redux';
+import { thunkLogOut } from '../../../redux/auth/thunkUser';
 // import { ModalContext } from '../../ModalContext';
 // import Setting from '../Setting/Setting';
 
 const UserLogoModal = ({ isOpen, onClose }) => {
   const modalRef = useRef(null);
+  const dispatch = useDispatch();
+  const logoutUser = () => {
+    dispatch(thunkLogOut());
+  };
   //   const togModal = useContext(ModalContext);
 
   //   const handleSettingButtonClick = () => {
@@ -45,7 +51,7 @@ const UserLogoModal = ({ isOpen, onClose }) => {
             </ModalMenuIcon>
             Setting
           </ModalMenuBtn>
-          <ModalMenuBtn>
+          <ModalMenuBtn onClick={logoutUser}>
             <ModalMenuIcon>
               <svg>
                 <use href={icon + '#logout'}></use>

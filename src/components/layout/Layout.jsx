@@ -6,11 +6,11 @@ import { useDispatch } from 'react-redux';
 import { thunkRefresh } from '../../redux/auth/thunkUser';
 import { useSelector } from 'react-redux';
 // import { currentUserEmailSelector } from '../../redux/selectors';
-import { selectUserToken } from '../../redux/selectors';
+import { selectIsAuth } from '../../redux/selectors';
 
 const SharedLayout = () => {
   const dispath = useDispatch();
-  const isLoggedIn = useSelector(selectUserToken);
+  const isLoggedIn = useSelector(selectIsAuth);
   useEffect(() => {
     dispath(thunkRefresh());
   }, [dispath]);

@@ -68,7 +68,10 @@ const authSlice = createSlice({
       .addCase(signUpThunk.fulfilled, handleFulfilledSignUp)
       .addCase(thunkSignIn.fulfilled, handleFulfilledUser)
       .addCase(thunkRefresh.fulfilled, handleFulfilledRefresh)
-      .addCase(thunkLogOut.fulfilled, handleFulfilledLogOut)
+      // .addCase(thunkLogOut.fulfilled, handleFulfilledLogOut)
+      .addCase(thunkLogOut.fulfilled, () => {
+        return { ...initialState };
+      })
       .addMatcher(({ type }) => type.endsWith('/pending'), handlePending)
       .addMatcher(({ type }) => type.endsWith('/rejected'), handleRejected);
   },
