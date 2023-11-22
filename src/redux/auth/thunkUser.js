@@ -55,7 +55,7 @@ export const thunkLogOut = createAsyncThunk(
   }
 );
 export const updateUserThunk = createAsyncThunk(
-  'auth/logout',
+  'auth/update',
   async (body, { rejectWithValue }) => {
     console.log('body', body);
     try {

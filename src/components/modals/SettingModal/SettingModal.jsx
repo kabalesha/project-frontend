@@ -15,25 +15,57 @@ const SettingsModal = ({ onClose }) => {
   const [showOutdatedPassword, setShowOutdatedPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showRepeatPassword, setShowRepeatPassword] = useState(false);
+  const [gender, setGender] = useState('');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
   const dispath = useDispatch();
   const handleFileChange = event => {
     const file = event.target.files[0];
     setSelectedFile(file);
   };
 
+  const handleChange = event => {
+    switch (event.target.name) {
+      case 'email':
+        setEmail(event.target.value);
+        break;
+      case 'name':
+        setName(event.target.value);
+        break;
+
+      default:
+        break;
+    }
+  };
+
   const handleSubmit = e => {
     e.preventDefault();
+    console.log(e.target.email);
     dispath(
       updateUserThunk({
         outdatedPassword,
         newPassword,
         repeatPassword,
-        showOutdatedPassword,
-        showNewPassword,
-        showRepeatPassword,
+        name,
+        email,
+        gender,
       })
     );
   };
+
+  // const userInfo = () => {
+  //   switch (key) {
+  //     case 'email':
+  //       setEmail();
+  //       break;
+  //     case 'name':
+  //       setName();
+  //       break;
+
+  //     default:
+  //       break;
+  //   }
+  // };
 
   const handleTogglePassword = inputType => {
     switch (inputType) {
@@ -46,6 +78,7 @@ const SettingsModal = ({ onClose }) => {
       case 'repeat':
         setShowRepeatPassword(!showRepeatPassword);
         break;
+
       default:
         break;
     }
@@ -127,16 +160,22 @@ const SettingsModal = ({ onClose }) => {
                 Your name
               </label>
               <input
+                onChange={handleChange}
                 type="text"
                 placeholder="Name"
                 id="nameInput"
+                name="name"
+                value={name}
                 className={`${css.modal_input} ${css.modal_input_data}`}
               />
               <label htmlFor="emailInp" className={css.dataLabel}>
                 E-mail
               </label>
               <input
+                onChange={handleChange}
                 type="text"
+                name="email"
+                value={email}
                 placeholder="test@gmail.com"
                 id="emailInp"
                 className={`${css.modal_input} ${css.modal_input_data}`}

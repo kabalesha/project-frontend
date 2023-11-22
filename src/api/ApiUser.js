@@ -21,3 +21,9 @@ export const apiUserUpdate = async body => {
   console.log('data', data);
   return data;
 };
+export const apiUserUpdsateAvatar = async body => {
+  setToken(token);
+  const { data } = await instance.patch('/user/add-avatar', body);
+  console.log('data', data);
+  return data;
+};
