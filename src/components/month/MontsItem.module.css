@@ -6,10 +6,29 @@
   margin-right: auto;
   margin-top: 16px;
   margin-bottom: 16px;
-  box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.3);
-  background-color: rgba(64, 123, 255, 0.3);
+}
+
+.monthWrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 16px;
+}
+
+.monthTitle {
+  color: #2f2f2f;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.monthName {
+  color: #407bff;
+  font-size: 16px;
+  line-height: 1.25;
 }
 .calendarItem {
+  /* position: relative; */
   text-align: center;
   display: grid;
   border: 1px solid;
@@ -20,6 +39,46 @@
   align-items: center;
   margin-bottom: 8px;
 }
+
+.additionalInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: absolute;
+  top: -250%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 254px;
+  padding: 24px 13px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px 0px rgba(64, 123, 255, 0.3);
+  background-color: #fff;
+
+  z-index: 3;
+}
+
+.infoDate {
+  color: #407bff;
+  font-size: 16px;
+  line-height: 1.25;
+}
+.accent {
+  color: #407bff;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.33;
+}
+.infoClose {
+  position: absolute;
+  left: 90%;
+  width: 16px;
+  height: 16px;
+  border: none;
+  padding: 0;
+  background: none;
+  vertical-align: middle;
+}
+
 /* .cardOverlay {
   position: relative;
   overflow: hidden;

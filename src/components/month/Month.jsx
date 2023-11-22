@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import MonthItem from './MonthItem';
 import css from './MontsItem.module.css';
 const Month = () => {
@@ -22,23 +22,26 @@ const Month = () => {
   const quantityDays = year[currentMonth];
   const arr = Object.keys(year[currentMonth]);
   const [month] = arr;
+   const [selectedDay, setSelectedDay] = useState(null);
 
   const value = 100;
+
+  const handleClick = (day) => {
+    setSelectedDay(day);
+  }
+
+  
+
   return (
     <div className={css.currentMonth}>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'baseline',
-        }}
+      <div className={css.monthWrap}
       >
-        <h2>Monts</h2>
-        <p> {month}</p>
+        <h2 className={css.monthTitle}>Month</h2>
+        <p className={css.monthName}> {month}</p>
       </div>
 
       <div className={css.calendar}>
-        <MonthItem quantityDays={quantityDays} value={value} />
+        <MonthItem quantityDays={quantityDays} value={value} handleClick={handleClick} selectedDay={selectedDay}/>
       </div>
     </div>
   );
