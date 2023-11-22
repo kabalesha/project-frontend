@@ -6,6 +6,7 @@ import {
   BenefitsItems,
   Descr,
   Container,
+  Button
 } from './TrackerBenefits.styled';
 import { MainTitle, SubTitle } from '../Title/Title.jsx';
 
@@ -81,9 +82,9 @@ export const TrackerBenefits = () => {
           </BenefitsItems>
         </BenefitsList>
         <Link to="/signup">
-          <button type="button" onClick={handleButtonClick} className={css.btn}>
+          <Button type="button" onClick={handleButtonClick}>
             Try tracker
-          </button>
+          </Button>
         </Link>
       </Container>
     </>
