@@ -32,6 +32,9 @@ const SettingsModal = ({ onClose }) => {
       case 'name':
         setName(event.target.value);
         break;
+      case 'gender':
+        setName(event.target.value);
+        break;
 
       default:
         break;
@@ -135,6 +138,7 @@ const SettingsModal = ({ onClose }) => {
               <div className={css.modal_gender_block}>
                 <p className={css.modal_gender_text}>Your gender identity</p>
                 <input
+                  onChange={handleChange}
                   type="radio"
                   className={css.gender_input}
                   value="woman"
@@ -145,6 +149,7 @@ const SettingsModal = ({ onClose }) => {
                   Woman
                 </label>
                 <input
+                  onChange={handleChange}
                   type="radio"
                   className={css.gender_input}
                   value="man"
