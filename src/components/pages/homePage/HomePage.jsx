@@ -22,6 +22,14 @@ const HomePage = () => {
   console.log('home', total);
   return (
     <div className={css.mainPageContainer}>
+      <div className={css.dailyNormaContainer}>
+        <h2 className={css.dailyTitle}>My daily norma</h2>
+        <div className={css.normaContainer}>
+          {/* <p className={css.norma}>{(waterRate / 1000).toFixed(1)} L</p> */}
+          <p className={css.norma}>1.5 L</p>
+          <button className={css.normaBtn}>Edit</button>
+        </div>
+      </div>
       <div className={css.heroImg} />
 
       <div className={css.todayProgress}>
