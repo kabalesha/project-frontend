@@ -74,6 +74,11 @@ const authSlice = createSlice({
         email: action.payload.email,
       };
     },
+    addAvatar: (state, action) => {
+      state.profile = {
+        avatar: action.payload,
+      };
+    },
     //   logOut: state => {
     //     state.access_token = '';
     //     state.isLoading = false;
@@ -97,5 +102,5 @@ const authSlice = createSlice({
 });
 export const authReducer = authSlice.reducer;
 // export const { logOut } = authSlice.actions;
-export const { update } = authSlice.actions;
+export const { update, addAvatar } = authSlice.actions;
 // export const selectAccessToken = state => state.auth.access_token;

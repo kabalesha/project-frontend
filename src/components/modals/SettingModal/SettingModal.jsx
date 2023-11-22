@@ -3,9 +3,12 @@ import css from './SettingsModal.module.css';
 import img from '../../../components/header/AuthNav/outline.png';
 import { ReactComponent as UploadIcon } from '../SettingModal/outline.svg';
 import { ReactComponent as EyeIcon } from '../SettingModal/eye.svg';
-import { updateUserThunk } from '../../../redux/auth/thunkUser';
+import {
+  addAvatarUserThunk,
+  updateUserThunk,
+} from '../../../redux/auth/thunkUser';
 import { useDispatch } from 'react-redux';
-import { update } from '../../../redux/auth/sliceUser';
+import { addAvatar, update } from '../../../redux/auth/sliceUser';
 
 const SettingsModal = ({ onClose }) => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -22,7 +25,11 @@ const SettingsModal = ({ onClose }) => {
   const dispath = useDispatch();
   const handleFileChange = event => {
     const file = event.target.files[0];
-    setSelectedFile(file);
+    dispath(addAvatarUserThunk(file));
+    dispath(addAvatar(file));
+    console.log('file', file);
+    const a = setSelectedFile(file);
+    console.log('a', a);
   };
 
   const handleChange = event => {
@@ -66,20 +73,6 @@ const SettingsModal = ({ onClose }) => {
       })
     );
   };
-
-  // const userInfo = () => {
-  //   switch (key) {
-  //     case 'email':
-  //       setEmail();
-  //       break;
-  //     case 'name':
-  //       setName();
-  //       break;
-
-  //     default:
-  //       break;
-  //   }
-  // };
 
   const handleTogglePassword = inputType => {
     switch (inputType) {
