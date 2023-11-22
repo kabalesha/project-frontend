@@ -27,6 +27,7 @@ const portionOfDrinkingSlice = createSlice({
   initialState: [],
   reducers: {
     add: (state, action) => [...state, action.payload],
+
     del: (state, action) => state.filter((el, idx) => idx !== action.payload),
 
     // extraReducers: builder => {
@@ -39,4 +40,4 @@ const portionOfDrinkingSlice = createSlice({
   },
 });
 export const portionDrink = portionOfDrinkingSlice.reducer;
-export const { add, del } = portionOfDrinkingSlice.actions;
+export const { add, del, drink } = portionOfDrinkingSlice.actions;

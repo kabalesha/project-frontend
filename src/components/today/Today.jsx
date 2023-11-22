@@ -8,13 +8,12 @@ const Today = () => {
   const dispath = useDispatch();
   return (
     <div className={css.todayList}>
-      <h3>Today</h3>
+      <h3 className={css.todayTitle}> Today</h3>
       <TodayItem />
-      <button
-        style={{ border: 'none' }}
+      <button className={css.btn}
         onClick={() => dispath(modalShow(true))}
       >
-        +add water
+        + Add water
       </button>
     </div>
   );
