@@ -4,7 +4,7 @@ import img from '../../../components/header/AuthNav/outline.png';
 import { ReactComponent as UploadIcon } from '../SettingModal/outline.svg';
 import { ReactComponent as EyeIcon } from '../SettingModal/eye.svg';
 
-const SettingsModal = ({onClose }) => {
+const SettingsModal = ({ onClose }) => {
   const [selectedFile, setSelectedFile] = useState(null);
 
   const [outdatedPassword, setOutdatedPassword] = useState('');
@@ -24,7 +24,7 @@ const SettingsModal = ({onClose }) => {
     console.log(e.currentTarget);
   };
 
-  const handleTogglePassword = (inputType) => {
+  const handleTogglePassword = inputType => {
     switch (inputType) {
       case 'outdated':
         setShowOutdatedPassword(!showOutdatedPassword);
@@ -62,7 +62,7 @@ const SettingsModal = ({onClose }) => {
               <div className={css.photo_div}>
                 <img src={img} alt="" className={css.image_modal} />
               </div>
-             )}
+            )}
           </li>
           <li className={css.modal_list_upload}>
             <label htmlFor="fileInput">
@@ -85,7 +85,7 @@ const SettingsModal = ({onClose }) => {
           </li>
         </ul>
 
-        <form className={css.modal_form_user} >
+        <form className={css.modal_form_user}>
           <div className={css.all_inp_cont}>
             <div className={css.user_info_container}>
               <div className={css.modal_gender_block}>
@@ -151,7 +151,7 @@ const SettingsModal = ({onClose }) => {
                   <div
                     className={css.togglePasswordIcon}
                     onClick={() => {
-                       handleTogglePassword('outdated');
+                      handleTogglePassword('outdated');
                     }}
                   >
                     <EyeIcon />
@@ -212,11 +212,24 @@ const SettingsModal = ({onClose }) => {
             Save
           </button>
         </form>
-              <button onClick={ onClose} type='button' className={css.closeBtn}><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-         <path d="M6 18L18 6M6 6L18 18" stroke="#407BFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              </button>
-          </div>
+        <button onClick={onClose} type="button" className={css.closeBtn}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <path
+              d="M6 18L18 6M6 6L18 18"
+              stroke="#407BFF"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      </div>
     </div>
   );
 };
