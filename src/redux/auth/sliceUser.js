@@ -27,22 +27,22 @@ const handleFulfilledUser = (state, action) => {
 const handleFulfilledRefresh = (state, action) => {
   console.log('action', action.payload);
   if (!action.payload) {
-    localStorage.setItem('token', '');
     state.access_token = '';
     state.isLoading = false;
     state.error = '';
     state.profile = null;
+    state.isLoggedIn = true;
   } else {
     return;
   }
 };
-const handleFulfilledLogOut = (state, action) => {
-  state.access_token = '';
-  state.isLoading = false;
-  state.error = '';
-  state.profile = null;
-  localStorage.setItem('root', '');
-};
+// const handleFulfilledLogOut = (state, action) => {
+//   state.access_token = '';
+//   state.isLoading = false;
+//   state.error = '';
+//   state.profile = null;
+//   state.isLoggedIn = false;
+// };
 
 const handlePending = state => {
   state.isLoading = true;
@@ -55,14 +55,14 @@ const handleRejected = (state, { error, payload }) => {
 const authSlice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {
-    // logOut: state => {
-    //   state.access_token = '';
-    //   state.isLoading = false;
-    //   state.error = '';
-    //   state.profile = null;
-    // },
-  },
+  // reducers: {
+  //   logOut: state => {
+  //     state.access_token = '';
+  //     state.isLoading = false;
+  //     state.error = '';
+  //     state.profile = null;
+  //   },
+  // },
   extraReducers: builder => {
     builder
       .addCase(signUpThunk.fulfilled, handleFulfilledSignUp)
@@ -78,4 +78,4 @@ const authSlice = createSlice({
 });
 export const authReducer = authSlice.reducer;
 // export const { logOut } = authSlice.actions;
-export const selectAccessToken = state => state.auth.access_token;
+// export const selectAccessToken = state => state.auth.access_token;

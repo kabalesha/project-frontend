@@ -35,6 +35,12 @@ export const thunkRefresh = createAsyncThunk(
     } catch (error) {
       return rejectWithValue(error.message);
     }
+  },
+  {
+    condition: (_, { getState }) => {
+      const { auth } = getState();
+      if (auth.isLoggedIn === false) return;
+    },
   }
 );
 export const thunkLogOut = createAsyncThunk(
