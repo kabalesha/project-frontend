@@ -4,6 +4,7 @@ import {
   thunkLogOut,
   thunkRefresh,
   thunkSignIn,
+  updateUserThunk,
 } from './thunkUser';
 
 const initialState = {
@@ -34,6 +35,17 @@ const handleFulfilledRefresh = (state, action) => {
     return;
   }
 };
+const handleFulfilledUpdateUser = (state, action) => {
+  state.isLoading = false;
+  state.access_token = action.payload.token;
+  state.profile = {
+    ...state.profile,
+    name: action.payload.name,
+    gender: action.payload.gender,
+    email: action.payload.email,
+  };
+  state.isLoggedIn = true;
+};
 // const handleFulfilledLogOut = (state, action) => {
 //   state.access_token = '';
 //   state.isLoading = false;
@@ -57,7 +69,9 @@ const authSlice = createSlice({
     update: (state, action) => {
       state.profile = {
         ...state.profile,
-        ...action.payload,
+        name: action.payload.name,
+        gender: action.payload.gender,
+        email: action.payload.email,
       };
     },
     //   logOut: state => {
@@ -72,6 +86,7 @@ const authSlice = createSlice({
       .addCase(signUpThunk.fulfilled, handleFulfilledSignUp)
       .addCase(thunkSignIn.fulfilled, handleFulfilledUser)
       .addCase(thunkRefresh.fulfilled, handleFulfilledRefresh)
+      .addCase(updateUserThunk.fulfilled, handleFulfilledUpdateUser)
       // .addCase(thunkLogOut.fulfilled, handleFulfilledLogOut)
       .addCase(thunkLogOut.fulfilled, () => {
         return { ...initialState };

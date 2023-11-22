@@ -44,7 +44,7 @@ const SettingsModal = ({ onClose }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(e.target.email);
+
     dispath(
       updateUserThunk({
         outdatedPassword,
