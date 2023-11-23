@@ -1,3 +1,9 @@
+body {
+  @media screen and (min-width: 1440px) {
+    overflow-y: hidden;
+  }
+}
+
 .wrapper {
   min-height: calc(100vh - 70px);
 
