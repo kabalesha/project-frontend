@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import * as Yup from 'yup'; // Import Yup for validation
 import { useFormik } from 'formik';
 import css from './SettingsModal.module.css';
@@ -11,7 +11,7 @@ import {
 } from '../../../redux/auth/thunkUser';
 
 import { useDispatch } from 'react-redux';
-import { addAvatar, update } from '../../../redux/auth/sliceUser';
+import { update } from '../../../redux/auth/sliceUser';
 
 const SettingsModal = ({ onClose }) => {
   const [selectedFile, setSelectedFile] = useState('');
@@ -21,20 +21,14 @@ const SettingsModal = ({ onClose }) => {
   const [showOutdatedPassword, setShowOutdatedPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showRepeatPassword, setShowRepeatPassword] = useState(false);
-  const refAva = useRef();
+
   const [gender, setGender] = useState('man');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [ava, setAva] = useState(null);
+
   const dispath = useDispatch();
-  const handleFileChangeAvatar = event => {
-    const file = event.target.files[0];
-    dispath(addAvatarUserThunk(file));
-    dispath(addAvatar(file));
-    console.log('file', file);
-    const a = setSelectedFile(file);
-    console.log('a', a);
-  };
+  console.log(setNewPassword);
+  console.log(setRepeatPassword);
 
   const handleChange = event => {
     switch (event.target.name) {
@@ -55,12 +49,6 @@ const SettingsModal = ({ onClose }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-
-    // const formData = new FormData();
-    // formData.append('file', ava);
-    // dispath(addAvatarUserThunk(formData));
-    // dispath(addAvatar(formData));
-
     dispath(
       updateUserThunk({
         outdatedPassword,
@@ -98,10 +86,7 @@ const SettingsModal = ({ onClose }) => {
       repeatPassword: '',
     },
     validationSchema,
-    onSubmit: async values => {
-      // Handle form submission logic here
-      console.log(values);
-    },
+    onSubmit: async values => {},
   });
 
   const handleFileChange = event => {
@@ -111,15 +96,10 @@ const SettingsModal = ({ onClose }) => {
     const formData = new FormData();
     formData.append('avatarURL', file);
     dispath(addAvatarUserThunk(formData));
-    dispath(addAvatar('555'));
-    console.log('file', file);
-    const a = setSelectedFile(file);
-    console.log('a', a);
-    // setSelectedFile(URL.createObjectURL(file));
+
+    setSelectedFile(file);
   };
-  const handleClick = () => {
-    // refAva.current.click();
-  };
+
   const handleTogglePassword = inputType => {
     switch (inputType) {
       case 'outdated':
@@ -178,7 +158,6 @@ const SettingsModal = ({ onClose }) => {
               name="photo"
               accept="image/jpeg,image/png"
               onChange={handleFileChange}
-              // ref={refAva}
             />
           </li>
         </ul>
@@ -341,11 +320,7 @@ const SettingsModal = ({ onClose }) => {
               </div>
             </div>
           </div>
-          <button
-            type="submit"
-            className={css.modal_form_submit}
-            onClick={handleClick}
-          >
+          <button type="submit" className={css.modal_form_submit}>
             Save
           </button>
         </form>

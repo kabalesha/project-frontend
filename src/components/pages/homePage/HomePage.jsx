@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import css from './HomePage.module.css';
 // import classNames from 'classnames';
 import '../../../css/main.css';
@@ -6,10 +6,10 @@ import Today from '../../today/Today';
 import Month from '../../month/Month';
 import { useDispatch, useSelector } from 'react-redux';
 import { modalShow } from '../../../redux/showModal/sliceShowModal';
-import { thunkRefresh } from '../../../redux/auth/thunkUser';
+
 import { getPortion } from '../../../redux/selectors';
-import { drink } from '../../../redux/portionOfDrinking/slicePortionOfDrinking';
-import { imb, total, water } from '../../utils/water';
+
+import { imb, water } from '../../utils/water';
 import { norma } from '../../../redux/auth/sliceUser';
 const HomePage = () => {
   const dispath = useDispatch();
@@ -24,10 +24,7 @@ const HomePage = () => {
     // setNorma(result);
     return result;
   };
-  // useEffect(() => {
-  //   handleIMB();
-  // }, []);
-
+  console.log(handleIMB);
   return (
     <div className={css.mainPageContainer}>
       <div className={css.heroImg} />

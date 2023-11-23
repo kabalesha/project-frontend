@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import css from '../UserNav/UserNav.module.css';
@@ -8,7 +7,7 @@ import { thunkLogOut } from '../../../redux/auth/thunkUser';
 
 const UserNav = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+
   const [isModalOpen, setModalOpen] = useState(false);
   const [isSettingsModalOpen, setSettingsModalOpen] = useState(false);
 
@@ -18,10 +17,6 @@ const UserNav = () => {
 
   const handleSettingsClick = () => {
     setSettingsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setModalOpen(false);
   };
 
   const handleCloseSettingsModal = () => {
