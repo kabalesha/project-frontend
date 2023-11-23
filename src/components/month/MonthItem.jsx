@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import css from './MontsItem.module.css';
+import { useSelector } from 'react-redux';
+import { getNormaSelector } from '../../redux/selectors';
 
 const DayItem = ({ day, handleClick, selectedDay }) => {
   const [showAdditionalInfo, setShowAdditionalInfo] = useState(false);
-
+  const norma = useSelector(getNormaSelector);
   return (
     <div style={{ display: 'block', position: 'relative' }} key={day}>
       <button
@@ -11,18 +13,36 @@ const DayItem = ({ day, handleClick, selectedDay }) => {
           handleClick(day);
           setShowAdditionalInfo(true);
         }}
-        className={`${css.calendarItem} ${selectedDay === day ? css.selected : ''}`}
+        className={`${css.calendarItem} ${
+          selectedDay === day ? css.selected : ''
+        }`}
       >
         {day}
       </button>
       {selectedDay === day && showAdditionalInfo && (
         <div className={css.additionalInfo}>
           <p className={css.infoDate}>5, April</p>
-          <p>Daily norma: <span className={css.accent}>1.5 L</span></p>
-          <p>Fulfillment of the daily norm: <span className={css.accent}>100%</span></p>
-          <p>How many servings of water: <span className={css.accent}>6</span></p>
-          <button className={css.infoClose} onClick={() => setShowAdditionalInfo(false)}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <p>
+            Daily norma: <span className={css.accent}>{norma} L</span>
+          </p>
+          <p>
+            Fulfillment of the daily norm:{' '}
+            <span className={css.accent}>100%</span>
+          </p>
+          <p>
+            How many servings of water: <span className={css.accent}>6</span>
+          </p>
+          <button
+            className={css.infoClose}
+            onClick={() => setShowAdditionalInfo(false)}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+            >
               <path
                 d="M4 12L12 4M4 4L12 12"
                 stroke="#407BFF"
@@ -49,7 +69,12 @@ const MonthItem = ({ quantityDays, handleClick, selectedDay }) => {
   }
 
   return i.map((el, idx) => (
-    <DayItem key={el} day={el} handleClick={handleClick} selectedDay={selectedDay} />
+    <DayItem
+      key={el}
+      day={el}
+      handleClick={handleClick}
+      selectedDay={selectedDay}
+    />
   ));
 };
 

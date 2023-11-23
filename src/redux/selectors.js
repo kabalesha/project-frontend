@@ -6,3 +6,4 @@ export const isAuth = state => state.auth.isLoading;
 export const getCurrentToken = state => state.profile.access_token;
 export const selectIsAuth = state => Boolean(state.auth.access_token);
 export const getPortion = state => state.portion;
+export const getNormaSelector = state => state.norma;

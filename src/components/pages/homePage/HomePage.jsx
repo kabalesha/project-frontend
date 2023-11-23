@@ -19,6 +19,7 @@ const HomePage = () => {
 
   const handleIMB = value => {
     const result = (imb(1.8, 90) * 100).toFixed(1);
+    dispath(norma());
     setNorma(result);
     return result;
   };

@@ -14,6 +14,7 @@ const initialState = {
   profile: null,
   isLoggedIn: false,
   isRefreshing: false,
+  norma: '1.5',
 };
 const handleFulfilledSignUp = (state, action) => {
   console.log('action', action.payload);
@@ -30,6 +31,7 @@ const handleFulfilledRefresh = (state, action) => {
     state.access_token = '';
     state.error = '';
     state.profile = null;
+
     // state.isLoggedIn = true;
   } else {
     return;
@@ -38,6 +40,7 @@ const handleFulfilledRefresh = (state, action) => {
 const handleFulfilledUpdateUser = (state, action) => {
   state.isLoading = false;
   state.access_token = action.payload.token;
+  state.norma = action.payload + 100;
   state.profile = {
     ...state.profile,
     name: action.payload.name,
@@ -66,6 +69,7 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
+    norma: (state, action) => (state.norma = action.payload),
     update: (state, action) => {
       state.profile = {
         ...state.profile,
