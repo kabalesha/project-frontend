@@ -1,17 +1,12 @@
 import React, { useState } from 'react';
 import TodayForm from './todayForm/TodayForm';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  add,
-  drink,
-} from '../../redux/portionOfDrinking/slicePortionOfDrinking';
+import { add } from '../../redux/portionOfDrinking/slicePortionOfDrinking';
 import Modal from '../modalWindow/Modal';
 import { showModalSelector } from '../../redux/selectors';
 import TodayList from './TodayList';
-import { addPortionOfWater } from '../../api/ApiPortionWater';
 import { thunkPortionAddDrinking } from '../../redux/portionOfDrinking/thunkPortionOfDrinking';
-import { water } from '../utils/water';
-// import { water } from '../utils/water';
+import EditForm from '../today/editForm/EditForm';
 
 const Today = () => {
   const [idx, setIdx] = useState('');
