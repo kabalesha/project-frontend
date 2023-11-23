@@ -26,7 +26,7 @@ const SettingsModal = ({ onClose }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const dispath = useDispatch();
-  const handleFileChange = event => {
+  const handleFileChangeAvatar = event => {
     const file = event.target.files[0];
     dispath(addAvatarUserThunk(file));
     dispath(addAvatar(file));
@@ -75,8 +75,7 @@ const SettingsModal = ({ onClose }) => {
         gender,
       })
     );
-
-
+  };
   const validationSchema = Yup.object().shape({
     newPassword: Yup.string()
       .required('New password is required')
@@ -102,7 +101,6 @@ const SettingsModal = ({ onClose }) => {
   const handleFileChange = event => {
     const file = event.target.files[0];
     setSelectedFile(URL.createObjectURL(file));
-
   };
 
   const handleTogglePassword = inputType => {
@@ -167,8 +165,7 @@ const SettingsModal = ({ onClose }) => {
           </li>
         </ul>
 
-
-        <form className={css.modal_form_user} onSubmit={handleSubmit}>
+        <form className={css.modal_form_user}>
           <div className={css.all_inp_cont}>
             <div className={css.user_info_container}>
               <div className={css.modal_gender_block}>
@@ -264,7 +261,14 @@ const SettingsModal = ({ onClose }) => {
                     onBlur={formik.handleBlur('newPassword')}
                     placeholder="Password"
                     id="newPas"
-                    className={`${css.modal_input} ${css.modal_input_password} ${formik.touched.repeatPassword && formik.errors.repeatPassword ? css.inputError : ''}`}
+                    className={`${css.modal_input} ${
+                      css.modal_input_password
+                    } ${
+                      formik.touched.repeatPassword &&
+                      formik.errors.repeatPassword
+                        ? css.inputError
+                        : ''
+                    }`}
                   />
                   <div
                     className={css.togglePasswordIcon}
@@ -289,10 +293,17 @@ const SettingsModal = ({ onClose }) => {
                     type={showRepeatPassword ? 'text' : 'password'}
                     value={formik.values.repeatPassword}
                     onChange={formik.handleChange('repeatPassword')}
-                     onBlur={formik.handleBlur('repeatPassword')}
+                    onBlur={formik.handleBlur('repeatPassword')}
                     placeholder="Password"
                     id="repeatPas"
-                    className={`${css.modal_input} ${css.modal_input_password} ${formik.touched.repeatPassword && formik.errors.repeatPassword ? css.inputError : ''}`}
+                    className={`${css.modal_input} ${
+                      css.modal_input_password
+                    } ${
+                      formik.touched.repeatPassword &&
+                      formik.errors.repeatPassword
+                        ? css.inputError
+                        : ''
+                    }`}
                   />
                   <div
                     className={css.togglePasswordIcon}
@@ -303,9 +314,12 @@ const SettingsModal = ({ onClose }) => {
                     <EyeIcon />
                   </div>
                 </div>
-                {formik.touched.repeatPassword && formik.errors.repeatPassword && (
-                  <div className={css.error}>{formik.errors.repeatPassword}</div>
-                )}
+                {formik.touched.repeatPassword &&
+                  formik.errors.repeatPassword && (
+                    <div className={css.error}>
+                      {formik.errors.repeatPassword}
+                    </div>
+                  )}
               </div>
             </div>
           </div>
@@ -332,7 +346,7 @@ const SettingsModal = ({ onClose }) => {
         </button>
       </div>
     </div>
-  )
+  );
 };
 
 export default SettingsModal;
