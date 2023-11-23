@@ -2,6 +2,7 @@
   height: 33vh;
   overflow-y: auto;
 }
+
 .itemWrap {
   display: flex;
   flex-direction: row;
@@ -16,11 +17,13 @@
   display: flex;
   align-items: center;
 }
+
 .btnsWrap {
   display: flex;
   align-items: center;
   gap: 18px;
 }
+
 .icon {
   display: block;
   margin-right: 12px;
@@ -45,6 +48,7 @@
   width: 16px;
   height: 16px;
 }
+
 .delBtn {
   width: 16px;
   height: 16px;

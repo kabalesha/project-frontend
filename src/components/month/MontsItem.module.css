@@ -108,7 +108,7 @@
 .calendarItem:focus {
   display: block;
   opacity: 1;
-  background-color: red;
+  background-color: white;
 }
 
 .calendar {

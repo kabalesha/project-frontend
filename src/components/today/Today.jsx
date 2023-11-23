@@ -10,9 +10,7 @@ const Today = () => {
     <div className={css.todayList}>
       <h3 className={css.todayTitle}> Today</h3>
       <TodayItem />
-      <button className={css.btn}
-        onClick={() => dispath(modalShow(true))}
-      >
+      <button className={css.btn} onClick={() => dispath(modalShow(true))}>
         + Add water
       </button>
     </div>

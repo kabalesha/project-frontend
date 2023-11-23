@@ -10,12 +10,14 @@
 
 .btn {
   color: #407bff;
-  font-size: 16px;
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
   font-weight: 500;
-  line-height: 1.25;
-  border: none;
+  line-height: 24px;
   background-color: transparent;
-  margin-top: 12px;
+  border: none;
+
 }
 
 .todayCalendar {}
@@ -26,8 +28,7 @@
   padding-left: 8px;
   padding-right: 8px;
   padding-top: 24px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 0px;
   margin-bottom: 24px;
 }
 
