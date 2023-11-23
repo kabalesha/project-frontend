@@ -91,7 +91,6 @@ const SettingsModal = ({ onClose }) => {
       .required('Repeat password is required'),
   });
 
-
   const formik = useFormik({
     initialValues: {
       newPassword: '',
@@ -123,11 +122,9 @@ const SettingsModal = ({ onClose }) => {
     const a = setSelectedFile(file);
     console.log('a', a);
     // setSelectedFile(URL.createObjectURL(file));
-
   };
   const handleClick = () => {
     // refAva.current.click();
-
   };
   const handleTogglePassword = inputType => {
     switch (inputType) {

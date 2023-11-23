@@ -16,8 +16,7 @@ import { norma } from '../../../redux/auth/sliceUser';
 import BgDesk from '../../../images/desctopFrame.png';
 import BgTab from '../../../images/tabletFrame.png';
 import BgMob from '../../../images/mobileFrame.png';
-import { Background, Picture } from './HomePage.styled';
-
+import { BottleBackground, Picture } from './HomePage.styled';
 
 const HomePage = () => {
   const dispath = useDispatch();
@@ -50,6 +49,7 @@ const HomePage = () => {
           </div>
           <div className={css.heroImg} />
 
+          <BottleBackground />
           <div className={css.todayProgress}>
             <div className={css.progress}>
               <h2 className={css.todayTitle}>Today</h2>

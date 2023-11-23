@@ -26,9 +26,9 @@
 
 .monthWrap {
   display: flex;
+  margin-bottom: 15px;
   justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 16px;
+  align-items: center;
 }
 
 .monthTitle {
