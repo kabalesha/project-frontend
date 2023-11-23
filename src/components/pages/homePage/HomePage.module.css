@@ -2,25 +2,128 @@
   width: 280px;
   margin-left: auto;
   margin-right: auto;
-
   padding-left: 20px;
   padding-right: 20px;
 }
-.mainPageCalendar {
-  width: 280px;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #ecf2ff;
-  /* padding-left: 20px; */
-  /* padding-right: 20px; */
-  border-radius: 10px;
-  box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.3);
+
+@media screen and (min-width: 768px) {
+
+  .mainPageContainer {
+    width: 704px;
+    padding: 0px 32px;
+    margin: 0px auto;
+  }
 }
+
+@media screen and (min-width: 1440px) {
+
+  .mainPageContainer {
+    width: 1216px;
+    padding: 0px 32px;
+  }
+}
+
+.mainPageWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+@media screen and (min-width: 768px) {
+  .mainPageWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .mainPageWrapper {
+    flex-direction: row;
+    gap: 32px px;
+  }
+}
+
+.firstPart {
+  position: relative;
+  padding-top: 40px;
+  width: 100%;
+}
+
+@media screen and (min-width: 1440px) {
+  .firstPart {
+    width: 50%;
+  }
+}
+
+.mainPageCalendar {
+  border-radius: 10px;
+  background-color: rgb(236, 242, 255);
+  box-shadow: rgba(64, 123, 255, 0.3) 0px 4px 14px;
+  display: flex;
+  padding: 24px 8px;
+  flex-direction: column;
+  gap: 24px;
+  width: 280px;
+  margin: 0px auto;
+  box-sizing: border-box;
+}
+
+@media screen and (min-width: 768px) {
+  .mainPageCalendar {
+    width: 704px;
+    padding: 32px 24px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .mainPageCalendar {
+    width: 50%;
+    padding: 32px 24px;
+  }
+}
+
 .todayProgress {
-  margin-top: 16px;
-  padding-left: 8px;
-  padding-right: 8px;
-  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+}
+
+@media screen and (min-width: 768px) {
+  .todayProgress {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.progress {
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .progress {
+    display: flex;
+    flex-direction: column;
+    gap: 19px;
+    width: 356px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .progress {
+    display: flex;
+    flex-direction: column;
+    gap: 19px;
+    width: 391px;
+  }
 }
 
 .heroImg {
@@ -35,16 +138,26 @@
 }
 
 .btnAddWater {
-  display: block;
-  width: 280px;
+  display: inline-flex;
   height: 36px;
-  margin-right: auto;
-  margin-left: auto;
-  border: none;
+  padding: 6px 76px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
   border-radius: 10px;
-  /* box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34); */
-  color: rgba(255, 255, 255, 1);
-  background-color: rgba(64, 123, 255, 1);
+  background-color: #407BFF;
+  box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
+}
+
+.add_water_title {
+  text-align: center;
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  color: #FFF;
 }
 
 .icon {
@@ -53,14 +166,46 @@
   width: 24px;
   height: 24px;
 }
+
 .dailyNormaContainer {
   border-radius: 10px;
-  border: 1px solid #ecf2ff;
-  background: #fff;
-  box-shadow: 0px 4px 8px 0px rgba(158, 187, 255, 0.12);
+  border: 1px solid rgb(236, 242, 255);
+  background: rgb(255, 255, 255);
+  box-shadow: rgba(158, 187, 255, 0.12) 0px 4px 8px 0px;
   width: 164px;
   padding: 8px 20px;
   margin-bottom: 8px;
+}
+
+@media screen and (min-width: 1440px) {
+  .dailyNormaContainer {
+    position: absolute;
+    top: 40px;
+    left: 0px;
+  }
+}
+
+div {
+  display: block;
+}
+
+.imageBackground {
+  background-image: url(../../../images/BgBottleMob.png);
+  width: 280px;
+  height: 208px;
+  flex-shrink: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .imageBackground {
+    background-image: url(../../../images/BgBottleTab.png);
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .imageBackground {
+    background-image: url(../../../images/BgBottleDesk.png);
+  }
 }
 
 .dailyTitle {
@@ -70,11 +215,13 @@
   margin-bottom: 12px;
   white-space: nowrap;
 }
+
 .normaContainer {
   display: flex;
   gap: 12px;
   align-items: center;
 }
+
 .norma {
   font-size: 22px;
   font-weight: 700;
@@ -97,7 +244,8 @@
   background-color: #9ebbff;
   border-radius: 10px;
   margin: 0 auto;
-  &::after {
+
+  /* &::after {
     content: '';
     position: absolute;
     top: 50%;
@@ -108,8 +256,9 @@
     background-color: #ffffff;
     border: 1px solid #407bff;
     border-radius: 100%;
-  }
-  div {
+  } */
+
+  /* div {
     position: absolute;
     border-radius: 10px;
 
@@ -119,19 +268,22 @@
     width: 50%;
     height: 100%;
     background-color: #9ebbff;
-  }
+  } */
 }
-.info {
+
+/* .info {
   display: flex;
   justify-content: space-between;
-  position: relative;
-  span {
+  position: relative; */
+
+/* span {
     color: #407bff;
     font-size: 12px;
     line-height: calc(16 / 12);
     position: absolute;
     top: 50%;
     left: 50%;
+
     &:nth-child(2) {
       font-size: 16px;
       line-height: calc(20 / 16);
@@ -141,8 +293,9 @@
       left: 50%;
       transform: translate(-50%, -50%);
     }
-  }
-}
+  } */
+
+
 /* .mainPageProgressWater {
 }
 @media screen and (max-width: 320px) {
