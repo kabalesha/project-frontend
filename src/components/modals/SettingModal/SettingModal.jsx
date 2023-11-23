@@ -5,6 +5,12 @@ import css from './SettingsModal.module.css';
 import img from '../../../components/header/AuthNav/outline.png';
 import { ReactComponent as UploadIcon } from '../SettingModal/outline.svg';
 import { ReactComponent as EyeIcon } from '../SettingModal/eye.svg';
+import {
+  addAvatarUserThunk,
+  updateUserThunk,
+} from '../../../redux/auth/thunkUser';
+import { useDispatch } from 'react-redux';
+import { addAvatar, update } from '../../../redux/auth/sliceUser';
 
 const SettingsModal = ({ onClose }) => {
   const [selectedFile, setSelectedFile] = useState('');
@@ -15,6 +21,61 @@ const SettingsModal = ({ onClose }) => {
   const [showOutdatedPassword, setShowOutdatedPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showRepeatPassword, setShowRepeatPassword] = useState(false);
+
+  const [gender, setGender] = useState('man');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const dispath = useDispatch();
+  const handleFileChange = event => {
+    const file = event.target.files[0];
+    dispath(addAvatarUserThunk(file));
+    dispath(addAvatar(file));
+    console.log('file', file);
+    const a = setSelectedFile(file);
+    console.log('a', a);
+  };
+
+  const handleChange = event => {
+    switch (event.target.name) {
+      case 'email':
+        setEmail(event.target.value);
+        break;
+      case 'name':
+        setName(event.target.value);
+        break;
+      case 'gender':
+        setGender(event.target.value);
+        break;
+
+      default:
+        break;
+    }
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    dispath(
+      updateUserThunk({
+        outdatedPassword,
+        newPassword,
+        repeatPassword,
+        name,
+        email,
+        gender,
+      })
+    );
+    dispath(
+      update({
+        outdatedPassword,
+        newPassword,
+        repeatPassword,
+        name,
+        email,
+        gender,
+      })
+    );
+
 
   const validationSchema = Yup.object().shape({
     newPassword: Yup.string()
@@ -41,6 +102,7 @@ const SettingsModal = ({ onClose }) => {
   const handleFileChange = event => {
     const file = event.target.files[0];
     setSelectedFile(URL.createObjectURL(file));
+
   };
 
   const handleTogglePassword = inputType => {
@@ -54,6 +116,7 @@ const SettingsModal = ({ onClose }) => {
       case 'repeat':
         setShowRepeatPassword(!showRepeatPassword);
         break;
+
       default:
         break;
     }
@@ -104,12 +167,15 @@ const SettingsModal = ({ onClose }) => {
           </li>
         </ul>
 
-        <form className={css.modal_form_user} onSubmit={formik.handleSubmit}>
+
+        <form className={css.modal_form_user} onSubmit={handleSubmit}>
           <div className={css.all_inp_cont}>
             <div className={css.user_info_container}>
               <div className={css.modal_gender_block}>
                 <p className={css.modal_gender_text}>Your gender identity</p>
                 <input
+                  checked={gender === 'woman'}
+                  onChange={handleChange}
                   type="radio"
                   className={css.gender_input}
                   value="woman"
@@ -120,6 +186,8 @@ const SettingsModal = ({ onClose }) => {
                   Woman
                 </label>
                 <input
+                  checked={gender === 'man'}
+                  onChange={handleChange}
                   type="radio"
                   className={css.gender_input}
                   value="man"
@@ -135,16 +203,22 @@ const SettingsModal = ({ onClose }) => {
                 Your name
               </label>
               <input
+                onChange={handleChange}
                 type="text"
                 placeholder="Name"
                 id="nameInput"
+                name="name"
+                value={name}
                 className={`${css.modal_input} ${css.modal_input_data}`}
               />
               <label htmlFor="emailInp" className={css.dataLabel}>
                 E-mail
               </label>
               <input
+                onChange={handleChange}
                 type="text"
+                name="email"
+                value={email}
                 placeholder="test@gmail.com"
                 id="emailInp"
                 className={`${css.modal_input} ${css.modal_input_data}`}
