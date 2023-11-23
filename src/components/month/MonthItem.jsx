@@ -5,7 +5,7 @@ import { getNormaSelector } from '../../redux/selectors';
 
 const DayItem = ({ day, handleClick, selectedDay }) => {
   const [showAdditionalInfo, setShowAdditionalInfo] = useState(false);
-  const norma = useSelector(getNormaSelector);
+  const normaDaile = useSelector(getNormaSelector);
   return (
     <div style={{ display: 'block', position: 'relative' }} key={day}>
       <button
@@ -23,7 +23,7 @@ const DayItem = ({ day, handleClick, selectedDay }) => {
         <div className={css.additionalInfo}>
           <p className={css.infoDate}>5, April</p>
           <p>
-            Daily norma: <span className={css.accent}>{norma} L</span>
+            Daily norma: <span className={css.accent}>1.5 L</span>
           </p>
           <p>
             Fulfillment of the daily norm:{' '}

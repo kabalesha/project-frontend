@@ -9,6 +9,7 @@ import {
   addAvatarUserThunk,
   updateUserThunk,
 } from '../../../redux/auth/thunkUser';
+
 import { useDispatch } from 'react-redux';
 import { addAvatar, update } from '../../../redux/auth/sliceUser';
 

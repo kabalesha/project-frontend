@@ -10,22 +10,23 @@ import { thunkRefresh } from '../../../redux/auth/thunkUser';
 import { getPortion } from '../../../redux/selectors';
 import { drink } from '../../../redux/portionOfDrinking/slicePortionOfDrinking';
 import { imb, total, water } from '../../utils/water';
+import { norma } from '../../../redux/auth/sliceUser';
 const HomePage = () => {
   const dispath = useDispatch();
-  const [norma, setNorma] = useState('');
+  // const [norma, setNorma] = useState('');
   const getWater = useSelector(getPortion);
 
   const total = water(getWater) / imb(1.8, 90) / 1000;
 
   const handleIMB = value => {
     const result = (imb(1.8, 90) * 100).toFixed(1);
-    dispath(norma());
-    setNorma(result);
+    dispath(norma(result));
+    // setNorma(result);
     return result;
   };
-  useEffect(() => {
-    handleIMB();
-  }, []);
+  // useEffect(() => {
+  //   handleIMB();
+  // }, []);
 
   return (
     <div className={css.mainPageContainer}>

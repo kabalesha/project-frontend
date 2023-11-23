@@ -106,5 +106,5 @@ const authSlice = createSlice({
 });
 export const authReducer = authSlice.reducer;
 // export const { logOut } = authSlice.actions;
-export const { update, addAvatar } = authSlice.actions;
+export const { update, addAvatar, norma } = authSlice.actions;
 // export const selectAccessToken = state => state.auth.access_token;
