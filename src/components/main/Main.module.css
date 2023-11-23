@@ -2,6 +2,10 @@ body {
   @media screen and (min-width: 1440px) {
     overflow-y: hidden;
   }
+  @media screen and (min-width: 768px) {
+    overflow-y: hidden;
+  }
+  margin-left: 0;
 }
 
 .wrapper {

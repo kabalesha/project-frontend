@@ -10,7 +10,7 @@ import buttleDesc from '../../../../images/backgroundHomeDesk.png';
 
 export const WelcomeStyledLayout = styled.section`
   width: 100vw; 
-  margin: auto;
+  height: 100vh;
   /* padding-bottom: 40px; */
 
   background-image: url(${bbMobile});
@@ -19,6 +19,7 @@ export const WelcomeStyledLayout = styled.section`
 
   @media screen and (min-width: 768px) {
   width: 100vw;
+  height: 100vh;
   }
 
   @media screen and (min-width: 1440px) {
@@ -33,12 +34,11 @@ export const WelcomeStyledLayout = styled.section`
 `;
 export const Wrapper = styled.div`
  width: 280px;
- padding: 0 20px; 
+
+ 
 
  @media screen and (min-width: 768px) {
   width: 768px;
-  
-
  }
 
  @media screen and (min-width: 1440px) {
@@ -54,9 +54,10 @@ export const Div = styled.div`
   background-image: url(${buttleMob});
   background-position: bottom;
   background-repeat: no-repeat;
-  margin-right: auto;
+ margin-right: auto;
   margin-left: auto;
   padding-left:20px;
+
   
   @media screen and (min-width: 768px) {
     background-image: url(${buttleTab});
@@ -67,8 +68,8 @@ export const Div = styled.div`
 
   @media screen and (min-width: 1400px) {
     padding-top: 45px;
-    /* padding-left: 10px; */
-    padding-bottom: 340px;
+    padding-bottom: 200px;
+    height: 100vh;
     background-image: url(${buttleDesc});
     background-size: 100%;
     background-position: center bottom 10%;
