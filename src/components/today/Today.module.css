@@ -1,13 +1,9 @@
 .todayList {
-  width: 258px;
-  height: 258px;
-  padding-left: 8px;
-  padding-right: 8px;
-  padding-top: 24px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 24px;
+  height: 220px;
+  overflow-y: auto;
+  margin-top: 16px;
 }
+
 .todayTitle {
   margin-bottom: 16px;
 }
@@ -22,17 +18,31 @@
   margin-top: 12px;
 }
 
-.todayCalendar {
+.todayCalendar {}
+
+.todayList {
+  width: 258px;
+  height: 258px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 24px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 24px;
 }
 
 @media screen and (min-width: 768px) {
   .todayList {
-    width: 704px;
-    height: 260px;
+    width: fit-content;
   }
 }
-@media screen and (min-width: 1216px) {
+
+@media screen and (min-width: 1440px) {
   .todayList {
-    margin-right: 0;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 0px;
   }
 }

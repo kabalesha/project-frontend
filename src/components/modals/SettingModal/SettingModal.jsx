@@ -12,16 +12,17 @@ import {
 
 import { useDispatch } from 'react-redux';
 import { addAvatar, update } from '../../../redux/auth/sliceUser';
-
 const SettingsModal = ({ onClose }) => {
   const [selectedFile, setSelectedFile] = useState('');
   const [outdatedPassword, setOutdatedPassword] = useState('');
-  const [newPassword, setNewPassword] = useState('');
-  const [repeatPassword, setRepeatPassword] = useState('');
+  const [newPassword] = useState('');
+  const [repeatPassword] = useState('');
   const [showOutdatedPassword, setShowOutdatedPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showRepeatPassword, setShowRepeatPassword] = useState(false);
+
   const refAva = useRef();
+
   const [gender, setGender] = useState('man');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -35,7 +36,6 @@ const SettingsModal = ({ onClose }) => {
     const a = setSelectedFile(file);
     console.log('a', a);
   };
-
   const handleChange = event => {
     switch (event.target.name) {
       case 'email':
@@ -47,12 +47,10 @@ const SettingsModal = ({ onClose }) => {
       case 'gender':
         setGender(event.target.value);
         break;
-
       default:
         break;
     }
   };
-
   const handleSubmit = e => {
     e.preventDefault();
 
@@ -82,6 +80,7 @@ const SettingsModal = ({ onClose }) => {
       })
     );
   };
+
   const validationSchema = Yup.object().shape({
     newPassword: Yup.string()
       .required('New password is required')
@@ -92,18 +91,26 @@ const SettingsModal = ({ onClose }) => {
       .required('Repeat password is required'),
   });
 
+
   const formik = useFormik({
     initialValues: {
       newPassword: '',
       repeatPassword: '',
     },
-    validationSchema,
     onSubmit: async values => {
       // Handle form submission logic here
-      console.log(values);
+      console.log('submit', values);
     },
+    validationSchema: Yup.object().shape({
+      newPassword: Yup.string()
+        .required('New password is required')
+        .min(8, 'Password must be at least 8 characters long')
+        .max(64, 'Password must not exceed 64 characters'),
+      repeatPassword: Yup.string()
+        .oneOf([Yup.ref('newPassword'), null], 'Passwords must match')
+        .required('Repeat password is required'),
+    }),
   });
-
   const handleFileChange = event => {
     const file = event.target.files[0];
     console.log('file', file);
@@ -116,9 +123,11 @@ const SettingsModal = ({ onClose }) => {
     const a = setSelectedFile(file);
     console.log('a', a);
     // setSelectedFile(URL.createObjectURL(file));
+
   };
   const handleClick = () => {
     // refAva.current.click();
+
   };
   const handleTogglePassword = inputType => {
     switch (inputType) {
@@ -131,19 +140,16 @@ const SettingsModal = ({ onClose }) => {
       case 'repeat':
         setShowRepeatPassword(!showRepeatPassword);
         break;
-
       default:
         break;
     }
   };
-
   return (
     <div className={css.backdrop}>
       <div className={css.modal}>
         <div className={css.settings_flex_container}>
           <b className={css.modal_setting}>Setting</b>
         </div>
-
         <p className={css.modal_photo_text}>Your Photo</p>
         <ul className={css.modal_photo_list}>
           <li className={css.modal_list_photo}>
@@ -170,7 +176,6 @@ const SettingsModal = ({ onClose }) => {
                 <span className={css.uploadText}>Upload a photo</span>
               </div>
             </label>
-
             <input
               id="fileInput"
               className={`${css.modal_list_input} ${css.modal_list_upload_input}`}
@@ -213,7 +218,6 @@ const SettingsModal = ({ onClose }) => {
                   Man
                 </label>
               </div>
-
               <label htmlFor="nameInput" className={css.dataLabel}>
                 Your name
               </label>
@@ -239,10 +243,8 @@ const SettingsModal = ({ onClose }) => {
                 className={`${css.modal_input} ${css.modal_input_data}`}
               />
             </div>
-
             <div className={css.modal_password_inp}>
               <p className={css.modal_password_text}>Password</p>
-
               <div className={css.passwordInputContainer}>
                 <label htmlFor="outdatedPas" className={css.password_label}>
                   Outdated password:
@@ -266,7 +268,6 @@ const SettingsModal = ({ onClose }) => {
                   </div>
                 </div>
               </div>
-
               <div className={css.passwordInputContainer}>
                 <label htmlFor="newPas" className={css.password_label}>
                   New Password:
@@ -305,7 +306,7 @@ const SettingsModal = ({ onClose }) => {
                 <label htmlFor="repeatPas" className={css.password_label}>
                   Repeat new password:
                 </label>
-
+                8:23
                 <div className={css.inputContainer}>
                   <input
                     type={showRepeatPassword ? 'text' : 'password'}

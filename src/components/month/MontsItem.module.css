@@ -1,11 +1,27 @@
 .currentMonth {
-  padding-left: 8px;
-  padding-right: 8px;
-
-  margin-left: auto;
+  /* padding-left: 8px;
+  padding-right: 8px; */
+  display: flex;
+  flex-direction: column;
+  /* margin-left: auto;
   margin-right: auto;
   margin-top: 16px;
   margin-bottom: 16px;
+} */
+}
+
+@media screen and (min-width: 768px) {
+  .currentMonth {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .currentMonth {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .monthWrap {
@@ -27,6 +43,7 @@
   font-size: 16px;
   line-height: 1.25;
 }
+
 .calendarItem {
   /* position: relative; */
   text-align: center;
@@ -42,19 +59,12 @@
 
 .additionalInfo {
   display: flex;
-  flex-direction: column;
-  gap: 16px;
   position: absolute;
-  top: -250%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 254px;
-  padding: 24px 13px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 4px 0px rgba(64, 123, 255, 0.3);
-  background-color: #fff;
-
+  /* width: 100vw; */
   z-index: 3;
+  bottom: calc(100% - (22px + 34px + 6px));
+  left: calc((280px - 254px) / 2);
+
 }
 
 .infoDate {
@@ -62,12 +72,14 @@
   font-size: 16px;
   line-height: 1.25;
 }
+
 .accent {
   color: #407bff;
   font-size: 18px;
   font-weight: 500;
   line-height: 1.33;
 }
+
 .infoClose {
   position: absolute;
   left: 90%;
@@ -98,30 +110,52 @@
   opacity: 1;
   background-color: red;
 }
-@media screen and (max-width: 320px) {
+
+.calendar {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 26px;
+}
+
+@media screen and (min-width: 768px) {
+  .calender {
+    gap: 20px 34px
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .calender {
+    gap: 22px;
+  }
+}
+
+/* @media screen and (max-width: 320px) {
   .currentMonth {
     width: 280px;
     height: 506px;
   }
+
   .calendar {
-    height: 460px;
     outline: 1px solid red;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-
-    gap: '22px';
+    gap: 22px;
+    position: relative;
   }
 }
+
 @media screen and (min-width: 321px) {
   .currentMonth {
     width: 280px;
     height: 506px;
   }
+
   .calendar {
     outline: 1px solid red;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-
+    position: relative;
     gap: 22px;
   }
 }
@@ -131,16 +165,30 @@
     width: 704px;
     height: 360px;
   }
+
   .calendar {
     grid-template-columns: repeat(10, 1fr);
     gap: 10px;
     height: 340px;
+    position: relative;
   }
-}
+} */
+
 @media screen and (min-width: 1216px) {
   .currentMonth {
     margin-right: 0;
   }
-  .mainPageCalendar {
-  }
+
+  .mainPageCalendar {}
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 254px;
+  padding: 24px 13px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px 0px rgba(64, 123, 255, 0.3);
+  background-color: #fff;
 }
