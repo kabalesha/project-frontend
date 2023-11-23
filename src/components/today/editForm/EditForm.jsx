@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 // import { useSelector } from 'react-redux';
 // import { activIdxSelector } from 'redux/selectors';
-import css from './TodayForm.module.css';
+import css from './EditForm.module.css';
 import Icons from '../../../icons/icons.svg';
 import { useDispatch } from 'react-redux';
 import { modalShow } from '../../../redux/showModal/sliceShowModal';
 
-const TodayForm = ({ addPortion }) => {
+const EditForm = ({ addPortion }) => {
   //   const activIdx = useSelector(activIdxSelector);
   const [time, setTime] = useState('');
   const [portion, setPortion] = useState('');
@@ -30,7 +30,21 @@ const TodayForm = ({ addPortion }) => {
     <div className={css.backdrop}>
       <div className={css.addWaterDiv}>
         <div className={css.addWaterCloseDiv}>
-          <h3 className={css.addWaterTitle}>Add water</h3>
+          <h3 className={css.addWaterTitle}>
+            Edit the entered amount of water
+          </h3>
+          <form onSubmit={handleSbmit}>
+            <label className={css.addWaterLabel1}>
+              <input
+                type="time"
+                onChange={handleChange}
+                name="time"
+                value={time}
+                className={css.addWaterInput}
+              />
+            </label>
+          </form>
+          <p className={css.addWaterSubtitle}>Correct entered data:</p>
           <button
             type="button"
             className={css.addWaterBtnClose}
@@ -97,4 +111,4 @@ const TodayForm = ({ addPortion }) => {
   );
 };
 
-export default TodayForm;
+export default EditForm;
