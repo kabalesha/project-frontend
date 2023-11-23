@@ -4,6 +4,7 @@ import {
   thunkLogOut,
   thunkRefresh,
   thunkSignIn,
+  updateUserThunk,
 } from './thunkUser';
 
 const initialState = {
@@ -25,24 +26,33 @@ const handleFulfilledUser = (state, action) => {
   state.isLoggedIn = true;
 };
 const handleFulfilledRefresh = (state, action) => {
-  console.log('action', action.payload);
   if (!action.payload) {
-    localStorage.setItem('token', '');
     state.access_token = '';
-    state.isLoading = false;
     state.error = '';
     state.profile = null;
+    // state.isLoggedIn = true;
   } else {
     return;
   }
 };
-const handleFulfilledLogOut = (state, action) => {
-  state.access_token = '';
+const handleFulfilledUpdateUser = (state, action) => {
   state.isLoading = false;
-  state.error = '';
-  state.profile = null;
-  localStorage.setItem('root', '');
+  state.access_token = action.payload.token;
+  state.profile = {
+    ...state.profile,
+    name: action.payload.name,
+    gender: action.payload.gender,
+    email: action.payload.email,
+  };
+  state.isLoggedIn = true;
 };
+// const handleFulfilledLogOut = (state, action) => {
+//   state.access_token = '';
+//   state.isLoading = false;
+//   state.error = '';
+//   state.profile = null;
+//   state.isLoggedIn = false;
+// };
 
 const handlePending = state => {
   state.isLoading = true;
@@ -56,18 +66,32 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    // logOut: state => {
-    //   state.access_token = '';
-    //   state.isLoading = false;
-    //   state.error = '';
-    //   state.profile = null;
-    // },
+    update: (state, action) => {
+      state.profile = {
+        ...state.profile,
+        name: action.payload.name,
+        gender: action.payload.gender,
+        email: action.payload.email,
+      };
+    },
+    addAvatar: (state, action) => {
+      state.profile = {
+        avatar: action.payload,
+      };
+    },
+    //   logOut: state => {
+    //     state.access_token = '';
+    //     state.isLoading = false;
+    //     state.error = '';
+    //     state.profile = null;
+    //   },
   },
   extraReducers: builder => {
     builder
       .addCase(signUpThunk.fulfilled, handleFulfilledSignUp)
       .addCase(thunkSignIn.fulfilled, handleFulfilledUser)
       .addCase(thunkRefresh.fulfilled, handleFulfilledRefresh)
+      .addCase(updateUserThunk.fulfilled, handleFulfilledUpdateUser)
       // .addCase(thunkLogOut.fulfilled, handleFulfilledLogOut)
       .addCase(thunkLogOut.fulfilled, () => {
         return { ...initialState };
@@ -78,4 +102,5 @@ const authSlice = createSlice({
 });
 export const authReducer = authSlice.reducer;
 // export const { logOut } = authSlice.actions;
-export const selectAccessToken = state => state.auth.access_token;
+export const { update, addAvatar } = authSlice.actions;
+// export const selectAccessToken = state => state.auth.access_token;
