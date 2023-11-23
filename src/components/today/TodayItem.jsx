@@ -23,6 +23,7 @@ const Today = () => {
       {showModal && (
         <Modal>
           <TodayForm addPortion={addPortion} idx={idx} />
+          <EditForm />
         </Modal>
       )}
       <TodayList />
