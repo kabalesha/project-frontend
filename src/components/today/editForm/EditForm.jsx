@@ -33,18 +33,6 @@ const EditForm = ({ addPortion }) => {
           <h3 className={css.addWaterTitle}>
             Edit the entered amount of water
           </h3>
-          <form onSubmit={handleSbmit}>
-            <label className={css.addWaterLabel1}>
-              <input
-                type="time"
-                onChange={handleChange}
-                name="time"
-                value={time}
-                className={css.addWaterInput}
-              />
-            </label>
-          </form>
-          <p className={css.addWaterSubtitle}>Correct entered data:</p>
           <button
             type="button"
             className={css.addWaterBtnClose}
@@ -55,8 +43,16 @@ const EditForm = ({ addPortion }) => {
             </svg>
           </button>
         </div>
+        <form onSubmit={handleSbmit}>
+          <input
+            onChange={handleChange}
+            name="portion"
+            value={portion || counter}
+            className={css.addWaterInput}
+          />
+        </form>
         <div>
-          <h5 className={css.addWaterFormTitle}>Choose a value : </h5>
+          <h5 className={css.addWaterFormTitle}>Correct entered data: </h5>
           <h4 className={css.addWaterAmount}> Amount of water</h4>
           <div className={css.addWaterCounters}>
             <button
@@ -80,7 +76,7 @@ const EditForm = ({ addPortion }) => {
           </div>
         </div>
         <form onSubmit={handleSbmit}>
-          <label className={css.addWaterLabel1}>
+          <label className={css.addWaterLabel}>
             Recording time :
             <input
               type="time"
