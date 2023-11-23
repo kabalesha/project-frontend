@@ -66,7 +66,7 @@ export const updateUserThunk = createAsyncThunk(
   }
 );
 export const addAvatarUserThunk = createAsyncThunk(
-  'auth/addAvatar',
+  'auth/addAvatarUser',
   async (body, { rejectWithValue }) => {
     console.log('body', body);
     try {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import * as Yup from 'yup'; // Import Yup for validation
 import { useFormik } from 'formik';
 import css from './SettingsModal.module.css';
@@ -15,17 +15,17 @@ import { addAvatar, update } from '../../../redux/auth/sliceUser';
 
 const SettingsModal = ({ onClose }) => {
   const [selectedFile, setSelectedFile] = useState('');
-
   const [outdatedPassword, setOutdatedPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
   const [showOutdatedPassword, setShowOutdatedPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showRepeatPassword, setShowRepeatPassword] = useState(false);
-
+  const refAva = useRef();
   const [gender, setGender] = useState('man');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [ava, setAva] = useState(null);
   const dispath = useDispatch();
   const handleFileChangeAvatar = event => {
     const file = event.target.files[0];
@@ -55,6 +55,11 @@ const SettingsModal = ({ onClose }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
+
+    // const formData = new FormData();
+    // formData.append('file', ava);
+    // dispath(addAvatarUserThunk(formData));
+    // dispath(addAvatar(formData));
 
     dispath(
       updateUserThunk({
@@ -101,9 +106,20 @@ const SettingsModal = ({ onClose }) => {
 
   const handleFileChange = event => {
     const file = event.target.files[0];
-    setSelectedFile(URL.createObjectURL(file));
+    console.log('file', file);
+    // setAva(file);
+    const formData = new FormData();
+    formData.append('avatarURL', file);
+    dispath(addAvatarUserThunk(formData));
+    dispath(addAvatar('555'));
+    console.log('file', file);
+    const a = setSelectedFile(file);
+    console.log('a', a);
+    // setSelectedFile(URL.createObjectURL(file));
   };
-
+  const handleClick = () => {
+    // refAva.current.click();
+  };
   const handleTogglePassword = inputType => {
     switch (inputType) {
       case 'outdated':
@@ -162,6 +178,7 @@ const SettingsModal = ({ onClose }) => {
               name="photo"
               accept="image/jpeg,image/png"
               onChange={handleFileChange}
+              // ref={refAva}
             />
           </li>
         </ul>
@@ -324,7 +341,11 @@ const SettingsModal = ({ onClose }) => {
               </div>
             </div>
           </div>
-          <button type="submit" className={css.modal_form_submit}>
+          <button
+            type="submit"
+            className={css.modal_form_submit}
+            onClick={handleClick}
+          >
             Save
           </button>
         </form>

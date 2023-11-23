@@ -7,3 +7,5 @@ export const getCurrentToken = state => state.profile.access_token;
 export const selectIsAuth = state => Boolean(state.auth.access_token);
 export const getPortion = state => state.portion;
 export const getNormaSelector = state => state.norma;
+export const getAvatarSelector = state => state.avatar;
+export const currentUserAvatar = state => state.auth.avatar;

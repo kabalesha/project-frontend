@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
+  addAvatarUserThunk,
   signUpThunk,
   thunkLogOut,
   thunkRefresh,
@@ -15,6 +16,7 @@ const initialState = {
   isLoggedIn: false,
   isRefreshing: false,
   norma: '1.5',
+  avatar: false,
 };
 const handleFulfilledSignUp = (state, action) => {
   console.log('action', action.payload);
@@ -40,7 +42,7 @@ const handleFulfilledRefresh = (state, action) => {
 const handleFulfilledUpdateUser = (state, action) => {
   state.isLoading = false;
   state.access_token = action.payload.token;
-  state.norma = action.payload + 100;
+
   state.profile = {
     ...state.profile,
     name: action.payload.name,
@@ -49,13 +51,16 @@ const handleFulfilledUpdateUser = (state, action) => {
   };
   state.isLoggedIn = true;
 };
-// const handleFulfilledLogOut = (state, action) => {
-//   state.access_token = '';
-//   state.isLoading = false;
-//   state.error = '';
-//   state.profile = null;
-//   state.isLoggedIn = false;
-// };
+const handleFulfilledUpdateAvatarUser = (state, action) => {
+  // console.log('action', action.payload);
+  state.isLoading = false;
+  state.avatar = action.payload;
+
+  // state.profile = {
+  //   ...state.profile,
+  //   avatar: action.payload.file,
+  // };
+};
 
 const handlePending = state => {
   state.isLoading = true;
@@ -79,9 +84,8 @@ const authSlice = createSlice({
       };
     },
     addAvatar: (state, action) => {
-      state.profile = {
-        avatar: action.payload,
-      };
+      console.log('action', action.payload);
+      state.avatar = action.payload;
     },
     //   logOut: state => {
     //     state.access_token = '';
@@ -96,6 +100,7 @@ const authSlice = createSlice({
       .addCase(thunkSignIn.fulfilled, handleFulfilledUser)
       .addCase(thunkRefresh.fulfilled, handleFulfilledRefresh)
       .addCase(updateUserThunk.fulfilled, handleFulfilledUpdateUser)
+      .addCase(addAvatarUserThunk.fulfilled, handleFulfilledUpdateAvatarUser)
       // .addCase(thunkLogOut.fulfilled, handleFulfilledLogOut)
       .addCase(thunkLogOut.fulfilled, () => {
         return { ...initialState };
