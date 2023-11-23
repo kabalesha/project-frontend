@@ -187,7 +187,13 @@ img {
   padding: 12px 10px;
   display: block;
   border-radius: 6px;
+  color: #407bff;
   border: 1px solid #d7e3ff;
+  &:focus {
+    outline: none;
+    border-color: #d7e3ff;
+    box-shadow: 0 0 5px #d7e3ff;
+  }
 }
 .inputError {
   color: #ef5050;
