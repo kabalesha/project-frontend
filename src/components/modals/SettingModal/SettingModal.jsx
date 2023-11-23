@@ -165,7 +165,7 @@ const SettingsModal = ({ onClose }) => {
           </li>
         </ul>
 
-        <form className={css.modal_form_user}>
+        <form className={css.modal_form_user} onSubmit={handleSubmit}>
           <div className={css.all_inp_cont}>
             <div className={css.user_info_container}>
               <div className={css.modal_gender_block}>
