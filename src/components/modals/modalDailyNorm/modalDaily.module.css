@@ -40,15 +40,17 @@ img {
                 z-index: 100;
                 position: absolute;
                 transform: translate(-50%, -50%);
-                top: 50%;
+                top: 58%;
                 left: 50%;
                 background-color: white;
                 border-radius: 10px;
+                margin: 0 auto;
         }
                 @media screen and (min-width: 768px) {
                     .modal {
                         padding: 32px 24px;
                         width: 704px;
+                        top: 50%;
                     }
                 }
         
@@ -121,7 +123,8 @@ line-height:calc(24 / 18)
 }
 
 .explanation{
-    width: 236px;
+    max-width: 256px;
+    width: 100%;
    padding: 10px;
     color: #8F8F8F;
 border-radius: 10px;
@@ -135,12 +138,12 @@ border-radius: 10px;
   }
   @media screen and (min-width: 768px) {
     .explanation{
-         width: 656px;
+         max-width: 656px;
       }
   }
    @media screen and (min-width: 1440px) {
        .explanation {
-           width: 544px;
+           max-width: 544px;
        }
    }
   .star{
@@ -182,7 +185,7 @@ border-radius: 10px;
   .gender_input:checked::after {
       content: '';
       position: absolute;
-      top: 50%;
+      top: 58%;
       left: 50%;
       width: 7px;
       height: 7px;
@@ -213,10 +216,16 @@ border-radius: 10px;
     
 }
 .labels{
+    max-width:256px ;
     display: flex;
     flex-direction: column;
     gap: 8px;
    
+}
+@media screen and (min-width: 768px) {
+    .labels {
+        max-width: 656px;
+    }
 }
 .count{
     display: flex;
@@ -233,11 +242,11 @@ border-radius: 10px;
     
 
 .amount{
-    width: 190px;
+    max-width: 190px;
 }
 @media screen and (min-width: 768px) {
     .amount {
-        width: 328px;
+        max-width: 328px;
     }
 }
 .littres{
@@ -276,7 +285,8 @@ padding: 12px 10px;
 
 border-radius: 6px;
     border: 1px solid #D7E3FF;
-    width: 256px;
+   max-width: 256px;
+   width: 100%;
    
     font-size: 16px;
    line-height: 20px;
@@ -284,12 +294,12 @@ border-radius: 6px;
   }
   @media screen and (min-width: 768px) {
     .modal_input {
-         width: 656px;
+         max-width: 656px;
       }
   }
    @media screen and (min-width: 1440px) {
        .modal_input {
-           width: 544px;
+           max-width: 544px;
        }
    }
 .modal_input_data{
@@ -310,12 +320,12 @@ font-size: 18px;
     background-color: #407BFF;
     color: #fff;
     padding: 8px 30px;
-margin: 0 auto;
+
     border-radius: 10px;
     border: none;
     box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
     width: 256px;
-  left: 20px;
+  
   display: block;
   
 
@@ -327,23 +337,23 @@ line-height: 20px;
 @media screen and (min-width: 768px) {
     .saveBtn {
         padding: 10px 30px;
-margin-left: 496px;
+margin-left: auto;
 
 
     width: 160px;
    
     }
 }
-@media screen and (min-width: 1440px) {
+/* @media screen and (min-width: 1440px) {
     .saveBtn {
         
-        margin-left: 384px;
+       
 
 
        
 
-    }
-}
+    } */
+/* } */
 .saveBtn:hover {
     box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.54);
 }
