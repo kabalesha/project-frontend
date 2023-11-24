@@ -1,0 +1,9 @@
+<symbol id="icon-Group-11" viewBox="0 0 32 32">
+    <path fill="#fff" style="fill: var(--color1, #fff); stroke: var(--color2, #407bff)" stroke="#407bff"
+        stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.2857"
+        d="M30.857 16c0 8.205-6.652 14.857-14.857 14.857s-14.857-6.652-14.857-14.857c0-8.205 6.652-14.857 14.857-14.857s14.857 6.652 14.857 14.857z">
+    </path>
+    <path fill="#407bff" style="fill: var(--color2, #407bff)"
+        d="M22.857 16c0 3.787-3.070 6.857-6.857 6.857s-6.857-3.070-6.857-6.857c0-3.787 3.070-6.857 6.857-6.857s6.857 3.070 6.857 6.857z">
+    </path>
+</symbol>
