@@ -17,6 +17,7 @@ export const LogoModalMenu = styled.div`
 `;
 
 export const ModalMenuBtn = styled.button`
+  white-space: nowrap;
   background-color: #ffffff;
   color: #407bff;
   width: 86px;
@@ -25,6 +26,7 @@ export const ModalMenuBtn = styled.button`
   flex-direction: row;
   align-items: center;
   font-size: 16px;
+  border: none;
   &:not(:last-child) {
     margin-bottom: 16px;
   }
