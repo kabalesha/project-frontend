@@ -6,14 +6,14 @@ const initialState = {
   access_token: '',
   isLoading: false,
   error: '',
-  portionArr: null,
+  profile: null,
+  isLoggedIn: false,
+  isRefreshing: false,
 };
-const handleFulfilled = (state, action) => {
+const handleFulfilledSignUp = (state, action) => {
+  console.log('action', action.payload);
   state.isLoading = false;
-  // state = [...state, action.payload];
-  //   state.access_token = action.payload.access_token;
 };
-
 const handlePending = state => {
   state.isLoading = true;
   state.error = '';
@@ -25,16 +25,18 @@ const handleRejected = (state, { error, payload }) => {
 const portionOfDrinkingSlice = createSlice({
   name: 'portion',
   initialState,
-  // initialState: [],
-  // reducers: {
-  //   add: (state, action) => [...state, action.payload],
-
-  //   del: (state, action) => state.filter((el, idx) => idx !== action.payload),
-
+  reducers: {
+    // logOut: state => {
+    //   state.access_token = '';
+    //   state.isLoading = false;
+    //   state.error = '';
+    //   state.profile = null;
+    // },
+  },
   extraReducers: builder => {
     builder
-      .addCase(thunkPortionAddDrinking.fulfilled, handleFulfilled)
-      //   .addCase(getProfileThunk.fulfilled, handleFulfilledProfile)
+      .addCase(thunkPortionAddDrinking.fulfilled, handleFulfilledSignUp)
+
       .addMatcher(({ type }) => type.endsWith('/pending'), handlePending)
       .addMatcher(({ type }) => type.endsWith('/rejected'), handleRejected);
   },

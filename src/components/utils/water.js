@@ -1,5 +1,5 @@
 export const water = getWater => {
-  return getWater.reduce((acc, { _, portion }) => acc + portion, 0);
+  // return getWater.reduce((acc, { _, portion }) => acc + portion, 0);
 };
 
 console.log('water', water);

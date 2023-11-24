@@ -7,7 +7,7 @@ const TodayList = () => {
   const drinkingList = useSelector(quantityDrinkSelector);
   const dispath = useDispatch();
 
-  return ([] && drinkingList).map((el, idx) => {
+  return [].map((el, idx) => {
     return (
       <div key={idx} style={{ display: 'flex' }}>
         <div>{el.time}</div>_______

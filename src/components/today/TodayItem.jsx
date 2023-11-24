@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import TodayForm from './todayForm/TodayForm';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  add,
-  drink,
-} from '../../redux/portionOfDrinking/slicePortionOfDrinking';
+
 import Modal from '../modalWindow/Modal';
 import { showModalSelector } from '../../redux/selectors';
 import TodayList from './TodayList';
@@ -14,7 +11,7 @@ import { water } from '../utils/water';
 // import { water } from '../utils/water';
 
 const Today = () => {
-  const [idx, setIdx] = useState('');
+  const [idx] = useState('');
   const showModal = useSelector(showModalSelector);
   const dispath = useDispatch();
   const addPortion = value => {

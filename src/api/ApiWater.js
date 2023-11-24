@@ -12,7 +12,7 @@ export const setTokenUser = () => {
 export const apiAddWater = async body => {
   setTokenUser();
   console.log('body', body);
-  const { data } = await instance.post('/water/add', body);
-  console.log('data', data);
-  return data;
+  //   const { data } = await instance.post('/water/add', body);
+  //   console.log('data', data);
+  //   return data;
 };
