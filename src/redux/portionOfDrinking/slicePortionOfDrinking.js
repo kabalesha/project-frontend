@@ -29,6 +29,13 @@ const portionOfDrinkingSlice = createSlice({
     add: (state, action) => [...state, action.payload],
 
     del: (state, action) => state.filter((el, idx) => idx !== action.payload),
+    remove: (state, action) => {
+      state.map((el, i) => {
+        if (i === action.payload) {
+          console.log('aaaa', el.time);
+        }
+      });
+    },
 
     // extraReducers: builder => {
     //   builder
@@ -40,4 +47,4 @@ const portionOfDrinkingSlice = createSlice({
   },
 });
 export const portionDrink = portionOfDrinkingSlice.reducer;
-export const { add, del, drink } = portionOfDrinkingSlice.actions;
+export const { add, del, drink, remove } = portionOfDrinkingSlice.actions;

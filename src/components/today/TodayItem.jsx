@@ -14,8 +14,9 @@ const Today = () => {
   const dispath = useDispatch();
   const nameActivModal = useSelector(activModalSelector);
   const addPortion = value => {
+    console.log('value', idx);
     dispath(thunkPortionAddDrinking(value));
-    console.log('value', value);
+
     dispath(add(value));
   };
 
@@ -23,7 +24,7 @@ const Today = () => {
     if (nameActivModal === 'add') {
       return <TodayForm addPortion={addPortion} idx={idx} />;
     } else {
-      return <EditForm />;
+      return <EditForm addPortion={addPortion} />;
     }
   };
   return (

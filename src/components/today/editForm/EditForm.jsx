@@ -5,6 +5,7 @@ import css from './EditForm.module.css';
 import Icons from '../../../icons/icons.svg';
 import { useDispatch } from 'react-redux';
 import { modalShow } from '../../../redux/showModal/sliceShowModal';
+import EditItem from './EditItem';
 
 const EditForm = ({ addPortion }) => {
   //   const activIdx = useSelector(activIdxSelector);
@@ -22,8 +23,8 @@ const EditForm = ({ addPortion }) => {
   };
   const handleChange = e => {
     e.target.name === 'time'
-      ? setTime(e.target.value)
-      : setPortion(e.target.value);
+      ? setTime('5:15' && e.target.value)
+      : setPortion(300 && e.target.value);
   };
 
   return (
@@ -33,22 +34,21 @@ const EditForm = ({ addPortion }) => {
           <h3 className={css.addWaterTitle}>
             Edit the entered amount of water
           </h3>
-          <form onSubmit={handleSbmit}>
-            <label className={css.addWaterLabel1}>
-              <input
-                type="time"
-                onChange={handleChange}
-                name="time"
-                value={time}
-                className={css.addWaterInput}
-              />
-            </label>
-          </form>
+          <EditItem />
+
           <p className={css.addWaterSubtitle}>Correct entered data:</p>
+
           <button
             type="button"
-            className={css.addWaterBtnClose}
+            className={css.editFormWaterBtnClose}
             onClick={() => dispath(modalShow(false))}
+            style={{
+              border: 'none',
+              backgroundColor: 'inherit',
+              position: 'absolute',
+              top: '0',
+              right: '0',
+            }}
           >
             <svg width="24" height="24">
               <use href={Icons + '#x-close'}></use>
@@ -56,7 +56,6 @@ const EditForm = ({ addPortion }) => {
           </button>
         </div>
         <div>
-          <h5 className={css.addWaterFormTitle}>Choose a value : </h5>
           <h4 className={css.addWaterAmount}> Amount of water</h4>
           <div className={css.addWaterCounters}>
             <button
