@@ -11,6 +11,19 @@
   padding-bottom: 12px;
   padding-top: 12px;
   border-bottom: 1px solid #d7e3ff;
+  width: 263px;
+}
+
+@media screen and (min-width: 768px) {
+  .itemWrap {
+    width: 655px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .itemWrap {
+    width: 500px;
+  }
 }
 
 .portionInfo {

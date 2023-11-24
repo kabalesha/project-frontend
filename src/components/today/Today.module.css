@@ -1,14 +1,11 @@
-.todayList {
-  height: 220px;
-  overflow-y: auto;
-  margin-top: 16px;
-}
+.todayList {}
 
 .todayTitle {
   margin-bottom: 16px;
 }
 
 .btn {
+  margin-top: 30px;
   color: #407bff;
   font-family: Roboto;
   font-size: 18px;
@@ -23,13 +20,7 @@
 .todayCalendar {}
 
 .todayList {
-  width: 258px;
-  height: 258px;
-  padding-left: 8px;
-  padding-right: 8px;
-  padding-top: 24px;
-  margin-left: 0px;
-  margin-bottom: 24px;
+  width: fit-content;
 }
 
 @media screen and (min-width: 768px) {
@@ -40,10 +31,10 @@
 
 @media screen and (min-width: 1440px) {
   .todayList {
-    width: fit-content;
+    /* width: fit-content;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-left: 0px;
+    margin-left: 0px; */
   }
 }
