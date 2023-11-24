@@ -293,6 +293,51 @@ div {
   line-height: 24px;
 }
 
+.progressContainer {
+  width: 256px;
+}
+
+.progress {
+  height: 82px;
+
+  display: block;
+}
+
+progress {
+  width: 100%;
+}
+
+.metka {
+  display: flex;
+  width: 100%;
+
+  height: 9px;
+  border-left: 1px solid rgba(215, 227, 255, 1);
+  border-right: 1px solid rgba(215, 227, 255, 1);
+  justify-content: center;
+  font-size: 9px;
+  padding: 2px;
+  align-items: end;
+  color: rgba(215, 227, 255, 1);
+}
+
+.persentProgress {
+  font-size: 16px;
+  color: rgba(64, 123, 255, 1);
+}
+
+@media screen and (min-width: 768px) {
+  .progressContainer {
+    width: 356px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .progressContainer {
+    width: 391px;
+  }
+}
+
 /* &::after {
     content: '';
     position: absolute;

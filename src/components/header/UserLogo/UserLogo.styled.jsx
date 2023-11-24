@@ -10,6 +10,7 @@ export const UserLogoBtn = styled.button`
   flex-direction: row;
   align-items: center;
   background-color: transparent;
+  border: none;
 `;
 
 export const UserAvatar = styled.img`

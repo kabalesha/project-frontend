@@ -11,6 +11,7 @@ const UserLogoutModal = ({ onClose }) => {
     dispatch(thunkLogOut())
       .then(() => {
         dispatch({ type: 'CLEAR_USER_DATA' });
+        localStorage.removeItem('token');
         onClose();
       })
       .catch(error => {
