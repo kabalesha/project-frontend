@@ -1,6 +1,16 @@
 export const Edit = ({ className, onClick }) => {
   return (
-    <button className={className} onClick={onClick} style={{ verticalAlign: 'middle', background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}>
+    <button
+      className={className}
+      onClick={onClick}
+      style={{
+        verticalAlign: 'middle',
+        background: 'none',
+        border: 'none',
+        padding: 0,
+        cursor: 'pointer',
+      }}
+    >
       <svg
         className={className}
         xmlns="http://www.w3.org/2000/svg"
