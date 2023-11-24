@@ -21,6 +21,7 @@ import {
   BubblesBackground,
   Picture,
 } from './HomePage.styled';
+import ModalDaily from '../../modals/modalDailyNorm/ModalDaily';
 
 const HomePage = () => {
   const dispath = useDispatch();
@@ -38,7 +39,15 @@ const HomePage = () => {
   // useEffect(() => {
   //   handleIMB();
   // }, []);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const handleEditClick = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
   return (
     <div className={css.mainPageContainer}>
       <div className={css.mainPageWrapper}>
@@ -48,7 +57,10 @@ const HomePage = () => {
             <div className={css.normaContainer}>
               {/* <p className={css.norma}>{(waterRate / 1000).toFixed(1)} L</p> */}
               <p className={css.norma}>1.5 L</p>
-              <button className={css.normaBtn}>Edit</button>
+              <button className={css.normaBtn} onClick={handleEditClick}>
+                Edit
+              </button>
+              {isModalOpen && <ModalDaily onClose={handleCloseModal} />}
             </div>
           </div>
           <div className={css.heroImg} />

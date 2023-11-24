@@ -1,6 +1,7 @@
 .listContainer {
   height: 33vh;
-  overflow-y: auto;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .itemWrap {
