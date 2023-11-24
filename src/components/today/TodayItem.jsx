@@ -9,7 +9,7 @@ import { thunkPortionAddDrinking } from '../../redux/portionOfDrinking/thunkPort
 import EditForm from '../today/editForm/EditForm';
 
 const Today = () => {
-  const [idx, setIdx] = useState('');
+  const [idx] = useState('');
   const showModal = useSelector(showModalSelector);
   const dispath = useDispatch();
   const nameActivModal = useSelector(activModalSelector);
