@@ -27,11 +27,18 @@
 }
 
 .addWaterCloseDiv {
-  display: flex;
+  position: relative;
+  display: block;
   justify-content: space-between;
   align-items: flex-start;
 }
-
+.addWaterSubtitle {
+  color: #2f2f2f;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: calc(20 / 18);
+}
 .addWaterTitle {
   padding-bottom: 24px;
   font-style: normal;
@@ -195,11 +202,16 @@
   align-items: center;
   gap: 16px;
 }
-
+@media screen and (max-width: 767px) {
+  .addWaterDiv {
+    width: 280px;
+    height: 648px;
+  }
+}
 @media screen and (min-width: 768px) {
   .addWaterDiv {
     width: 704px;
-    height: auto;
+    height: 580px;
     padding: 24px 32px;
   }
 
@@ -219,8 +231,9 @@
 
   @media screen and (min-width: 1440px) {
     .addWaterDiv {
+      display: block;
       width: 592px;
-      height: auto;
+      height: 580px;
     }
   }
 }

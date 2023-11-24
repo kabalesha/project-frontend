@@ -13,7 +13,7 @@ import {
 } from './UserLogoutModal.styled';
 import sprite from '../../../img/sprite.svg';
 
-ReactModal.setAppElement('#modal-root');
+// ReactModal.setAppElement('#modal-root');
 const modalRoot = document.querySelector('#modal-root');
 const UserLogoutModal = ({ onClose }) => {
   const dispatch = useDispatch();
