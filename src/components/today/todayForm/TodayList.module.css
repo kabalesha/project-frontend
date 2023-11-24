@@ -1,7 +1,9 @@
 .listContainer {
   height: 33vh;
-  overflow-y: auto;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
+
 .itemWrap {
   display: flex;
   flex-direction: row;
@@ -10,17 +12,32 @@
   padding-bottom: 12px;
   padding-top: 12px;
   border-bottom: 1px solid #d7e3ff;
+  width: 263px;
+}
+
+@media screen and (min-width: 768px) {
+  .itemWrap {
+    width: 655px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .itemWrap {
+    width: 500px;
+  }
 }
 
 .portionInfo {
   display: flex;
   align-items: center;
 }
+
 .btnsWrap {
   display: flex;
   align-items: center;
   gap: 18px;
 }
+
 .icon {
   display: block;
   margin-right: 12px;
@@ -45,6 +62,7 @@
   width: 16px;
   height: 16px;
 }
+
 .delBtn {
   width: 16px;
   height: 16px;

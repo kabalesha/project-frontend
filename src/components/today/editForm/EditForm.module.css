@@ -14,7 +14,7 @@
   top: 50%;
   left: 50%;
   width: 280px;
-  height: 540px;
+  height: 648px;
   padding: 24px 12px;
   font-size: 26px;
   line-height: calc(32 / 26);
@@ -30,8 +30,7 @@
   position: relative;
   display: block;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 24px;
+  align-items: flex-start;
 }
 .addWaterSubtitle {
   color: #2f2f2f;
@@ -41,7 +40,7 @@
   line-height: calc(20 / 18);
 }
 .addWaterTitle {
-  padding: 0;
+  padding-bottom: 24px;
   font-style: normal;
   font-size: 26px;
   font-weight: 500;
@@ -63,12 +62,13 @@
 }
 
 .addWaterFormTitle {
-  margin-bottom: 16px;
-  padding: 0;
-  font-size: 18px;
-  font-weight: 500;
-  line-height: calc(20 / 18);
   color: #2f2f2f;
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  padding-bottom: 16px;
 }
 
 .addWaterAmount {
@@ -89,7 +89,8 @@
 }
 
 .addWaterInput {
-  padding: 11px 10px;
+  padding: 12px 10px;
+  margin-bottom: 24px;
   width: 100%;
   font-size: 16px;
   line-height: calc(20 / 16);
@@ -107,11 +108,10 @@
   color: #407bff;
 }
 
-.addWaterLabel1 {
+.addWaterLabel {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  padding-bottom: 24px;
   font-size: 16px;
   font-weight: 400;
   line-height: calc(20 / 16);
@@ -122,10 +122,9 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  padding: 0;
   font-size: 18px;
   font-weight: 500;
-  line-height: calc(20 / 18);
+  line-height: calc(20 / 16);
   color: #2f2f2f;
 }
 
@@ -202,7 +201,6 @@
   flex-direction: column;
   align-items: center;
   gap: 16px;
-  padding-top: 24px;
 }
 @media screen and (max-width: 767px) {
   .addWaterDiv {

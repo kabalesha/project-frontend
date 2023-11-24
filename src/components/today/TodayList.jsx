@@ -51,8 +51,10 @@ const TodayList = () => {
               <div className={css.btnsWrap}>
                 <Edit
                   className={css.editBtn}
+
                   onClick={() => handle(idx)}
                   // handle={modal}
+
                 />
                 <DeleteIcon
                   className={css.delBtn}

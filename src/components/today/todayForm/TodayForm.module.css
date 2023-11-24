@@ -227,10 +227,19 @@
     gap: 34px;
   }
 
-  @media screen and (min-width: 1440px) {
-    .addWaterDiv {
-      width: 592px;
-      height: auto;
-    }
+  .addWaterInput1 {
+    width: 254px;
+  }
+
+  .addWaterInput {
+    width: 254px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .addWaterDiv {
+    width: 592px;
+    height: auto;
+    padding: 32px 24px;
   }
 }

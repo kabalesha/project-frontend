@@ -19,8 +19,17 @@ import { norma } from '../../../redux/auth/sliceUser';
 import BgDesk from '../../../images/desctopFrame.png';
 import BgTab from '../../../images/tabletFrame.png';
 import BgMob from '../../../images/mobileFrame.png';
+
 import { BottleBackground, Picture } from './HomePage.styled';
 import { modalName } from '../../../redux/changeModal/changeModal';
+
+import {
+  BottleBackground,
+  BubblesBackground,
+  Picture,
+} from './HomePage.styled';
+import ModalDaily from '../../modals/modalDailyNorm/ModalDaily';
+
 
 const HomePage = () => {
   const dispath = useDispatch();
@@ -38,9 +47,20 @@ const HomePage = () => {
   // useEffect(() => {
   //   handleIMB();
   // }, []);
+
   const modal = () => {
     dispath(modalShow(true));
     dispath(modalName('add'));
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleEditClick = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+
   };
   return (
     <div className={css.mainPageContainer}>
@@ -51,11 +71,14 @@ const HomePage = () => {
             <div className={css.normaContainer}>
               {/* <p className={css.norma}>{(waterRate / 1000).toFixed(1)} L</p> */}
               <p className={css.norma}>1.5 L</p>
-              <button className={css.normaBtn}>Edit</button>
+              <button className={css.normaBtn} onClick={handleEditClick}>
+                Edit
+              </button>
+              {isModalOpen && <ModalDaily onClose={handleCloseModal} />}
             </div>
           </div>
           <div className={css.heroImg} />
-
+          <BubblesBackground />
           <BottleBackground />
           <div className={css.todayProgress}>
             <div className={css.progress}>

@@ -12,9 +12,11 @@ import { thunkLogOut } from '../../../redux/auth/thunkUser';
 // import Setting from '../Setting/Setting';
 import { useState } from 'react';
 import SettingsModal from '../../modals/SettingModal/SettingModal';
+import UserLogoutModal from '../../modals/UserLogoutModal/UserLogoutModal';
 import { modalShow } from '../../../redux/showModal/sliceShowModal';
 const UserLogoModal = ({ isOpen, onClose }) => {
   const [settingsModalOpen, setSettingsModalOpen] = useState(false);
+  const [logoutModalOpen, setLogoutModalOpen] = useState(false);
   const modalRef = useRef(null);
   const dispatch = useDispatch();
   const openSetting = () => {
@@ -26,6 +28,10 @@ const UserLogoModal = ({ isOpen, onClose }) => {
   const handleSettingButtonClick = () => {
     setSettingsModalOpen(true);
     onClose();
+  };
+
+  const handleLogoutButtonClick = () => {
+    setLogoutModalOpen(true);
   };
   // const togModal = useContext(ModalContext);
 
@@ -48,7 +54,7 @@ const UserLogoModal = ({ isOpen, onClose }) => {
             </ModalMenuIcon>
             Setting
           </ModalMenuBtn>
-          <ModalMenuBtn onClick={logoutUser}>
+          <ModalMenuBtn onClick={handleLogoutButtonClick}>
             <ModalMenuIcon>
               <svg>
                 <use href={icon + '#logout'}></use>
@@ -60,6 +66,9 @@ const UserLogoModal = ({ isOpen, onClose }) => {
       )}
       {settingsModalOpen && (
         <SettingsModal onClose={() => setSettingsModalOpen(false)} />
+      )}
+      {logoutModalOpen && (
+        <UserLogoutModal onClose={() => setLogoutModalOpen(false)} />
       )}
     </>
   );
