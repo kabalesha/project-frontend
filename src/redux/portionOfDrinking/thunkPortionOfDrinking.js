@@ -20,7 +20,7 @@ export const thunkPortionAddDrinking = createAsyncThunk(
   async (body, { rejectWithValue }) => {
     try {
       const data = await apiAddWater(body);
-      console.log('bodyThunk', body);
+
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);

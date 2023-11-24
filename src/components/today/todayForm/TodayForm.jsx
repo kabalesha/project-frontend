@@ -8,6 +8,7 @@ const TodayForm = ({ addPortion }) => {
   const [portion, setPortion] = useState('');
   const [counter, setCounter] = useState(50);
   const handleSbmit = e => {
+    console.log('addportion', addPortion);
     e.preventDefault();
 
     setPortion(counter);
