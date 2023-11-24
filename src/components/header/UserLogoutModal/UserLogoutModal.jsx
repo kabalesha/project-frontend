@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import ReactModal from 'react-modal';
 import { logOutThunk } from '../../../redux/auth/thunk';
+import { createPortal } from 'react-dom';
 import {
   LogOutBtn,
   LogOutBtns,
@@ -12,8 +13,8 @@ import {
 } from './UserLogoutModal.styled';
 import sprite from '../../../img/sprite.svg';
 
-ReactModal.setAppElement('#root');
-
+ReactModal.setAppElement('#modal-root');
+const modalRoot = document.querySelector('#modal-root');
 const UserLogoutModal = ({ onClose }) => {
   const dispatch = useDispatch();
 
@@ -32,7 +33,7 @@ const UserLogoutModal = ({ onClose }) => {
     onClose();
   };
 
-  return (
+  return createPortal(
     <LogOutWindow>
       <LogOutHeader>
         <p>Log out</p>
@@ -49,7 +50,8 @@ const UserLogoutModal = ({ onClose }) => {
         <LogOutBtn onClick={handleCancel}>Cancel</LogOutBtn>
         <LogOutBtn onClick={handleLogout}>Log out</LogOutBtn>
       </LogOutBtns>
-    </LogOutWindow>
+    </LogOutWindow>,
+    modalRoot
   );
 };
 

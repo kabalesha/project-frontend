@@ -12,6 +12,7 @@ const ModalDaily = ({ onClose }) => {
   });
 
   const [isModalOpen, setIsModalOpen] = useState(true);
+  const [rate, setRate] = useState('');
   const handleIMB = value => {
     const result = (imb(1.8, 90) * 100).toFixed(1);
     setResult(result);
@@ -20,14 +21,16 @@ const ModalDaily = ({ onClose }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log();
+    console.log('request daily rate', rate);
   };
 
   const handleInputChange = e => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
   };
-
+  const handleRate = e => {
+    setRate(e.target.value);
+  };
   const handleBlur = () => {
     calculate(values.gender, values.weight, values.time);
   };
@@ -38,7 +41,7 @@ const ModalDaily = ({ onClose }) => {
     onClose();
   };
 
-  const calculate = (gender, weight, time) => {
+  const calculate = (gender, weight = 0, time = 0) => {
     let calculatedResult = 0;
     switch (gender) {
       case 'girl':
@@ -129,7 +132,7 @@ const ModalDaily = ({ onClose }) => {
             </div>
           </div>
 
-          <form className={css.inputs}>
+          <form className={css.inputs} onSubmit={handleSubmit}>
             <div className={css.labels}>
               <label className={css.dataLabel}>Your weight in kilograms:</label>
               <input
@@ -170,18 +173,22 @@ const ModalDaily = ({ onClose }) => {
                 type="number"
                 id="water"
                 name="rate"
-                onChange={handleInputChange}
+                // onChange={handleInputChange}
+                onChange={handleRate}
                 onBlur={handleBlur}
-                value={handleIMB}
+                // value={handleIMB}
+                value={rate}
                 className={`${css.modal_input} ${css.modal_input_data}`}
-                readOnly
               />
             </div>
+            <button
+              type="submit"
+              className={css.saveBtn}
+              //   onSubmit={handleSubmit}
+            >
+              Save
+            </button>
           </form>
-
-          <button type="submit" className={css.saveBtn} onSubmit={handleSubmit}>
-            Save
-          </button>
         </div>
       </div>
     )
