@@ -14,6 +14,7 @@ export const LogOutWindow = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
+  z-index: 500;
   @media screen and (min-width: 768px) {
     width: 572px;
   }
