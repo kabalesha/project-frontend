@@ -9,3 +9,4 @@ export const getPortion = state => state.portion;
 export const getNormaSelector = state => state.norma;
 export const getAvatarSelector = state => state.avatar;
 export const currentUserAvatar = state => state.auth.avatar;
+export const activModalSelector = state => state.modalName;

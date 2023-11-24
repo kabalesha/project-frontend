@@ -8,18 +8,23 @@ import css from './todayForm/TodayList.module.css';
 import { Cup } from './Cup.jsx';
 import { Edit } from './todayForm/Edit.jsx';
 import { DeleteIcon } from './todayForm/DeleteIcon.jsx';
+import { modalName } from '../../redux/changeModal/changeModal';
 
 const TodayList = () => {
   const drinkingList = useSelector(quantityDrinkSelector);
-  const dispatch = useDispatch(); 
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const listContainer = document.querySelector('.listContainer');
     if (listContainer) {
       const windowHeight = window.innerHeight;
-      listContainer.style.height = `${windowHeight * 0.33}px`; 
+      listContainer.style.height = `${windowHeight * 0.33}px`;
     }
   }, []);
+  const modal = () => {
+    dispatch(modalShow(true));
+    dispatch(modalName('edit'));
+  };
 
   return (
     <div className={css.listContainer}>
@@ -33,8 +38,11 @@ const TodayList = () => {
                 <div className={css.time}>{el.time}</div>
               </div>
               <div className={css.btnsWrap}>
-                <Edit className={css.editBtn} onClick={() => dispatch(modalShow(true))} />
-                <DeleteIcon className={css.delBtn} onClick={() => dispatch(del(idx))} />
+                <Edit className={css.editBtn} onClick={modal} />
+                <DeleteIcon
+                  className={css.delBtn}
+                  onClick={() => dispatch(del(idx))}
+                />
               </div>
             </div>
           ))}

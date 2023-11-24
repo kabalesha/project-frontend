@@ -17,6 +17,7 @@ import BgDesk from '../../../images/desctopFrame.png';
 import BgTab from '../../../images/tabletFrame.png';
 import BgMob from '../../../images/mobileFrame.png';
 import { BottleBackground, Picture } from './HomePage.styled';
+import { modalName } from '../../../redux/changeModal/changeModal';
 
 const HomePage = () => {
   const dispath = useDispatch();
@@ -34,7 +35,10 @@ const HomePage = () => {
   // useEffect(() => {
   //   handleIMB();
   // }, []);
-
+  const modal = () => {
+    dispath(modalShow(true));
+    dispath(modalName('add'));
+  };
   return (
     <div className={css.mainPageContainer}>
       <div className={css.mainPageWrapper}>
@@ -55,10 +59,7 @@ const HomePage = () => {
               <h2 className={css.todayTitle}>Today</h2>
               <progress id="file" value={total} max="100" />
             </div>
-            <button
-              className={css.btnAddWater}
-              onClick={() => dispath(modalShow(true))}
-            >
+            <button className={css.btnAddWater} onClick={modal}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
