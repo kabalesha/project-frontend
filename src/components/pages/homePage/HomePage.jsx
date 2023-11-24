@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import css from './HomePage.module.css';
 // import classNames from 'classnames';
 import '../../../css/main.css';
@@ -6,22 +5,26 @@ import Today from '../../today/Today';
 import Month from '../../month/Month';
 import { useDispatch, useSelector } from 'react-redux';
 import { modalShow } from '../../../redux/showModal/sliceShowModal';
-import { thunkRefresh } from '../../../redux/auth/thunkUser';
+
 import { getPortion } from '../../../redux/selectors';
-import { drink } from '../../../redux/portionOfDrinking/slicePortionOfDrinking';
-import { imb, total, water } from '../../utils/water';
-
-import { norma } from '../../../redux/auth/sliceUser';
-
-import BgDesk from '../../../images/desctopFrame.png';
-import BgTab from '../../../images/tabletFrame.png';
-import BgMob from '../../../images/mobileFrame.png';
+// import { drink } from '../../../redux/portionOfDrinking/slicePortionOfDrinking';
 import {
-  BottleBackground,
-  BubblesBackground,
-  Picture,
-} from './HomePage.styled';
+  imb,
+  // total,
+  water,
+} from '../../utils/water';
+
+// import { norma } from '../../../redux/auth/sliceUser';
+
+// import BgDesk from '../../../images/desctopFrame.png';
+// import BgTab from '../../../images/tabletFrame.png';
+// import BgMob from '../../../images/mobileFrame.png';
+
+import { modalName } from '../../../redux/changeModal/changeModal';
+
+import { BottleBackground, BubblesBackground } from './HomePage.styled';
 import ModalDaily from '../../modals/modalDailyNorm/ModalDaily';
+import { useState } from 'react';
 
 const HomePage = () => {
   const dispath = useDispatch();
@@ -30,15 +33,20 @@ const HomePage = () => {
 
   const total = water(getWater) / imb(1.8, 90) / 1000;
 
-  const handleIMB = value => {
-    const result = (imb(1.8, 90) * 100).toFixed(1);
-    dispath(norma(result));
-    // setNorma(result);
-    return result;
-  };
+  // const handleIMB = value => {
+  //   const result = (imb(1.8, 90) * 100).toFixed(1);
+  //   dispath(norma(result));
+  //   // setNorma(result);
+  //   return result;
+  // };
   // useEffect(() => {
   //   handleIMB();
   // }, []);
+
+  const modal = () => {
+    dispath(modalShow(true));
+    dispath(modalName('add'));
+  };
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleEditClick = () => {
@@ -71,10 +79,7 @@ const HomePage = () => {
               <h2 className={css.todayTitle}>Today</h2>
               <progress id="file" value={total} max="100" />
             </div>
-            <button
-              className={css.btnAddWater}
-              onClick={() => dispath(modalShow(true))}
-            >
+            <button className={css.btnAddWater} onClick={modal}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
