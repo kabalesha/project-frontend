@@ -1,0 +1,6 @@
+<symbol id="icon-Ellipse-3" viewBox="0 0 32 32">
+    <path fill="#fff" style="fill: var(--color1, #fff); stroke: var(--color2, #407bff)" stroke="#407bff"
+        stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.2857"
+        d="M30.857 16c0 8.205-6.652 14.857-14.857 14.857s-14.857-6.652-14.857-14.857c0-8.205 6.652-14.857 14.857-14.857s14.857 6.652 14.857 14.857z">
+    </path>
+</symbol>
