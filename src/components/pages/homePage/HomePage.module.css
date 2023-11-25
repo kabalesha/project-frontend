@@ -4,22 +4,27 @@
   margin-right: auto;
   padding-left: 20px;
   padding-right: 20px;
+  background-image: url('../../../images/bubblesMob.png');
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 @media screen and (min-width: 768px) {
-
   .mainPageContainer {
     width: 704px;
     padding: 0px 32px;
     margin: 0px auto;
+    background-image: url('../../../images/bubblesTab.png');
+    background-position: bottom -100% left 100%;
   }
 }
 
 @media screen and (min-width: 1440px) {
-
   .mainPageContainer {
     width: 1216px;
     padding: 0px 32px;
+    background-image: url('../../../images/bubblesDesc.png');
+    background-position: center top 50%;
   }
 }
 
@@ -78,7 +83,7 @@
 
 @media screen and (min-width: 1440px) {
   .mainPageCalendar {
-    width: 50%;
+    width: 55%;
     padding: 32px 24px;
   }
 }
@@ -159,9 +164,9 @@
   gap: 10px;
   border-radius: 10px;
   border: none;
-  background: #407BFF;
+  background: #407bff;
   box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
-  color: #FFF;
+  color: #fff;
   text-align: center;
   font-family: Roboto;
   font-size: 18px;
@@ -190,7 +195,7 @@
   font-style: normal;
   font-weight: 500;
   line-height: 20px;
-  color: #FFF;
+  color: #fff;
 }
 
 .icon {
@@ -277,11 +282,10 @@ div {
   background-color: #9ebbff;
   border-radius: 10px;
   margin: 0 auto;
-
 }
 
 .todayTitle {
-  color: #407BFF;
+  color: #407bff;
   font-family: Roboto;
   font-size: 18px;
   font-style: normal;
@@ -382,7 +386,6 @@ progress {
       transform: translate(-50%, -50%);
     }
   } */
-
 
 /* .mainPageProgressWater {
 }

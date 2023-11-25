@@ -37,13 +37,13 @@ const UserLogo = () => {
     <UserLogoContainer>
       <UserLogoBtn onClick={handleButtonClick} aria-label="User Logo">
         <UserName>{name}</UserName>
-        {ava ? (
+         {ava ? (
           <UserAvatar src={ava} alt="Avatar" />
         ) : (
           <UserLogoText>
             <p>{defaultName}</p>
           </UserLogoText>
-        )}
+        )} 
         <UserLogoIcon>
           <svg>
             <use href={icon + '#arrow-down'}></use>

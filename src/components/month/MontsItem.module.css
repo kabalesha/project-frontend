@@ -9,6 +9,19 @@
   margin-bottom: 16px;
 } */
 }
+.monthArrow {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+}
+.arrowBtn {
+  width: 14px;
+  height: 14px;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
 
 @media screen and (min-width: 768px) {
   .currentMonth {
@@ -16,19 +29,8 @@
     flex-direction: column;
   }
 }
-
-@media screen and (min-width: 1440px) {
-  .currentMonth {
-    display: flex;
-    flex-direction: column;
-  }
-}
-
 .monthWrap {
-  display: flex;
   margin-bottom: 15px;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .monthTitle {
@@ -36,6 +38,20 @@
   font-size: 24px;
   font-weight: 500;
   line-height: 1.25;
+  margin-right: 88px;
+  padding-left: 8px;
+}
+
+@media screen and (min-width: 1440px) {
+  .currentMonth {
+    display: flex;
+    flex-direction: column;
+  }
+  .monthTitle {
+    margin-right: 400px;
+    padding: 0;
+    /* padding-left: 24px; */
+  }
 }
 
 .monthName {
@@ -52,18 +68,23 @@
   /* position: relative; */
 }
 
-@media screen and (min-width:768px) {
+@media screen and (min-width: 768px) {
   .calendarItem {
     gap: 20px 34px;
     width: 34px;
     height: 34px;
   }
+  .monthTitle {
+    margin-right: 360px;
+    padding: 0;
+    /* padding-left: 24px; */
+  }
 }
 
 .calendarItem {
   border-radius: 20px;
-  border: 1px solid #FF9D43;
-  background: #FFF;
+  border: 1px solid #ff9d43;
+  background: #fff;
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -84,7 +105,6 @@
   /* bottom: calc(100% - (22px + 34px + 6px)); */
   left: calc((264px - 254px) / 2);
   /* left: 0; */
-
 }
 
 .row-1 {
@@ -169,7 +189,7 @@
 
 @media screen and (min-width: 768px) {
   .calender {
-    gap: 20px 34px
+    gap: 20px 34px;
   }
 }
 
@@ -228,7 +248,8 @@
     margin-right: 0;
   }
 
-  .mainPageCalendar {}
+  .mainPageCalendar {
+  }
 }
 
 .wrapper {
@@ -241,5 +262,4 @@
   border-radius: 10px;
   box-shadow: 0px 4px 4px 0px rgba(64, 123, 255, 0.3);
   background-color: #fff;
-
 }
