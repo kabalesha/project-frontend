@@ -7,16 +7,19 @@ const TodayList = () => {
   const drinkingList = useSelector(quantityDrinkSelector);
   const dispath = useDispatch();
 
-  return [].map((el, idx) => {
-    return (
-      <div key={idx} style={{ display: 'flex' }}>
-        <div>{el.time}</div>_______
-        <div>{el.portion}</div>
-        <button onClick={() => dispath(modalShow(true))}>Edit</button>
-        <button>Del</button>
-      </div>
-    );
-  });
+  return (
+    drinkingList &&
+    drinkingList.map((el, idx) => {
+      return (
+        <div key={idx} style={{ display: 'flex' }}>
+          <div>{el.date}</div>_______
+          <div>{el.amount}</div>
+          <button onClick={() => dispath(modalShow(true))}>Edit</button>
+          <button>Del</button>
+        </div>
+      );
+    })
+  );
 };
 
 export default TodayList;
