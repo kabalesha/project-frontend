@@ -19,3 +19,15 @@ export const addPortionOfWater = async body => {
   console.log('data', data);
   return data;
 };
+
+export const getWaterForMonth = async body => {
+  const data = await instance.get('/water/month', body);
+  console.log(data);
+  return data;
+};
+
+export const getStats = async body => {
+  const data = await instance.get('/water/stats', body);
+  console.log(data);
+  return data;
+};

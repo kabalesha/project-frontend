@@ -3,15 +3,28 @@ import css from './MontsItem.module.css';
 import { useSelector } from 'react-redux';
 import { getNormaSelector } from '../../redux/selectors';
 import { useMediaQuery } from 'react-responsive';
-const DayItem = ({ day, handleClick, selectedDay, row }) => {
+import { getStats } from '../../api/ApiPortionWater';
+const DayItem = ({ day, handleClick, selectedDay, row, selectedMonth }) => {
   const [showAdditionalInfo, setShowAdditionalInfo] = useState(false);
   const normaDaile = useSelector(getNormaSelector);
+  const [date, setDate] = useState(new Date());
+  const [stats, setStats] = useState(null);
 
   return (
     <div className={css.calendarWrapper} key={day}>
       <button
         onClick={() => {
           handleClick(day);
+          setDate(prevSate => {
+            const selectedDate = new Date()
+              .setMonth(selectedMonth)
+              .setDate(selectedDay);
+            return selectedDate;
+          });
+          setStats(prevState => {
+            return getStats(date);
+          });
+          console.log(stats);
           setShowAdditionalInfo(true);
         }}
         className={`${css.calendarItem} ${
@@ -61,7 +74,12 @@ const DayItem = ({ day, handleClick, selectedDay, row }) => {
   );
 };
 
-const MonthItem = ({ quantityDays, handleClick, selectedDay }) => {
+const MonthItem = ({
+  quantityDays,
+  handleClick,
+  selectedDay,
+  selectedMonth,
+}) => {
   const arr = Object.values(quantityDays);
   const [day] = arr;
   const i = [];
@@ -80,6 +98,7 @@ const MonthItem = ({ quantityDays, handleClick, selectedDay }) => {
       day={el}
       handleClick={handleClick}
       selectedDay={selectedDay}
+      selectedMonth={selectedMonth}
     />
   ));
 };
