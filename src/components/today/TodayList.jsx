@@ -27,6 +27,8 @@ const TodayList = () => {
   }, []);
 
   const handleRemove = idx => {
+    dispath(modalShow(true));
+    dispath(modalName('edit'));
     drinkingList &&
       drinkingList.map((el, i) => {
         if (i !== idx) {
