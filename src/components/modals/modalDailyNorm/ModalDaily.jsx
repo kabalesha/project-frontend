@@ -22,6 +22,7 @@ const ModalDaily = ({ onClose }) => {
   const handleSubmit = e => {
     e.preventDefault();
     console.log('request daily rate', rate);
+    // Dispatch (addWaterThunk)
   };
 
   const handleInputChange = e => {
