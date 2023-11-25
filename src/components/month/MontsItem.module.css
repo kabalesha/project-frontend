@@ -1,25 +1,164 @@
 .currentMonth {
-  padding-left: 8px;
-  padding-right: 8px;
-
-  margin-left: auto;
+  /* padding-left: 8px;
+  padding-right: 8px; */
+  display: flex;
+  flex-direction: column;
+  /* margin-left: auto;
   margin-right: auto;
   margin-top: 16px;
   margin-bottom: 16px;
-  box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.3);
-  background-color: rgba(64, 123, 255, 0.3);
+} */
 }
-.calendarItem {
-  text-align: center;
-  display: grid;
-  border: 1px solid;
-  border-color: rgba(255, 157, 67, 1);
-  border-radius: 20px;
-  width: 34px;
-  height: 34px;
+.monthArrow {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
   align-items: center;
-  margin-bottom: 8px;
 }
+.arrowBtn {
+  width: 14px;
+  height: 14px;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .currentMonth {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.monthWrap {
+  margin-bottom: 15px;
+}
+
+.monthTitle {
+  color: #2f2f2f;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.25;
+  margin-right: 88px;
+  padding-left: 8px;
+}
+
+@media screen and (min-width: 1440px) {
+  .currentMonth {
+    display: flex;
+    flex-direction: column;
+  }
+  .monthTitle {
+    margin-right: 400px;
+    padding: 0;
+    /* padding-left: 24px; */
+  }
+}
+
+.monthName {
+  color: #407bff;
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.calendarWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  /* position: relative; */
+}
+
+@media screen and (min-width: 768px) {
+  .calendarItem {
+    gap: 20px 34px;
+    width: 34px;
+    height: 34px;
+  }
+  .monthTitle {
+    margin-right: 360px;
+    padding: 0;
+    /* padding-left: 24px; */
+  }
+}
+
+.calendarItem {
+  border-radius: 20px;
+  border: 1px solid #ff9d43;
+  background: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.additionalInfo {
+  display: flex;
+  position: absolute;
+  /* width: 100vw; */
+  z-index: 3;
+  /* bottom: calc(100% - (22px + 34px + 6px)); */
+  left: calc((264px - 254px) / 2);
+  /* left: 0; */
+}
+
+.row-1 {
+  bottom: calc(100% - (32px + 16px) * (1 - 1));
+}
+
+.row-2 {
+  bottom: calc(100% - (32px + 16px) * (2 - 1));
+}
+
+.row-3 {
+  bottom: calc(100% - (32px + 16px) * (3 - 1));
+}
+
+.row-4 {
+  bottom: calc(100% - (32px + 16px) * (4 - 1));
+}
+
+.row-5 {
+  bottom: calc(100% - (32px + 16px) * (5 - 1));
+}
+
+.row-6 {
+  bottom: calc(100% - (32px + 16px) * (6 - 1));
+}
+
+.row-7 {
+  bottom: calc(100% - (32px + 16px) * (7 - 1));
+}
+
+.infoDate {
+  color: #407bff;
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.accent {
+  color: #407bff;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.33;
+}
+
+.infoClose {
+  position: absolute;
+  left: 90%;
+  width: 16px;
+  height: 16px;
+  border: none;
+  padding: 0;
+  background: none;
+  vertical-align: middle;
+}
+
 /* .cardOverlay {
   position: relative;
   overflow: hidden;
@@ -37,32 +176,55 @@
 .calendarItem:focus {
   display: block;
   opacity: 1;
-  background-color: red;
+  background-color: white;
 }
-@media screen and (max-width: 320px) {
+
+.calendar {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 26px;
+  position: relative;
+}
+
+@media screen and (min-width: 768px) {
+  .calender {
+    gap: 20px 34px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .calender {
+    gap: 22px;
+  }
+}
+
+/* @media screen and (max-width: 320px) {
   .currentMonth {
     width: 280px;
     height: 506px;
   }
+
   .calendar {
-    height: 460px;
     outline: 1px solid red;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-
-    gap: '22px';
+    gap: 22px;
+    position: relative;
   }
 }
+
 @media screen and (min-width: 321px) {
   .currentMonth {
     width: 280px;
     height: 506px;
   }
+
   .calendar {
     outline: 1px solid red;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-
+    position: relative;
     gap: 22px;
   }
 }
@@ -72,16 +234,32 @@
     width: 704px;
     height: 360px;
   }
+
   .calendar {
     grid-template-columns: repeat(10, 1fr);
     gap: 10px;
     height: 340px;
+    position: relative;
   }
-}
+} */
+
 @media screen and (min-width: 1216px) {
   .currentMonth {
     margin-right: 0;
   }
+
   .mainPageCalendar {
   }
+}
+
+.wrapper {
+  /* position: absolute; */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 254px;
+  padding: 24px 13px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px 0px rgba(64, 123, 255, 0.3);
+  background-color: #fff;
 }

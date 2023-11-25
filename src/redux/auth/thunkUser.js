@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { logOut, refresh, signIn, signUp } from '../../api/ApiAuthUser';
+import { apiUserUpdate, apiUserUpdsateAvatar } from '../../api/ApiUser';
 
 // export const getProfileThunk = createAsyncThunk('get/profile', () =>
 //   getProfile()
@@ -27,21 +28,49 @@ export const thunkSignIn = createAsyncThunk(
 
 export const thunkRefresh = createAsyncThunk(
   'auth/refresh',
-  async ({ rejectWithValue }) => {
+  async (_, { rejectWithValue }) => {
     try {
       const data = await refresh();
 
       return data;
     } catch (error) {
-      return rejectWithValue('');
+      return rejectWithValue(error.message);
     }
+  },
+  {
+    condition: (_, { getState }) => {
+      const { auth } = getState();
+      if (auth.isLoggedIn === false) return;
+    },
   }
 );
 export const thunkLogOut = createAsyncThunk(
   'auth/logout',
-  async rejectWithValue => {
+  async (_, { rejectWithValue }) => {
     try {
-      return logOut();
+      return await logOut();
+    } catch (error) {
+      return rejectWithValue(error.response.data.message);
+    }
+  }
+);
+export const updateUserThunk = createAsyncThunk(
+  'auth/update',
+  async (body, { rejectWithValue }) => {
+    console.log('body', body);
+    try {
+      return await apiUserUpdate(body);
+    } catch (error) {
+      return rejectWithValue(error.response.data.message);
+    }
+  }
+);
+export const addAvatarUserThunk = createAsyncThunk(
+  'auth/addAvatarUser',
+  async (body, { rejectWithValue }) => {
+    console.log('body', body);
+    try {
+      return await apiUserUpdsateAvatar(body);
     } catch (error) {
       return rejectWithValue(error.response.data.message);
     }

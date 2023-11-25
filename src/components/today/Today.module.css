@@ -1,35 +1,40 @@
-.todayList {
-  padding-left: 8px;
-  padding-right: 8px;
-  padding-top: 24px;
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.3);
-  background-color: rgba(64, 123, 255, 0.3);
+.todayList {}
+
+.todayTitle {
+  margin-bottom: 16px;
 }
 
-.todayCalendar {
+.btn {
+  margin-top: 30px;
+  color: #407bff;
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  background-color: transparent;
+  border: none;
+
 }
-@media screen and (max-width: 320px) {
-  .todayList {
-    width: 280px;
-    height: 258px;
-  }
+
+.todayCalendar {}
+
+.todayList {
+  width: fit-content;
 }
-@media screen and (min-width: 321px) {
-  .todayList {
-    width: 280px;
-    height: 258px;
-  }
-}
+
 @media screen and (min-width: 768px) {
   .todayList {
-    width: 704px;
-    height: 260px;
+    width: fit-content;
   }
 }
-@media screen and (min-width: 1216px) {
+
+@media screen and (min-width: 1440px) {
   .todayList {
-    margin-right: 0;
+    /* width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 0px; */
   }
 }

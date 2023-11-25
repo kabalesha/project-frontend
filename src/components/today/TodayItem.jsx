@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 import TodayForm from './todayForm/TodayForm';
 import { useDispatch, useSelector } from 'react-redux';
-
+import { add } from '../../redux/portionOfDrinking/slicePortionOfDrinking';
 import Modal from '../modalWindow/Modal';
-import { showModalSelector } from '../../redux/selectors';
+import { activModalSelector, showModalSelector } from '../../redux/selectors';
 import TodayList from './TodayList';
-
 import { thunkPortionAddDrinking } from '../../redux/portionOfDrinking/thunkPortionOfDrinking';
-import { water } from '../utils/water';
-// import { water } from '../utils/water';
-
+import EditForm from '../today/editForm/EditForm';
 const Today = () => {
   const [idx] = useState('');
   const showModal = useSelector(showModalSelector);
@@ -17,16 +14,20 @@ const Today = () => {
   const addPortion = ({ time: date, portion: amount }) => {
     dispath(thunkPortionAddDrinking({ date, amount }));
     console.log('idx', idx);
-    // dispath(add(value));
+
+  const nameActivModal = useSelector(activModalSelector);
   };
 
+  const modalActiv = () => {
+    if (nameActivModal === 'add') {
+      return <TodayForm addPortion={addPortion} idx={idx} />;
+    } else {
+      return <EditForm addPortion={addPortion} />;
+    }
+  };
   return (
     <>
-      {showModal && (
-        <Modal>
-          <TodayForm addPortion={addPortion} idx={idx} />
-        </Modal>
-      )}
+      {showModal && <Modal>{modalActiv()}</Modal>}
       <TodayList />
     </>
   );

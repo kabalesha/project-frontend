@@ -144,8 +144,8 @@ img {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
   transform: translate(-50%, -50%);
   background-color: white;
@@ -187,7 +187,22 @@ img {
   padding: 12px 10px;
   display: block;
   border-radius: 6px;
+  color: #407bff;
   border: 1px solid #d7e3ff;
+  &:focus {
+    outline: none;
+    border-color: #d7e3ff;
+    box-shadow: 0 0 5px #d7e3ff;
+  }
+}
+.inputError {
+  color: #ef5050;
+  border-color: #ef5050;
+}
+.error {
+  font-size: 14px;
+  color: #ef5050;
+  padding-bottom: 4px;
 }
 .inputContainer {
   width: 256px;

@@ -1,21 +1,153 @@
-.mainPageContainer,
-.mainPageCalendar {
+.mainPageContainer {
+  width: 320px;
   margin-left: auto;
   margin-right: auto;
-  /* background-color: blue; */
   padding-left: 20px;
   padding-right: 20px;
+  background-image: url('../../../images/bubblesMob.png');
+  background-size: contain;
+  background-repeat: no-repeat;
 }
+
+@media screen and (min-width: 768px) {
+  .mainPageContainer {
+    width: 704px;
+    padding: 0px 32px;
+    margin: 0px auto;
+    background-image: url('../../../images/bubblesTab.png');
+    background-position: bottom -100% left 100%;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .mainPageContainer {
+    width: 1216px;
+    padding: 0px 32px;
+    background-image: url('../../../images/bubblesDesc.png');
+    background-position: center top 50%;
+  }
+}
+
+.mainPageWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+@media screen and (min-width: 768px) {
+  .mainPageWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .mainPageWrapper {
+    flex-direction: row;
+    gap: 32px px;
+  }
+}
+
+.firstPart {
+  position: relative;
+  padding-top: 40px;
+  width: 100%;
+}
+
+@media screen and (min-width: 1440px) {
+  .firstPart {
+    width: 50%;
+  }
+}
+
+.mainPageCalendar {
+  border-radius: 10px;
+  background-color: rgb(236, 242, 255);
+  box-shadow: rgba(64, 123, 255, 0.3) 0px 4px 14px;
+  display: flex;
+  padding: 24px 8px;
+  flex-direction: column;
+  gap: 24px;
+  width: 280px;
+  margin: 0px auto;
+  box-sizing: border-box;
+}
+
+@media screen and (min-width: 768px) {
+  .mainPageCalendar {
+    width: 704px;
+    padding: 32px 24px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .mainPageCalendar {
+    width: 55%;
+    padding: 32px 24px;
+  }
+}
+
 .todayProgress {
-  margin-top: 16px;
-  padding-left: 8px;
-  padding-right: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .todayProgress {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .todayProgress {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 50px;
+  }
+}
+
+.progress {
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .progress {
+    display: flex;
+    flex-direction: column;
+    gap: 19px;
+    width: 356px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .progress {
+    display: flex;
+    flex-direction: column;
+    gap: 19px;
+    width: 391px;
+  }
 }
 
 .heroImg {
   display: block;
   background-position: center top;
-
+  background-image: url(../../../images/desctopFrame.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -24,21 +156,244 @@
 }
 
 .btnAddWater {
-  width: 280px;
-  height: 36px;
+  width: 100%;
+  display: inline-flex;
+  padding: 10px 30px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
   border-radius: 10px;
+  border: none;
+  background: #407bff;
   box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
-  color: rgba(255, 255, 255, 1);
-  background-color: rgba(64, 123, 255, 1);
-  margin-left: auto;
+  color: #fff;
+  text-align: center;
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  white-space: nowrap;
 }
-.mainPageProgressWater {
+
+@media screen and (min-width: 768px) {
+  .btnAddWater {
+    width: 336px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .btnAddWater {
+    width: 178px;
+  }
+}
+
+.add_water_title {
+  text-align: center;
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  color: #fff;
+}
+
+.icon {
+  /* display: inline-block; */
+  fill: #fff;
+  width: 24px;
+  height: 24px;
+}
+
+.dailyNormaContainer {
+  border-radius: 10px;
+  border: 1px solid rgb(236, 242, 255);
+  background: rgb(255, 255, 255);
+  box-shadow: rgba(158, 187, 255, 0.12) 0px 4px 8px 0px;
+  width: 164px;
+  padding: 8px 20px;
+  margin-bottom: 8px;
+}
+
+@media screen and (min-width: 1440px) {
+  .dailyNormaContainer {
+    position: absolute;
+    top: 40px;
+    left: 0px;
+  }
+}
+
+div {
+  display: block;
+}
+
+.imageBackground {
+  background-image: url(../../../images/BgBottleMob.png);
+  width: 280px;
+  height: 208px;
+  flex-shrink: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .imageBackground {
+    background-image: url(../../../images/BgBottleTab.png);
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .imageBackground {
+    background-image: url(../../../images/BgBottleDesk.png);
+  }
+}
+
+.dailyTitle {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.33;
+  margin-bottom: 12px;
+  white-space: nowrap;
+}
+
+.normaContainer {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.norma {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 22px;
+  color: #407bff;
+}
+
+.normaBtn {
+  font-size: 16px;
+  line-height: calc(20 / 16);
+  background-color: transparent;
+  color: #8baeff;
+  border: none;
+}
+
+.waterScale {
+  position: relative;
+  width: calc(100% - 30px);
+  height: 8px;
+  background-color: #9ebbff;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.todayTitle {
+  color: #407bff;
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.progressContainer {
+  width: 256px;
+}
+
+.progress {
+  height: 82px;
+
+  display: block;
+}
+
+progress {
+  width: 100%;
+}
+
+.metka {
+  display: flex;
+  width: 100%;
+
+  height: 9px;
+  border-left: 1px solid rgba(215, 227, 255, 1);
+  border-right: 1px solid rgba(215, 227, 255, 1);
+  justify-content: center;
+  font-size: 9px;
+  padding: 2px;
+  align-items: end;
+  color: rgba(215, 227, 255, 1);
+}
+
+.persentProgress {
+  font-size: 16px;
+  color: rgba(64, 123, 255, 1);
+}
+
+@media screen and (min-width: 768px) {
+  .progressContainer {
+    width: 356px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .progressContainer {
+    width: 391px;
+  }
+}
+
+/* &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 14px;
+    height: 14px;
+    background-color: #ffffff;
+    border: 1px solid #407bff;
+    border-radius: 100%;
+  } */
+
+/* div {
+    position: absolute;
+    border-radius: 10px;
+
+    top: 0%;
+    left: 0%;
+
+    width: 50%;
+    height: 100%;
+    background-color: #9ebbff;
+  } */
+
+/* .info {
+  display: flex;
+  justify-content: space-between;
+  position: relative; */
+
+/* span {
+    color: #407bff;
+    font-size: 12px;
+    line-height: calc(16 / 12);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    &:nth-child(2) {
+      font-size: 16px;
+      line-height: calc(20 / 16);
+      font-weight: 500;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  } */
+
+/* .mainPageProgressWater {
 }
 @media screen and (max-width: 320px) {
   .mainPageContainer {
-    max-width: 320;
-    padding-left: 20;
-    padding-right: 20;
+    max-width: 320px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
   .heroImg {
     background-image: url(../../../images/mobileFrame.png);
@@ -46,8 +401,8 @@
     height: 208px;
   }
   .mainPageCalendar {
-    width: 280;
-    height: 506;
+    width: 280px;
+    height: 506px;
     box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.3);
     background-color: rgba(64, 123, 255, 0.3);
   }
@@ -128,7 +483,7 @@
     width: 178px;
     height: 44px;
   }
-}
+} */
 
 /* .mainPageHero {
   position: relative;
