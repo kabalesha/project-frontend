@@ -42,12 +42,12 @@ const FormaUpdateUserProfile = ({ onClose }) => {
     // resetForm,
   } = useFormik({
     initialValues: {
-      gender: userProfile.gender,
-      name: userProfile.userName,
-      email: userProfile.email,
-      oldPassword: '',
-      newPassword: '',
-      repeatPassword: '',
+      // gender: userProfile.gender,
+      // name: userProfile.userName,
+      // email: userProfile.email,
+      // oldPassword: '',
+      // newPassword: '',
+      // repeatPassword: '',
     },
     validationSchema: updateUserProfileSchema,
     onSubmit: values => {

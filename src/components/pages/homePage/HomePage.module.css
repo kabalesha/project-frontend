@@ -101,7 +101,7 @@
   .todayProgress {
     display: flex;
     flex-direction: row;
-    gap: 12px;
+    gap: 32px;
     justify-content: center;
     align-items: center;
   }
@@ -111,7 +111,7 @@
   .todayProgress {
     display: flex;
     flex-direction: row;
-    gap: 12px;
+    gap: 43px;
     justify-content: center;
     align-items: center;
     position: absolute;
@@ -298,27 +298,67 @@ div {
 }
 
 .progress {
-  height: 82px;
-
   display: block;
+  position: relative;
+  height: 82px;
 }
 
 progress {
   width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  height: 8px;
 }
 
-.metka {
-  display: flex;
-  width: 100%;
+progress::-webkit-progress-bar {
+  background-color: #d7e3ff;
+  border-radius: 10px;
+}
 
-  height: 9px;
-  border-left: 1px solid rgba(215, 227, 255, 1);
-  border-right: 1px solid rgba(215, 227, 255, 1);
-  justify-content: center;
-  font-size: 9px;
-  padding: 2px;
-  align-items: end;
-  color: rgba(215, 227, 255, 1);
+progress::-webkit-progress-value {
+  background-color: #9ebbff;
+  border-radius: 5px 0 0 5px;
+}
+
+.markerContainer {
+  position: relative;
+  width: 100%;
+  height: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+}
+
+.circularIndicator {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background-color: white;
+  border-radius: 50%;
+  border: 1px solid #407bff;
+  transform: translate(-50%, 50%);
+}
+
+.marker {
+  position: absolute;
+  width: 1px;
+  height: 8px;
+  background-color: rgba(215, 227, 255, 1);
+  top: 0;
+  transform: translateX(-50%);
+}
+
+.marker span {
+  color: #407bff;
+  font-size: 12px;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.marker .centralSpan {
+  font-size: 16px;
 }
 
 .persentProgress {
@@ -337,154 +377,3 @@ progress {
     width: 391px;
   }
 }
-
-/* &::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 14px;
-    height: 14px;
-    background-color: #ffffff;
-    border: 1px solid #407bff;
-    border-radius: 100%;
-  } */
-
-/* div {
-    position: absolute;
-    border-radius: 10px;
-
-    top: 0%;
-    left: 0%;
-
-    width: 50%;
-    height: 100%;
-    background-color: #9ebbff;
-  } */
-
-/* .info {
-  display: flex;
-  justify-content: space-between;
-  position: relative; */
-
-/* span {
-    color: #407bff;
-    font-size: 12px;
-    line-height: calc(16 / 12);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-
-    &:nth-child(2) {
-      font-size: 16px;
-      line-height: calc(20 / 16);
-      font-weight: 500;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-  } */
-
-/* .mainPageProgressWater {
-}
-@media screen and (max-width: 320px) {
-  .mainPageContainer {
-    max-width: 320px;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-  .heroImg {
-    background-image: url(../../../images/mobileFrame.png);
-    width: 280px;
-    height: 208px;
-  }
-  .mainPageCalendar {
-    width: 280px;
-    height: 506px;
-    box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.3);
-    background-color: rgba(64, 123, 255, 0.3);
-  }
-  .todayProgress {
-    width: 280px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .btnAddWater {
-    width: 280px;
-    height: 36px;
-  }
-}
-
-@media screen and (min-width: 321px) {
-  .heroImg {
-    background-image: url(../../../images/mobileFrame.png);
-
-    width: 280px;
-    height: 208px;
-  }
-  .btnAddWater {
-    width: 280px;
-    height: 36px;
-  }
-  .todayProgress {
-    width: 280px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .btnAddWater {
-    width: 280px;
-    height: 36px;
-  }
-}
-@media screen and (min-width: 768px) {
-  .heroImg {
-    background-image: url(../../../images/tabletFrame.png);
-    width: 518px;
-    height: 386px;
-  }
-  .todayProgress {
-    width: 704px;
-    height: 90px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-  .btnAddWater {
-    width: 336px;
-    height: 44px;
-  }
-}
-@media screen and (min-width: 1216px) {
-  .mainPageContainer {
-    width: 1216px;
-    position: relative;
-  }
-  .heroImg {
-    background-image: url(../../../images/desctopFrame.png);
-    width: 738px;
-    height: 548px;
-    margin-left: 0;
-    position: absolute;
-    left: -10%;
-    z-index: -1;
-  }
-  .todayProgress {
-    position: absolute;
-    top: 548px;
-    width: 592px;
-    height: 90px;
-  }
-  .btnAddWater {
-    width: 178px;
-    height: 44px;
-  }
-} */
-
-/* .mainPageHero {
-  position: relative;
-} */

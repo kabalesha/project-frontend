@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 // import { useSelector } from 'react-redux';
 // import { activIdxSelector } from 'redux/selectors';
 import css from './EditForm.module.css';
@@ -13,15 +13,6 @@ const EditForm = ({ addPortion }) => {
   const [portion, setPortion] = useState('');
   const [counter, setCounter] = useState(50);
   const dispath = useDispatch();
-
-  useEffect(() => {
-    const currentDate = new Date();
-    const hour = currentDate.getHours();
-    const minutes = currentDate.getMinutes();
-    const formattedTime = `${hour}:${minutes}`;
-    setTime(formattedTime);
-  }, []);
-
   const handleSbmit = e => {
     e.preventDefault();
 
@@ -44,9 +35,14 @@ const EditForm = ({ addPortion }) => {
             Edit the entered amount of water
           </h3>
 
+          <EditItem />
+
+          <p className={css.addWaterSubtitle}>Correct entered data:</p>
+
+
           <button
             type="button"
-            className={css.addWaterBtnClose}
+            className={css.editFormWaterBtnClose}
             onClick={() => dispath(modalShow(false))}
             style={{
               border: 'none',
@@ -61,8 +57,16 @@ const EditForm = ({ addPortion }) => {
             </svg>
           </button>
         </div>
-        <EditItem />
+        <form onSubmit={handleSbmit}>
+          <input
+            onChange={handleChange}
+            name="portion"
+            value={portion || counter}
+            className={css.addWaterInput}
+          />
+        </form>
         <div>
+
           <h5 className={css.addWaterFormTitle}>Correct entered data: </h5>
 
           <h4 className={css.addWaterAmount}> Amount of water</h4>
@@ -109,11 +113,7 @@ const EditForm = ({ addPortion }) => {
           </label>
           <div className={css.addWaterBlockSave}>
             <h3 className={css.addWaterCounterSave}> {counter}ml </h3>
-            <button
-              type="submit"
-              className={css.addWaterBtnSave}
-              onClick={() => dispath(modalShow(false))}
-            >
+            <button type="submit" className={css.addWaterBtnSave}>
               Save
             </button>
           </div>

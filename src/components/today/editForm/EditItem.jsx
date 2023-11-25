@@ -10,7 +10,6 @@ const EditItem = () => {
       style={{
         display: 'flex',
         alignItems: 'center',
-        width: '254px',
         padding: '14px',
         backgroundColor: 'rgba(236, 242, 255, 1)',
         margin: ' 24px 0',
