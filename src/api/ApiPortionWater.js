@@ -24,7 +24,7 @@ export const addPortionOfWater = async body => {
 export const apiDeleteWater = async id => {
   setTokenUser();
   console.log('id', id);
-  const { data } = await instance.delete(`/delete/${id}`);
+  const { data } = await instance.delete(`/water/delete/${id}`);
   console.log('data', data);
   return data;
 };

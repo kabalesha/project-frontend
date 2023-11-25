@@ -42,8 +42,8 @@ const TodayList = () => {
     // dispath(modalShow(true));
     console.log('drinkingList', drinkingList);
     const data = drinkingList.find((el, i) => i === idx);
-
-    dispath(thunkPortionDeleteWater(data._id));
+    console.log('data', data.data._id);
+    dispath(thunkPortionDeleteWater(data.data._id));
   };
 
   return (
