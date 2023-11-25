@@ -3,12 +3,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { quantityDrinkSelector } from '../../redux/selectors';
 
 import { modalShow } from '../../redux/showModal/sliceShowModal';
+import { thunkPortionDeleteDrinking } from '../../redux/portionOfDrinking/thunkPortionOfDrinking';
 const TodayList = () => {
   const drinkingList = useSelector(quantityDrinkSelector);
   const dispath = useDispatch();
   const handleDelItem = idx => {
-    dispath(modalShow(true));
+    // dispath(modalShow(true));
     console.log('idx', idx);
+    console.log('drink', drinkingList);
+    const { _id } = drinkingList.find((el, i) => i === idx);
+
+    dispath(thunkPortionDeleteDrinking(_id));
   };
   return (
     drinkingList &&

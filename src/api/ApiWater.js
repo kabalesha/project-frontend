@@ -11,8 +11,15 @@ export const setTokenUser = () => {
 };
 export const apiAddWater = async body => {
   setTokenUser();
-  console.log('body', body);
+
   const { data } = await instance.post('/water/add', body);
+  console.log('data', data);
+  return data;
+};
+export const apiDeleteWater = async id => {
+  setTokenUser();
+  console.log('id', id);
+  const { data } = await instance.delete(`/delete/${id}`);
   console.log('data', data);
   return data;
 };
