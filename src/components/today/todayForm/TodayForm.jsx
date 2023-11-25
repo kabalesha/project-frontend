@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 // import { useSelector } from 'react-redux';
 // import { activIdxSelector } from 'redux/selectors';
 import css from './TodayForm.module.css';
@@ -12,6 +12,14 @@ const TodayForm = ({ addPortion }) => {
   const [portion, setPortion] = useState('');
   const [counter, setCounter] = useState(50);
   const dispath = useDispatch();
+
+  useEffect(() => {
+    const currentDate = new Date();
+    const hour = currentDate.getHours();
+    const minutes = currentDate.getMinutes();
+    const formattedTime = `${hour}:${minutes}`;
+    setTime(formattedTime);
+  }, []);
 
   const handleSbmit = e => {
     e.preventDefault();
