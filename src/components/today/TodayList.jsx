@@ -62,7 +62,7 @@ const TodayList = () => {
           ))}
         </div>
       ) : (
-        <div>No items to display</div>
+        <div>No entries for the current day</div>
       )}
     </div>
   );
