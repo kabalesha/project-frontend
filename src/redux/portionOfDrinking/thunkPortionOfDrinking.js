@@ -1,28 +1,38 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import {
-  addPortionOfWater,
-  getPortionOfWater,
-} from '../../api/ApiPortionWater';
+
+import { apiAddWater, apiDeleteWater } from '../../api/ApiWater';
 
 // export const getProfileThunk = createAsyncThunk('get/profile', () =>
 //   getProfile()
 // );
-export const thunkPortionOfDrinking = createAsyncThunk(
-  'portion/getPortion',
-  async (body, { rejectWithValue, dispatch }) => {
+export const thunkPortionOfDrinking = createAsyncThunk();
+// 'portion/getPortion',
+// async (body, { rejectWithValue, dispatch }) => {
+//   try {
+//     // const data = await getPortionOfWater(body);
+//     // return data;
+//   } catch (error) {
+//     return rejectWithValue(error.response.data.message);
+//   }
+// }
+export const thunkPortionAddDrinking = createAsyncThunk(
+  'portion/postPortion',
+  async (body, { rejectWithValue }) => {
     try {
-      const data = await getPortionOfWater(body);
+      const data = await apiAddWater(body);
+
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
     }
   }
 );
-export const thunkPortionAddDrinking = createAsyncThunk(
-  'portion/postPortion',
-  async (body, { rejectWithValue, dispatch }) => {
+export const thunkPortionDeleteDrinking = createAsyncThunk(
+  'portion/deletePortion',
+  async (body, { rejectWithValue }) => {
     try {
-      const data = await addPortionOfWater(body);
+      const data = await apiDeleteWater(body);
+
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);

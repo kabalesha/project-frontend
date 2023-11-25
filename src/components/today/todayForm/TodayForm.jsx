@@ -14,6 +14,7 @@ const TodayForm = ({ addPortion }) => {
   const dispath = useDispatch();
 
   const handleSbmit = e => {
+    console.log('addportion', addPortion);
     e.preventDefault();
 
     setPortion(counter);

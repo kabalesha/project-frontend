@@ -5,27 +5,12 @@ import Today from '../../today/Today';
 import Month from '../../month/Month';
 import { useDispatch, useSelector } from 'react-redux';
 import { modalShow } from '../../../redux/showModal/sliceShowModal';
-
 import { getPortion } from '../../../redux/selectors';
-// import { drink } from '../../../redux/portionOfDrinking/slicePortionOfDrinking';
-import {
-  imb,
-  // total,
-  water,
-} from '../../utils/water';
-
-// import { norma } from '../../../redux/auth/sliceUser';
-
-// import BgDesk from '../../../images/desctopFrame.png';
-// import BgTab from '../../../images/tabletFrame.png';
-// import BgMob from '../../../images/mobileFrame.png';
-
+import { imb, water } from '../../utils/water';
 import { modalName } from '../../../redux/changeModal/changeModal';
-
 import { BottleBackground, BubblesBackground } from './HomePage.styled';
 import ModalDaily from '../../modals/modalDailyNorm/ModalDaily';
 import { useState } from 'react';
-
 const HomePage = () => {
   const dispath = useDispatch();
   // const [norma, setNorma] = useState('');

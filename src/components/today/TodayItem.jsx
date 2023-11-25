@@ -7,17 +7,15 @@ import { activModalSelector, showModalSelector } from '../../redux/selectors';
 import TodayList from './TodayList';
 import { thunkPortionAddDrinking } from '../../redux/portionOfDrinking/thunkPortionOfDrinking';
 import EditForm from '../today/editForm/EditForm';
-
 const Today = () => {
   const [idx] = useState('');
   const showModal = useSelector(showModalSelector);
   const dispath = useDispatch();
-  const nameActivModal = useSelector(activModalSelector);
-  const addPortion = value => {
-    console.log('value', idx);
-    dispath(thunkPortionAddDrinking(value));
+  const addPortion = ({ time: date, portion: amount }) => {
+    dispath(thunkPortionAddDrinking({ date, amount }));
+    console.log('idx', idx);
 
-    dispath(add(value));
+  const nameActivModal = useSelector(activModalSelector);
   };
 
   const modalActiv = () => {
