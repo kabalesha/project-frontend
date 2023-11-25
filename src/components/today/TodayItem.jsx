@@ -16,7 +16,7 @@ const Today = () => {
   const dispath = useDispatch();
   const addPortion = ({ time: date, portion: amount }) => {
     dispath(thunkPortionAddDrinking({ date, amount }));
-
+    console.log('idx', idx);
     // dispath(add(value));
   };
 

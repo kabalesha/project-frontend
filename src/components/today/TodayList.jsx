@@ -6,7 +6,10 @@ import { modalShow } from '../../redux/showModal/sliceShowModal';
 const TodayList = () => {
   const drinkingList = useSelector(quantityDrinkSelector);
   const dispath = useDispatch();
-
+  const handleDelItem = idx => {
+    dispath(modalShow(true));
+    console.log('idx', idx);
+  };
   return (
     drinkingList &&
     drinkingList.map((el, idx) => {
@@ -15,7 +18,7 @@ const TodayList = () => {
           <div>{el.date}</div>_______
           <div>{el.amount}</div>
           <button onClick={() => dispath(modalShow(true))}>Edit</button>
-          <button>Del</button>
+          <button onClick={() => handleDelItem(idx)}>Del</button>
         </div>
       );
     })
