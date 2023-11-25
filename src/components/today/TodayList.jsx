@@ -1,32 +1,70 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { quantityDrinkSelector } from '../../redux/selectors';
-
+import { getPortion, quantityDrinkSelector } from '../../redux/selectors';
+import {
+  del,
+  remove,
+} from '../../redux/portionOfDrinking/slicePortionOfDrinking';
 import { modalShow } from '../../redux/showModal/sliceShowModal';
-import { thunkPortionDeleteDrinking } from '../../redux/portionOfDrinking/thunkPortionOfDrinking';
-const TodayList = () => {
-  const drinkingList = useSelector(quantityDrinkSelector);
-  const dispath = useDispatch();
-  const handleDelItem = idx => {
-    // dispath(modalShow(true));
-    console.log('idx', idx);
-    console.log('drink', drinkingList);
-    const { _id } = drinkingList.find((el, i) => i === idx);
+import css from './todayForm/TodayList.module.css';
+import { Cup } from './Cup.jsx';
+import { Edit } from './todayForm/Edit.jsx';
+import { DeleteIcon } from './todayForm/DeleteIcon.jsx';
+import { modalName } from '../../redux/changeModal/changeModal';
+import { json } from 'react-router-dom';
 
-    dispath(thunkPortionDeleteDrinking(_id));
+const TodayList = () => {
+  const [ind, setInd] = useState('');
+  const drinkingList = useSelector(quantityDrinkSelector);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const listContainer = document.querySelector('.listContainer');
+    if (listContainer) {
+      const windowHeight = window.innerHeight;
+      listContainer.style.height = `${windowHeight * 0.33}px`;
+    }
+  }, []);
+
+  const handle = idx => {
+    dispatch(modalShow(true));
+    dispatch(modalName('edit'));
+    const item = drinkingList.find((el, i) => i === idx);
+
+    localStorage.setItem('item', JSON.stringify(item));
+    dispatch(remove(idx));
+    console.log('ind', ind);
+    console.log('idx', idx);
   };
   return (
-    drinkingList &&
-    drinkingList.map((el, idx) => {
-      return (
-        <div key={idx} style={{ display: 'flex' }}>
-          <div>{el.date}</div>_______
-          <div>{el.amount}</div>
-          <button onClick={() => dispath(modalShow(true))}>Edit</button>
-          <button onClick={() => handleDelItem(idx)}>Del</button>
+    <div className={css.listContainer}>
+      {drinkingList && drinkingList.length > 0 ? (
+        <div className={css.list}>
+          {drinkingList.map((el, idx) => (
+            <div className={css.itemWrap} key={idx}>
+              <div className={css.portionInfo}>
+                <Cup className={css.icon} />
+                <div className={css.portion}>{el.portion + ' ml'}</div>
+                <div className={css.time}>{el.time}</div>
+              </div>
+              <div className={css.btnsWrap}>
+                <Edit
+                  className={css.editBtn}
+                  onClick={() => handle(idx)}
+                  // handle={modal}
+                />
+                <DeleteIcon
+                  className={css.delBtn}
+                  onClick={() => dispatch(del(idx))}
+                />
+              </div>
+            </div>
+          ))}
         </div>
-      );
-    })
+      ) : (
+        <div>No items to display</div>
+      )}
+    </div>
   );
 };
 
