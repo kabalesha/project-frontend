@@ -34,8 +34,8 @@ const handleFulfilledRefresh = (state, action) => {
     state.error = '';
     state.profile = null;
 
-    // state.isLoggedIn = true;
   } else {
+    // state.isLoggedIn = false;
     return;
   }
 };

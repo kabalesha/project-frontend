@@ -7,6 +7,7 @@ import { thunkRefresh } from '../../redux/auth/thunkUser';
 import { useSelector } from 'react-redux';
 // import { currentUserEmailSelector } from '../../redux/selectors';
 import { selectIsAuth } from '../../redux/selectors';
+import { Loader } from '../loader/Loader';
 
 const SharedLayout = () => {
   const dispath = useDispatch();
@@ -19,7 +20,7 @@ const SharedLayout = () => {
     <Layout>
       <Header isAuthenticated={isLoggedIn} />
       <main>
-        <Suspense>
+        <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
       </main>
