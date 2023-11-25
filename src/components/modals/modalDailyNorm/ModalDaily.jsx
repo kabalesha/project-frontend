@@ -185,6 +185,7 @@ const ModalDaily = ({ onClose }) => {
             <button
               type="submit"
               className={css.saveBtn}
+
               //   onSubmit={handleSubmit}
             >
               Save
