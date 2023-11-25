@@ -12,6 +12,7 @@ const TodayForm = ({ addPortion }) => {
   const [portion, setPortion] = useState('');
   const [counter, setCounter] = useState(50);
   const dispath = useDispatch();
+
   const handleSbmit = e => {
     e.preventDefault();
 
@@ -20,6 +21,7 @@ const TodayForm = ({ addPortion }) => {
     setTime('');
     setPortion('');
   };
+
   const handleChange = e => {
     e.target.name === 'time'
       ? setTime(e.target.value)
@@ -87,7 +89,11 @@ const TodayForm = ({ addPortion }) => {
           </label>
           <div className={css.addWaterBlockSave}>
             <h3 className={css.addWaterCounterSave}> {counter}ml </h3>
-            <button type="submit" className={css.addWaterBtnSave}>
+            <button
+              type="submit"
+              className={css.addWaterBtnSave}
+              onClick={() => dispath(modalShow(false))}
+            >
               Save
             </button>
           </div>
