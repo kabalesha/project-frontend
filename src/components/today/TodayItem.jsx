@@ -14,9 +14,8 @@ const Today = () => {
   const [idx] = useState('');
   const showModal = useSelector(showModalSelector);
   const dispath = useDispatch();
-  const addPortion = value => {
-    console.log('value', value);
-    dispath(thunkPortionAddDrinking(value));
+  const addPortion = ({ time: date, portion: amount }) => {
+    dispath(thunkPortionAddDrinking({ date, amount }));
 
     // dispath(add(value));
   };

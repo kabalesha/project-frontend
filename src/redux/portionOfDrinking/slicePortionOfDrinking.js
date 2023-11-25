@@ -3,16 +3,15 @@ import { createSlice } from '@reduxjs/toolkit';
 import { thunkPortionAddDrinking } from './thunkPortionOfDrinking';
 
 const initialState = {
-  access_token: '',
+  portion: [],
   isLoading: false,
   error: '',
-  profile: null,
-  isLoggedIn: false,
-  isRefreshing: false,
 };
 const handleFulfilledSignUp = (state, action) => {
   console.log('action', action.payload);
+  console.log('state', state);
   state.isLoading = false;
+  state.portion = [...state.portion, action.payload];
 };
 const handlePending = state => {
   state.isLoading = true;
@@ -25,14 +24,7 @@ const handleRejected = (state, { error, payload }) => {
 const portionOfDrinkingSlice = createSlice({
   name: 'portion',
   initialState,
-  reducers: {
-    // logOut: state => {
-    //   state.access_token = '';
-    //   state.isLoading = false;
-    //   state.error = '';
-    //   state.profile = null;
-    // },
-  },
+
   extraReducers: builder => {
     builder
       .addCase(thunkPortionAddDrinking.fulfilled, handleFulfilledSignUp)

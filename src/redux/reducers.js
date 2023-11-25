@@ -7,7 +7,8 @@ import { progressDrink } from './portionOfDrinking/sliceProgressDrink';
 
 export const reducer = combineReducers({
   auth: authReducer,
-  portion: portionDrink,
+  // portion: portionDrink,
   modal: modalReducer,
   progress: progressDrink,
+  portion: portionDrink,
 });
