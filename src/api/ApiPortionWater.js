@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { setToken } from './ApiAuthUser';
 
 export const instance = axios.create({
   baseURL: 'https://project-backend-7eyy.onrender.com/api',
@@ -12,7 +11,6 @@ export const setTokenUser = () => {
 };
 
 export const portonWater = () => {};
-export const getPortionOfWater = () => {};
 
 export const addPortionOfWater = async body => {
   setTokenUser();
@@ -27,4 +25,16 @@ export const apiDeleteWater = async id => {
   const { data } = await instance.delete(`/water/delete/${id}`);
   console.log('data', data);
   return data;
+};
+export const apiRemoveWater = async ({ id, body }) => {
+  setTokenUser();
+
+  const { data } = await instance.patch(`/water/update/${id}`, body);
+
+  return data;
+};
+export const getPortionOfWaterToday = async () => {
+  setTokenUser();
+
+  const { data } = await instance.get('/water/today');
 };

@@ -25,6 +25,7 @@ import { modalName } from '../../../redux/changeModal/changeModal';
 import { BottleBackground, BubblesBackground } from './HomePage.styled';
 import ModalDaily from '../../modals/modalDailyNorm/ModalDaily';
 import { useState } from 'react';
+import { thunkPortionOfDrinkingToday } from '../../../redux/portionOfDrinking/thunkPortionOfDrinking';
 
 const HomePage = () => {
   const dispath = useDispatch();
@@ -46,6 +47,7 @@ const HomePage = () => {
   const modalWin = () => {
     dispath(modalShow(true));
     dispath(modalName('add'));
+    dispath(thunkPortionOfDrinkingToday());
   };
   const [isModalOpen, setIsModalOpen] = useState(false);
 

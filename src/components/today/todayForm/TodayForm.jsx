@@ -1,5 +1,4 @@
-
-import React, { useEffect, useState } from 'react';
+import { useState } from 'react';
 // import { useSelector } from 'react-redux';
 // import { activIdxSelector } from 'redux/selectors';
 import css from './TodayForm.module.css';
@@ -10,40 +9,35 @@ import { modalShow } from '../../../redux/showModal/sliceShowModal';
 const TodayForm = ({ addPortion }) => {
   //   const activIdx = useSelector(activIdxSelector);
   const [time, setTime] = useState('');
-  const [portion, setPortion] = useState('');
+
   const [counter, setCounter] = useState(50);
   const dispath = useDispatch();
 
-  useEffect(() => {
-    const currentDate = new Date();
-    const hour = currentDate.getHours();
-    const minutes = currentDate.getMinutes();
-    const formattedTime = `${hour}:${minutes}`;
-    setTime(formattedTime);
-  }, []);
-
   const handleSbmit = e => {
     e.preventDefault();
-
-    setPortion(counter);
-    addPortion({ time, portion: counter });
-    setTime('');
-    setPortion('');
   };
 
   const handleChange = e => {
     e.target.name === 'time'
       ? setTime(e.target.value)
-      : setPortion(e.target.value);
+      : setCounter(e.target.value);
   };
+  const modal = () => {
+    console.log('addportion', addPortion);
 
+    // setCounter(counter);
+    addPortion({ time, counter });
+    setTime('');
+    // setCounter('');
+    dispath(modalShow(false));
+  };
   return (
     <div className={css.backdrop}>
       <div className={css.addWaterDiv}>
         <div className={css.addWaterCloseDiv}>
           <h3 className={css.addWaterTitle}>Add water</h3>
           <button
-            type="button"
+            type="submit"
             className={css.addWaterBtnClose}
             onClick={() => dispath(modalShow(false))}
           >
@@ -57,6 +51,7 @@ const TodayForm = ({ addPortion }) => {
           <h4 className={css.addWaterAmount}> Amount of water</h4>
           <div className={css.addWaterCounters}>
             <button
+              type="submit"
               className={css.addWaterBtn}
               onClick={() => setCounter(counter - 50)}
             >
@@ -67,6 +62,7 @@ const TodayForm = ({ addPortion }) => {
 
             <h3 className={css.addWaterCounter}> {counter} ml </h3>
             <button
+              type="submit"
               className={css.addWaterBtn}
               onClick={() => setCounter(counter + 50)}
             >
@@ -92,7 +88,7 @@ const TodayForm = ({ addPortion }) => {
             <input
               onChange={handleChange}
               name="portion"
-              value={portion || counter}
+              value={counter}
               className={css.addWaterInput}
             />
           </label>
@@ -101,7 +97,7 @@ const TodayForm = ({ addPortion }) => {
             <button
               type="submit"
               className={css.addWaterBtnSave}
-              onClick={() => dispath(modalShow(false))}
+              onClick={modal}
             >
               Save
             </button>

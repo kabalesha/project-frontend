@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getPortion, quantityDrinkSelector } from '../../redux/selectors';
 import {
   del,
+  editPortion,
   remove,
 } from '../../redux/portionOfDrinking/slicePortionOfDrinking';
 import { modalShow } from '../../redux/showModal/sliceShowModal';
@@ -26,27 +27,17 @@ const TodayList = () => {
     }
   }, []);
 
-  const handleRemove = idx => {
-    dispath(modalShow(true));
+  const handleRemove = id => {
+    const { amount, date, _id } = drinkingList.find(el => el._id === id);
+
+    dispath(editPortion({ amount, date, _id }));
     dispath(modalName('edit'));
-    drinkingList &&
-      drinkingList.map((el, i) => {
-        if (i !== idx) {
-          return el;
-        } else {
-          return el;
-        }
-      });
+    dispath(modalShow(true));
   };
 
   const dispath = useDispatch();
-  const handleDelItem = idx => {
-    // dispath(modalShow(true));
-    console.log('drinkingList', drinkingList);
-    const data = drinkingList.find((el, i) => i === idx);
-    console.log('data', data.data._id);
-    dispath(thunkPortionDeleteWater(data.data._id));
-    drinkingList.map(el => console.log(el));
+  const handleDelItem = id => {
+    dispath(thunkPortionDeleteWater(id));
   };
 
   return (
@@ -57,18 +48,18 @@ const TodayList = () => {
             <div className={css.itemWrap} key={idx}>
               <div className={css.portionInfo}>
                 <Cup className={css.icon} />
-                <div className={css.portion}>{el.data.amount + ' ml'}</div>
-                <div className={css.time}>{el.data.date}</div>
+                <div className={css.portion}>{el.amount + ' ml'}</div>
+                <div className={css.time}>{el.date}</div>
               </div>
               <div className={css.btnsWrap}>
                 <Edit
                   className={css.editBtn}
-                  onClick={() => handleRemove(idx)}
+                  onClick={() => handleRemove(el._id)}
                   // handle={modal}
                 />
                 <DeleteIcon
                   className={css.delBtn}
-                  onClick={() => handleDelItem(idx)}
+                  onClick={() => handleDelItem(el._id)}
                 />
               </div>
             </div>
