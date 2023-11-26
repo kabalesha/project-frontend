@@ -43,7 +43,7 @@ const HomePage = () => {
   //   handleIMB();
   // }, []);
 
-  const modal = () => {
+  const modalWin = () => {
     dispath(modalShow(true));
     dispath(modalName('add'));
   };
@@ -63,7 +63,6 @@ const HomePage = () => {
           <div className={css.dailyNormaContainer}>
             <h2 className={css.dailyTitle}>My daily norma</h2>
             <div className={css.normaContainer}>
-              {/* <p className={css.norma}>{(waterRate / 1000).toFixed(1)} L</p> */}
               <p className={css.norma}>1.5 L</p>
               <button className={css.normaBtn} onClick={handleEditClick}>
                 Edit
@@ -78,8 +77,31 @@ const HomePage = () => {
             <div className={css.progress}>
               <h2 className={css.todayTitle}>Today</h2>
               <progress id="file" value={total} max="100" />
+              {total > 100 && (
+                <span
+                  className={css.circularIndicator}
+                  style={{ left: '100%' }}
+                ></span>
+              )}
+              {total <= 100 && (
+                <span
+                  className={css.circularIndicator}
+                  style={{ left: `${total}%` }}
+                ></span>
+              )}
+              <div className={css.markerContainer}>
+                <div className={css.marker} style={{ left: '0%' }}>
+                  <span>0%</span>
+                </div>
+                <div className={css.marker} style={{ left: '50%' }}>
+                  <span class={css.centralSpan}>50%</span>
+                </div>
+                <div className={css.marker} style={{ left: '100%' }}>
+                  <span>100%</span>
+                </div>
+              </div>
             </div>
-            <button className={css.btnAddWater} onClick={modal}>
+            <button className={css.btnAddWater} onClick={modalWin}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"

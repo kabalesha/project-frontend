@@ -18,18 +18,18 @@ export const signUp = async body => {
 };
 export const signIn = async body => {
   const { data } = await instance.post('/auth/signin', body);
-
+  console.log('data', data.token);
   setToken(data.token);
   return data;
 };
 
 export const refresh = async body => {
-  const token = localStorage.getItem('token');
+  // const token = localStorage.getItem('token');
 
   try {
-    setToken(token);
+    // setToken(token);
     const data = await instance('/user/current');
-    setToken(data.token);
+    // setToken(data.token);
 
     return data;
   } catch (error) {
