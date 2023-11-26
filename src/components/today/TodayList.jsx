@@ -46,6 +46,7 @@ const TodayList = () => {
     const data = drinkingList.find((el, i) => i === idx);
     console.log('data', data.data._id);
     dispath(thunkPortionDeleteWater(data.data._id));
+    drinkingList.map(el => console.log(el));
   };
 
   return (
@@ -56,8 +57,8 @@ const TodayList = () => {
             <div className={css.itemWrap} key={idx}>
               <div className={css.portionInfo}>
                 <Cup className={css.icon} />
-                <div className={css.portion}>{el.portion + ' ml'}</div>
-                <div className={css.time}>{el.time}</div>
+                <div className={css.portion}>{el.data.amount + ' ml'}</div>
+                <div className={css.time}>{el.data.date}</div>
               </div>
               <div className={css.btnsWrap}>
                 <Edit
