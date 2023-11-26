@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 // import { useSelector } from 'react-redux';
 // import { activIdxSelector } from 'redux/selectors';
 import css from './TodayForm.module.css';
@@ -9,7 +9,7 @@ import { modalShow } from '../../../redux/showModal/sliceShowModal';
 const TodayForm = ({ addPortion }) => {
   //   const activIdx = useSelector(activIdxSelector);
   const [time, setTime] = useState('');
-  const [portion, setPortion] = useState('');
+
   const [counter, setCounter] = useState(50);
   const dispath = useDispatch();
 
