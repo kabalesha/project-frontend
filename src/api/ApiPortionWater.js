@@ -37,4 +37,6 @@ export const getPortionOfWaterToday = async () => {
   setTokenUser();
 
   const { data } = await instance.get('/water/today');
+  console.log('data', data);
+  return data;
 };

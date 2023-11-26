@@ -17,6 +17,7 @@ const Today = () => {
   const dispath = useDispatch();
   const nameActivModal = useSelector(activModalSelector);
   const addPortion = value => {
+    console.log('value', value);
     const { time, counter: amount } = value;
     const today = new Date();
     today.setHours(15, 15);
@@ -24,7 +25,7 @@ const Today = () => {
     // console.log('AM', d.setMonth(time));
 
     // console.log('time', time);
-    dispath(thunkPortionAddDrinking({ date: today, amount }));
+    dispath(thunkPortionAddDrinking({ date: time, amount }));
 
     // dispath(add(value));
   };

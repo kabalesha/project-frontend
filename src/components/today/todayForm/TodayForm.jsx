@@ -9,7 +9,6 @@ import { modalShow } from '../../../redux/showModal/sliceShowModal';
 const TodayForm = ({ addPortion }) => {
   //   const activIdx = useSelector(activIdxSelector);
   const [time, setTime] = useState('');
-
   const [counter, setCounter] = useState(50);
   const dispath = useDispatch();
 
