@@ -4,15 +4,21 @@ import WelcomePage from './components/pages/WelcomePage/WelcomePage.jsx';
 import PrivateRoute from './PrivateRoute.jsx';
 import RestrictedRoute from './RestrictedRoute.jsx';
 import { lazy } from 'react';
-
+import { isAuth } from './redux/selectors.js';
+import { Loader } from './components/loader/Loader.jsx';
+import { useSelector } from 'react-redux';
 const HomePage = lazy(() => import('./components/pages/homePage/HomePage.jsx'));
 const SignInPage = lazy(() => import('./components/pages/SignIn/SignInPage.jsx'));
 const SignUpPage = lazy(() => import('./components/pages/SignUp/SignUpPage.jsx'));
-
 const App = () => {
-  return (
+  const isLoadingData = useSelector(isAuth);
+  console.log(isLoadingData);
+  return  (
     <Routes>
-      <Route path="/" element={<SharedLayout />}>
+       <Route
+        path="/"
+        element={<SharedLayout />}
+      >
         <Route index element={<RestrictedRoute component={WelcomePage} />} />
         <Route
           path="home"
@@ -28,7 +34,6 @@ const App = () => {
         />
       </Route>
     </Routes>
-  );
+  )
 };
-
 export default App;
