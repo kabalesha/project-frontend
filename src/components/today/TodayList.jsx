@@ -1,4 +1,3 @@
-// TodayList.jsx
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPortion, quantityDrinkSelector } from '../../redux/selectors';
@@ -14,10 +13,8 @@ import { DeleteIcon } from './todayForm/DeleteIcon.jsx';
 import { modalName } from '../../redux/changeModal/changeModal';
 import { json } from 'react-router-dom';
 import { thunkPortionDeleteWater } from '../../redux/portionOfDrinking/thunkPortionOfDrinking';
-
 const TodayList = () => {
   const drinkingList = useSelector(quantityDrinkSelector);
-
   useEffect(() => {
     const listContainer = document.querySelector('.listContainer');
     if (listContainer) {
@@ -25,7 +22,6 @@ const TodayList = () => {
       listContainer.style.height = `${windowHeight * 0.33}px`;
     }
   }, []);
-
   const handleRemove = idx => {
     dispath(modalShow(true));
     dispath(modalName('edit'));
@@ -38,7 +34,6 @@ const TodayList = () => {
         }
       });
   };
-
   const dispath = useDispatch();
   const handleDelItem = idx => {
     // dispath(modalShow(true));
@@ -48,7 +43,6 @@ const TodayList = () => {
     dispath(thunkPortionDeleteWater(data.data._id));
     drinkingList.map(el => console.log(el));
   };
-
   return (
     <div className={css.listContainer}>
       {drinkingList && drinkingList.length > 0 ? (
@@ -80,5 +74,4 @@ const TodayList = () => {
     </div>
   );
 };
-
 export default TodayList;
