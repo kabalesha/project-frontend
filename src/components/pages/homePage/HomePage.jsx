@@ -5,6 +5,7 @@ import Today from '../../today/Today';
 import Month from '../../month/Month';
 import { useDispatch, useSelector } from 'react-redux';
 import { modalShow } from '../../../redux/showModal/sliceShowModal';
+
 import { getPortion } from '../../../redux/selectors';
 // import { drink } from '../../../redux/portionOfDrinking/slicePortionOfDrinking';
 import {
@@ -12,19 +13,26 @@ import {
   // total,
   water,
 } from '../../utils/water';
+
 // import { norma } from '../../../redux/auth/sliceUser';
+
 // import BgDesk from '../../../images/desctopFrame.png';
 // import BgTab from '../../../images/tabletFrame.png';
 // import BgMob from '../../../images/mobileFrame.png';
+
 import { modalName } from '../../../redux/changeModal/changeModal';
+
 import { BottleBackground, BubblesBackground } from './HomePage.styled';
 import ModalDaily from '../../modals/modalDailyNorm/ModalDaily';
 import { useState } from 'react';
+
 const HomePage = () => {
   const dispath = useDispatch();
   // const [norma, setNorma] = useState('');
   const getWater = useSelector(getPortion);
+
   const total = water(getWater) / imb(1.8, 90) / 1000;
+
   // const handleIMB = value => {
   //   const result = (imb(1.8, 90) * 100).toFixed(1);
   //   dispath(norma(result));
@@ -34,14 +42,17 @@ const HomePage = () => {
   // useEffect(() => {
   //   handleIMB();
   // }, []);
+
   const modalWin = () => {
     dispath(modalShow(true));
     dispath(modalName('add'));
   };
   const [isModalOpen, setIsModalOpen] = useState(false);
+
   const handleEditClick = () => {
     setIsModalOpen(true);
   };
+
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
@@ -110,6 +121,7 @@ const HomePage = () => {
             </button>
           </div>
         </div>
+
         <div className={css.mainPageCalendar}>
           <Today />
           <Month />
@@ -118,4 +130,5 @@ const HomePage = () => {
     </div>
   );
 };
+
 export default HomePage;
