@@ -2,7 +2,7 @@ import React from 'react';
 import { Cup } from '../Cup';
 import { css } from '@emotion/react';
 
-const EditItem = () => {
+const EditItem = ({ amount, time }) => {
   const item = JSON.parse(localStorage.getItem('item'));
 
   return (
@@ -24,9 +24,9 @@ const EditItem = () => {
           color: 'rgba(64, 123, 255, 1)',
         }}
       >
-        {item.portion} ml{' '}
+        {amount} ml{' '}
       </p>
-      <p style={{ marginLeft: '16px', fontSize: '12px' }}>{item.time} PM </p>
+      <p style={{ marginLeft: '16px', fontSize: '12px' }}>{time} PM </p>
     </div>
   );
 };

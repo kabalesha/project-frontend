@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 export const instance = axios.create({
-  // baseURL: 'https://project-backend-7eyy.onrender.com/api',
-  baseURL: 'http://localhost:4000/api',
+  baseURL: 'https://project-backend-7eyy.onrender.com/api',
+  // baseURL: 'http://localhost:4000/api',
 });
 export const setTokenUser = () => {
   const a = localStorage.getItem('token');

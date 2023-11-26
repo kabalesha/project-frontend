@@ -53,7 +53,9 @@ const portionOfDrinkingSlice = createSlice({
   initialState,
   // initialState: [],
   reducers: {
-    editPortion: (state, action) => (state.editedPortion = action.payload),
+    editPortion: (state, action) => {
+      state.editedPortion = action.payload;
+    },
 
     //   del: (state, action) => state.filter((el, idx) => idx !== action.payload),
     //   remove: (state, action) => {

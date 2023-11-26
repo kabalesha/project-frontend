@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { setToken } from './ApiAuthUser';
 
 export const instance = axios.create({
   baseURL: 'https://project-backend-7eyy.onrender.com/api',

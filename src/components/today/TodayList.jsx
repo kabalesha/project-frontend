@@ -28,8 +28,9 @@ const TodayList = () => {
   }, []);
 
   const handleRemove = id => {
-    const item = drinkingList.find(el => el._id === id);
-    dispath(editPortion(item));
+    const { amount, date, _id } = drinkingList.find(el => el._id === id);
+
+    dispath(editPortion({ amount, date, _id }));
     dispath(modalName('edit'));
     dispath(modalShow(true));
   };

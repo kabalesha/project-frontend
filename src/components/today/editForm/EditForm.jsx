@@ -35,7 +35,7 @@ const EditForm = ({ addPortion }) => {
             Edit the entered amount of water
           </h3>
 
-          <EditItem />
+          <EditItem amount={editingPortion.amount} time={editingPortion.date} />
 
           <p className={css.addWaterSubtitle}>Correct entered data:</p>
 
@@ -104,7 +104,7 @@ const EditForm = ({ addPortion }) => {
             Enter the value of the water used :
             <input
               onChange={handleChange}
-              name="portion"
+              name="counter"
               value={counter}
               className={css.addWaterInput}
             />
