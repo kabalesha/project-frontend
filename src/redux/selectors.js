@@ -12,3 +12,4 @@ export const getAvatarSelector = state => state.avatar;
 export const currentUserAvatar = state => state.auth.avatar;
 export const activModalSelector = state => state.modalName;
 export const selectorUserProfile = state => state.auth.user;
+export const selectEditingItem = state => state.portion.editedPortion;

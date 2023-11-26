@@ -25,10 +25,10 @@ const TodayForm = ({ addPortion }) => {
   const modal = () => {
     console.log('addportion', addPortion);
 
-    setCounter(counter);
+    // setCounter(counter);
     addPortion({ time, counter });
     setTime('');
-    setCounter('');
+    // setCounter('');
     dispath(modalShow(false));
   };
   return (
@@ -95,7 +95,7 @@ const TodayForm = ({ addPortion }) => {
           <div className={css.addWaterBlockSave}>
             <h3 className={css.addWaterCounterSave}> {counter}ml </h3>
             <button
-              type="button"
+              type="submit"
               className={css.addWaterBtnSave}
               onClick={modal}
             >

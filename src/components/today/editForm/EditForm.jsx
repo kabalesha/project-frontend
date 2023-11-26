@@ -3,28 +3,28 @@ import React, { useState } from 'react';
 // import { activIdxSelector } from 'redux/selectors';
 import css from './EditForm.module.css';
 import Icons from '../../../icons/icons.svg';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { modalShow } from '../../../redux/showModal/sliceShowModal';
 import EditItem from './EditItem';
+import { selectEditingItem } from '../../../redux/selectors';
 
 const EditForm = ({ addPortion }) => {
   //   const activIdx = useSelector(activIdxSelector);
-  const [time, setTime] = useState('');
-  const [portion, setPortion] = useState('');
-  const [counter, setCounter] = useState(50);
+  const editingPortion = useSelector(selectEditingItem);
+  const [time, setTime] = useState(editingPortion.date);
+  // const [portion, setPortion] = useState(editingPortion.);
+  const [counter, setCounter] = useState(editingPortion.amount);
   const dispath = useDispatch();
+
   const handleSbmit = e => {
     e.preventDefault();
 
-    setPortion(counter);
     addPortion({ time, portion: counter });
-    setTime('');
-    setPortion('');
   };
   const handleChange = e => {
-    e.target.name === 'time'
-      ? setTime('5:15' && e.target.value)
-      : setPortion(300 && e.target.value);
+    // e.target.name === 'time'
+    //   ? setTime('5:15' && e.target.value)
+    // : setPortion(300 && e.target.value);
   };
 
   return (
@@ -38,7 +38,6 @@ const EditForm = ({ addPortion }) => {
           <EditItem />
 
           <p className={css.addWaterSubtitle}>Correct entered data:</p>
-
 
           <button
             type="button"
@@ -60,13 +59,12 @@ const EditForm = ({ addPortion }) => {
         <form onSubmit={handleSbmit}>
           <input
             onChange={handleChange}
-            name="portion"
-            value={portion || counter}
+            name="counter"
+            value={counter}
             className={css.addWaterInput}
           />
         </form>
         <div>
-
           <h5 className={css.addWaterFormTitle}>Correct entered data: </h5>
 
           <h4 className={css.addWaterAmount}> Amount of water</h4>
@@ -107,7 +105,7 @@ const EditForm = ({ addPortion }) => {
             <input
               onChange={handleChange}
               name="portion"
-              value={portion || counter}
+              value={counter}
               className={css.addWaterInput}
             />
           </label>

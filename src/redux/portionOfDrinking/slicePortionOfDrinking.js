@@ -13,6 +13,7 @@ const initialState = {
   error: '',
   profile: null,
   portion: [],
+  editedPortion: null,
 };
 const handleFulfilledAdd = (state, action) => {
   console.log('action', action.payload);
@@ -21,8 +22,8 @@ const handleFulfilledAdd = (state, action) => {
   state.portion = [...state.portion, action.payload];
 };
 const handleFulfilledDelete = (state, action) => {
-  console.log('action', action.payload);
-  console.log('state', state);
+  state.portion = state.portion.filter(el => el._id !== action.payload);
+
   state.isLoading = false;
 };
 const handleFulfilledRemove = (state, action) => {
@@ -51,17 +52,17 @@ const portionOfDrinkingSlice = createSlice({
   name: 'portion',
   initialState,
   // initialState: [],
-  // reducers: {
-  //   add: (state, action) => [...state, action.payload],
+  reducers: {
+    editPortion: (state, action) => (state.editedPortion = action.payload),
 
-  //   del: (state, action) => state.filter((el, idx) => idx !== action.payload),
-  //   remove: (state, action) => {
-  //     state.map((el, i) => {
-  //       if (i === action.payload) {
-  //         console.log('aaaa', el.time);
-  //       }
-  //     });
-  //   },
+    //   del: (state, action) => state.filter((el, idx) => idx !== action.payload),
+    //   remove: (state, action) => {
+    //     state.map((el, i) => {
+    //       if (i === action.payload) {
+    //         console.log('aaaa', el.time);
+    //       }
+    //     });
+  },
 
   extraReducers: builder => {
     builder
@@ -75,4 +76,4 @@ const portionOfDrinkingSlice = createSlice({
   },
 });
 export const portionDrink = portionOfDrinkingSlice.reducer;
-// export const { add, del, drink, remove } = portionOfDrinkingSlice.actions;
+export const { editPortion } = portionOfDrinkingSlice.actions;

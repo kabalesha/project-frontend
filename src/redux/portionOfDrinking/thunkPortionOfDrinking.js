@@ -25,7 +25,8 @@ export const thunkPortionAddDrinking = createAsyncThunk(
   'portion/addPortion',
   async (body, { rejectWithValue, dispatch }) => {
     try {
-      const data = await addPortionOfWater(body);
+      const { data } = await addPortionOfWater(body);
+
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
@@ -34,10 +35,10 @@ export const thunkPortionAddDrinking = createAsyncThunk(
 );
 export const thunkPortionDeleteWater = createAsyncThunk(
   'portion/delPortion',
-  async (body, { rejectWithValue, dispatch }) => {
+  async (id, { rejectWithValue, dispatch }) => {
     try {
-      const data = await apiDeleteWater(body);
-      return data;
+      await apiDeleteWater(id);
+      return id;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
     }
