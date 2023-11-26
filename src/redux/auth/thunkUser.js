@@ -20,7 +20,6 @@ export const thunkSignIn = createAsyncThunk(
       const data = await signIn(body);
       return data;
     } catch (error) {
-      console.error('Login failed', error.response?.data);
       return rejectWithValue(error.response?.data ?? 'Login failed');
     }
   }

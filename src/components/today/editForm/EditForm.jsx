@@ -7,6 +7,7 @@ import { modalShow } from '../../../redux/showModal/sliceShowModal';
 import EditItem from './EditItem';
 import { selectEditingItem } from '../../../redux/selectors';
 import { thunkPortionRemoveWater } from '../../../redux/portionOfDrinking/thunkPortionOfDrinking';
+import { timeUpdate } from '../../utils/time';
 
 const EditForm = ({ addPortion }) => {
   const editingPortion = useSelector(selectEditingItem);
@@ -15,7 +16,10 @@ const EditForm = ({ addPortion }) => {
   const dispath = useDispatch();
 
   const handleSbmit = e => {
+    const a = timeUpdate(time);
+    console.log('a', a);
     e.preventDefault();
+    console.log('time', time);
     dispath(
       thunkPortionRemoveWater({
         id: editingPortion._id,
