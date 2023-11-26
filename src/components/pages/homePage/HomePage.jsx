@@ -94,7 +94,7 @@ const HomePage = () => {
                   <span>0%</span>
                 </div>
                 <div className={css.marker} style={{ left: '50%' }}>
-                  <span class={css.centralSpan}>50%</span>
+                  <span className={css.centralSpan}>50%</span>
                 </div>
                 <div className={css.marker} style={{ left: '100%' }}>
                   <span>100%</span>

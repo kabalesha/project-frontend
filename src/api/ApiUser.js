@@ -1,11 +1,11 @@
 import axios from 'axios';
 
 export const instance = axios.create({
-  baseURL: 'https://project-backend-7eyy.onrender.com/api',
+  // baseURL: 'https://project-backend-7eyy.onrender.com/api',
+  baseURL: 'http://localhost:4000/api',
 });
 
 export const setTokenUser = () => {
-  localStorage.getItem('token');
   const a = localStorage.getItem('token');
   return (instance.defaults.headers.common['Authorization'] = `Bearer ${a}`);
 };
