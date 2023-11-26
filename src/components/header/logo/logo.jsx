@@ -11,7 +11,7 @@ const Logo = () => {
   };
   return (
     <div className={css.logo}>
-      <button type="button" onClick={handleLogoClick} className={css.logo_link}>
+      <button type="submit" onClick={handleLogoClick} className={css.logo_link}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="40"

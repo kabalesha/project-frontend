@@ -1,3 +1,32 @@
+import Header from '../header/Header';
+import { Outlet } from 'react-router-dom';
+import { Layout } from './layout.styled';
+import { Suspense, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { thunkRefresh } from '../../redux/auth/thunkUser';
+import { useSelector } from 'react-redux';
+// import { currentUserEmailSelector } from '../../redux/selectors';
+import { selectIsAuth } from '../../redux/selectors';
+import { Loader } from '../loader/Loader';
+const SharedLayout = () => {
+  const dispath = useDispatch();
+  const isLoggedIn = useSelector(selectIsAuth);
+  useEffect(() => {
+    dispath(thunkRefresh());
+  }, [dispath]);
+  return (
+    <Layout>
+      <Header isAuthenticated={isLoggedIn} />
+      <main>
+        <Suspense fallback={<Loader />}>
+          <Outlet />
+        </Suspense>
+      </main>
+    </Layout>
+  );
+};
+export default SharedLayout;
+3:06
 import { createSlice } from '@reduxjs/toolkit';
 import {
   addAvatarUserThunk,
@@ -7,7 +36,6 @@ import {
   thunkSignIn,
   updateUserThunk,
 } from './thunkUser';
-
 const initialState = {
   access_token: '',
   isLoading: false,
@@ -33,7 +61,6 @@ const handleFulfilledRefresh = (state, action) => {
     state.access_token = '';
     state.error = '';
     state.profile = null;
-
   } else {
     // state.isLoggedIn = false;
     return;
@@ -42,7 +69,6 @@ const handleFulfilledRefresh = (state, action) => {
 const handleFulfilledUpdateUser = (state, action) => {
   state.isLoading = false;
   state.access_token = action.payload.token;
-
   state.profile = {
     ...state.profile,
     name: action.payload.name,
@@ -55,13 +81,11 @@ const handleFulfilledUpdateAvatarUser = (state, action) => {
   // console.log('action', action.payload);
   state.isLoading = false;
   state.avatar = action.payload;
-
   // state.profile = {
   //   ...state.profile,
   //   avatar: action.payload.file,
   // };
 };
-
 const handlePending = state => {
   state.isLoading = true;
   state.error = '';

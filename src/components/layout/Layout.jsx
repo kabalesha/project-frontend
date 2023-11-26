@@ -8,14 +8,12 @@ import { useSelector } from 'react-redux';
 // import { currentUserEmailSelector } from '../../redux/selectors';
 import { selectIsAuth } from '../../redux/selectors';
 import { Loader } from '../loader/Loader';
-
 const SharedLayout = () => {
   const dispath = useDispatch();
   const isLoggedIn = useSelector(selectIsAuth);
   useEffect(() => {
     dispath(thunkRefresh());
   }, [dispath]);
-
   return (
     <Layout>
       <Header isAuthenticated={isLoggedIn} />
@@ -27,5 +25,4 @@ const SharedLayout = () => {
     </Layout>
   );
 };
-
 export default SharedLayout;

@@ -18,8 +18,8 @@ import UserLogoModal from '../UserLogoModal/UserLogoModal';
 
 const UserLogo = () => {
   const userProfile = useSelector(currentUserEmailSelector);
-  const name = userProfile.userName;
-  const avatar = userProfile.avatarURL;
+  const name = 'alex' ?? userProfile.userName;
+  const avatar = {} ?? userProfile.avatarURL;
   const defaultName = name ? name.slice(0, 1).toUpperCase() : 'A';
   const avatarUser = useSelector(currentUserAvatar);
   const ava = avatarUser.avatarURL;
@@ -34,24 +34,26 @@ const UserLogo = () => {
   };
 
   return (
-    <UserLogoContainer>
-      <UserLogoBtn onClick={handleButtonClick} aria-label="User Logo">
-        <UserName>{name}</UserName>
-         {ava ? (
-          <UserAvatar src={ava} alt="Avatar" />
-        ) : (
-          <UserLogoText>
-            <p>{defaultName}</p>
-          </UserLogoText>
-        )} 
-        <UserLogoIcon>
-          <svg>
-            <use href={icon + '#arrow-down'}></use>
-          </svg>
-        </UserLogoIcon>
-      </UserLogoBtn>
-      <UserLogoModal isOpen={isModalOpen} onClose={handleModalClose} />
-    </UserLogoContainer>
+    name && (
+      <UserLogoContainer>
+        <UserLogoBtn onClick={handleButtonClick} aria-label="User Logo">
+          <UserName>{name}</UserName>
+          {ava ? (
+            <UserAvatar src={ava} alt="Avatar" />
+          ) : (
+            <UserLogoText>
+              <p>{defaultName}</p>
+            </UserLogoText>
+          )}
+          <UserLogoIcon>
+            <svg>
+              <use href={icon + '#arrow-down'}></use>
+            </svg>
+          </UserLogoIcon>
+        </UserLogoBtn>
+        <UserLogoModal isOpen={isModalOpen} onClose={handleModalClose} />
+      </UserLogoContainer>
+    )
   );
 };
 
