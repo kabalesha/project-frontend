@@ -26,11 +26,11 @@ export const apiDeleteWater = async id => {
   console.log('data', data);
   return data;
 };
-export const apiRemoveWater = async body => {
+export const apiRemoveWater = async ({ id, body }) => {
   setTokenUser();
-  console.log('body', body);
-  const { data } = await instance.patch('/water/remove', body);
-  console.log('data', data);
+
+  const { data } = await instance.patch(`/water/update/${id}`, body);
+
   return data;
 };
 export const getPortionOfWaterToday = async () => {

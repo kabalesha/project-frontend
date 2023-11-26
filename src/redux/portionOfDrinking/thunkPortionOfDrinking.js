@@ -46,9 +46,9 @@ export const thunkPortionDeleteWater = createAsyncThunk(
 );
 export const thunkPortionRemoveWater = createAsyncThunk(
   'portion/removePortion',
-  async (body, { rejectWithValue, dispatch }) => {
+  async (portionData, { rejectWithValue, dispatch }) => {
     try {
-      const data = await apiRemoveWater(body);
+      const data = await apiRemoveWater(portionData);
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);

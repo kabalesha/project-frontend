@@ -1,32 +1,43 @@
-import React, { useState } from 'react';
-// import { useSelector } from 'react-redux';
-// import { activIdxSelector } from 'redux/selectors';
+import React, { useEffect, useState } from 'react';
+
 import css from './EditForm.module.css';
 import Icons from '../../../icons/icons.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { modalShow } from '../../../redux/showModal/sliceShowModal';
 import EditItem from './EditItem';
 import { selectEditingItem } from '../../../redux/selectors';
+import { thunkPortionRemoveWater } from '../../../redux/portionOfDrinking/thunkPortionOfDrinking';
 
 const EditForm = ({ addPortion }) => {
-  //   const activIdx = useSelector(activIdxSelector);
   const editingPortion = useSelector(selectEditingItem);
   const [time, setTime] = useState(editingPortion.date);
-  // const [portion, setPortion] = useState(editingPortion.);
   const [counter, setCounter] = useState(editingPortion.amount);
   const dispath = useDispatch();
 
   const handleSbmit = e => {
     e.preventDefault();
-
-    addPortion({ time, portion: counter });
+    dispath(
+      thunkPortionRemoveWater({
+        id: editingPortion._id,
+        body: {
+          date: time,
+          amount: counter,
+        },
+      })
+    );
   };
   const handleChange = e => {
-    // e.target.name === 'time'
-    //   ? setTime('5:15' && e.target.value)
-    // : setPortion(300 && e.target.value);
+    const { name, value } = e.target;
+    name === 'time' && setTime(value);
+    name === 'counter' && setCounter(value);
   };
-
+  useEffect(() => {
+    const currentDate = new Date();
+    const hour = currentDate.getHours();
+    const minutes = currentDate.getMinutes();
+    const formattedTime = `${hour}:${minutes}`;
+    setTime(formattedTime);
+  }, []);
   return (
     <div className={css.backdrop}>
       <div className={css.addWaterDiv}>
@@ -35,13 +46,9 @@ const EditForm = ({ addPortion }) => {
             Edit the entered amount of water
           </h3>
 
-          <EditItem amount={editingPortion.amount} time={editingPortion.date} />
-
-          <p className={css.addWaterSubtitle}>Correct entered data:</p>
-
           <button
             type="button"
-            className={css.editFormWaterBtnClose}
+            className={css.addWaterBtnClose}
             onClick={() => dispath(modalShow(false))}
             style={{
               border: 'none',
@@ -56,14 +63,8 @@ const EditForm = ({ addPortion }) => {
             </svg>
           </button>
         </div>
-        <form onSubmit={handleSbmit}>
-          <input
-            onChange={handleChange}
-            name="counter"
-            value={counter}
-            className={css.addWaterInput}
-          />
-        </form>
+
+        <EditItem amount={editingPortion.amount} time={editingPortion.date} />
         <div>
           <h5 className={css.addWaterFormTitle}>Correct entered data: </h5>
 

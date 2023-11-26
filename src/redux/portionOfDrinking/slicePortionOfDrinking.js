@@ -6,6 +6,7 @@ import {
   thunkPortionOfDrinkingToday,
   thunkPortionRemoveWater,
 } from './thunkPortionOfDrinking';
+import { PendingActions } from '@mui/icons-material';
 
 const initialState = {
   access_token: '',
@@ -26,11 +27,11 @@ const handleFulfilledDelete = (state, action) => {
 
   state.isLoading = false;
 };
-const handleFulfilledRemove = (state, action) => {
-  state.map(el => {
-    console.log('el', el.complited);
-    if (el.id === action.payload) {
-      return { ...el, complited: !el.complited };
+const handleFulfilledRemove = (state, { payload }) => {
+  state.portion = state.portion.map(el => {
+    const { date, amount, _id } = payload;
+    if (el._id === _id) {
+      return { ...el, date, amount };
     } else {
       return el;
     }
