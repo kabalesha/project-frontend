@@ -1,3 +1,4 @@
+
 import React from 'react';
 import css from './modalDaily.module.css';
 import { useState } from 'react';
@@ -78,9 +79,9 @@ const ModalDaily = ({ onClose }) => {
               <path
                 d="M6 18L18 6M6 6L18 18"
                 stroke="#407BFF"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
           </button>
