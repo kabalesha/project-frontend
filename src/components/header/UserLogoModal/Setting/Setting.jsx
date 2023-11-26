@@ -46,9 +46,7 @@ const Setting = () => {
       <WrapperUpload>
         <ContainerAvatar>
           {!userProfile.avatarURL && (
-            <div>
-              {userProfile.userName ? userProfile.userName.split('')[0] : 'V'}
-            </div>
+            <div>{userProfile ? userProfile.userName.split('')[0] : 'V'}</div>
           )}
           {userProfile.avatarURL && (
             <img src={userProfile.avatarURL} alt="avatar" width={80} />

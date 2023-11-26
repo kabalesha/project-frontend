@@ -1,3 +1,4 @@
+// TodayList.jsx
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPortion, quantityDrinkSelector } from '../../redux/selectors';
@@ -12,11 +13,10 @@ import { Edit } from './todayForm/Edit.jsx';
 import { DeleteIcon } from './todayForm/DeleteIcon.jsx';
 import { modalName } from '../../redux/changeModal/changeModal';
 import { json } from 'react-router-dom';
+import { thunkPortionDeleteWater } from '../../redux/portionOfDrinking/thunkPortionOfDrinking';
 
 const TodayList = () => {
-  const [ind, setInd] = useState('');
   const drinkingList = useSelector(quantityDrinkSelector);
-  const dispatch = useDispatch();
 
   useEffect(() => {
     const listContainer = document.querySelector('.listContainer');
@@ -26,16 +26,29 @@ const TodayList = () => {
     }
   }, []);
 
-  const handle = idx => {
-    dispatch(modalShow(true));
-    dispatch(modalName('edit'));
-    const item = drinkingList.find((el, i) => i === idx);
-
-    localStorage.setItem('item', JSON.stringify(item));
-    dispatch(remove(idx));
-    console.log('ind', ind);
-    console.log('idx', idx);
+  const handleRemove = idx => {
+    dispath(modalShow(true));
+    dispath(modalName('edit'));
+    drinkingList &&
+      drinkingList.map((el, i) => {
+        if (i !== idx) {
+          return el;
+        } else {
+          return el;
+        }
+      });
   };
+
+  const dispath = useDispatch();
+  const handleDelItem = idx => {
+    // dispath(modalShow(true));
+    console.log('drinkingList', drinkingList);
+    const data = drinkingList.find((el, i) => i === idx);
+    console.log('data', data.data._id);
+    dispath(thunkPortionDeleteWater(data.data._id));
+    drinkingList.map(el => console.log(el));
+  };
+
   return (
     <div className={css.listContainer}>
       {drinkingList && drinkingList.length > 0 ? (
@@ -44,25 +57,25 @@ const TodayList = () => {
             <div className={css.itemWrap} key={idx}>
               <div className={css.portionInfo}>
                 <Cup className={css.icon} />
-                <div className={css.portion}>{el.portion + ' ml'}</div>
-                <div className={css.time}>{el.time}</div>
+                <div className={css.portion}>{el.data.amount + ' ml'}</div>
+                <div className={css.time}>{el.data.date}</div>
               </div>
               <div className={css.btnsWrap}>
                 <Edit
                   className={css.editBtn}
-                  onClick={() => handle(idx)}
+                  onClick={() => handleRemove(idx)}
                   // handle={modal}
                 />
                 <DeleteIcon
                   className={css.delBtn}
-                  onClick={() => dispatch(del(idx))}
+                  onClick={() => handleDelItem(idx)}
                 />
               </div>
             </div>
           ))}
         </div>
       ) : (
-        <div>No items to display</div>
+        <div>No entries for the current day</div>
       )}
     </div>
   );

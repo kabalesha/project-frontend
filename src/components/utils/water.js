@@ -1,4 +1,4 @@
-export const water = getWater => {
+export const water = (getWater = []) => {
   // return getWater.reduce((acc, { _, portion }) => acc + portion, 0);
 };
 

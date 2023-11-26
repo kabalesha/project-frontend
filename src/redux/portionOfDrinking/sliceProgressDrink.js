@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import React from 'react';
 
 const sliceProgressDrink = createSlice({
   name: 'progress',

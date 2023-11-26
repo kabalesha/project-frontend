@@ -10,7 +10,7 @@ import storage from 'redux-persist/lib/storage';
 const persistAuthConfig = {
   key: 'token',
   storage,
-  whiteList: ['access_token'],
+  whitelist: ['access_token'],
 };
 const persistedAuthReducer = persistReducer(persistAuthConfig, authReducer);
 
@@ -20,5 +20,4 @@ export const reducer = combineReducers({
   modal: modalReducer,
   progress: progressDrink,
   modalName: modalNameReducer,
-  portion: portionDrink,
 });
