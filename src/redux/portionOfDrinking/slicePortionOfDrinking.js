@@ -3,7 +3,8 @@ import { createSlice } from '@reduxjs/toolkit';
 import {
   thunkPortionAddDrinking,
   thunkPortionDeleteWater,
-  thunkPortionOfDrinking,
+  thunkPortionOfDrinkingToday,
+  thunkPortionRemoveWater,
 } from './thunkPortionOfDrinking';
 
 const initialState = {
@@ -23,6 +24,19 @@ const handleFulfilledDelete = (state, action) => {
   console.log('action', action.payload);
   console.log('state', state);
   state.isLoading = false;
+};
+const handleFulfilledRemove = (state, action) => {
+  state.map(el => {
+    console.log('el', el.complited);
+    if (el.id === action.payload) {
+      return { ...el, complited: !el.complited };
+    } else {
+      return el;
+    }
+  });
+};
+const handleFulfilledGetPortion = (state, action) => {
+  console.log('state', state);
 };
 
 const handlePending = state => {
@@ -53,6 +67,8 @@ const portionOfDrinkingSlice = createSlice({
     builder
       .addCase(thunkPortionAddDrinking.fulfilled, handleFulfilledAdd)
       .addCase(thunkPortionDeleteWater.fulfilled, handleFulfilledDelete)
+      .addCase(thunkPortionRemoveWater.fulfilled, handleFulfilledRemove)
+      .addCase(thunkPortionOfDrinkingToday.fulfilled, handleFulfilledGetPortion)
       //   .addCase(getProfileThunk.fulfilled, handleFulfilledProfile)
       .addMatcher(({ type }) => type.endsWith('/pending'), handlePending)
       .addMatcher(({ type }) => type.endsWith('/rejected'), handleRejected);

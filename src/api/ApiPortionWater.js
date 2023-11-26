@@ -12,7 +12,6 @@ export const setTokenUser = () => {
 };
 
 export const portonWater = () => {};
-export const getPortionOfWater = () => {};
 
 export const addPortionOfWater = async body => {
   setTokenUser();
@@ -27,4 +26,16 @@ export const apiDeleteWater = async id => {
   const { data } = await instance.delete(`/water/delete/${id}`);
   console.log('data', data);
   return data;
+};
+export const apiRemoveWater = async body => {
+  setTokenUser();
+  console.log('body', body);
+  const { data } = await instance.patch('/water/remove', body);
+  console.log('data', data);
+  return data;
+};
+export const getPortionOfWaterToday = async () => {
+  setTokenUser();
+
+  const { data } = await instance.get('/water/today');
 };
