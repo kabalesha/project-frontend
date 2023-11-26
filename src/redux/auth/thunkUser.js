@@ -40,7 +40,9 @@ export const thunkRefresh = createAsyncThunk(
   {
     condition: (_, { getState }) => {
       const { auth } = getState();
-      if (auth.isLoggedIn === false) return;
+      if (auth.access_token) return true;
+      return false;
+      // if (auth.isLoggedIn === false) return;
     },
   }
 );
