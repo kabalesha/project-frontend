@@ -1,13 +1,10 @@
-
 import React, { useState, useEffect } from 'react';
-import MonthItem from './MonthItem';
 import css from './MontsItem.module.css';
-import { instance, getWaterForMonth } from '../../api/ApiPortionWater';
 import { useDispatch, useSelector } from 'react-redux';
 import { thunkPortionGetForMonth } from '../../redux/portionOfDrinking/thunkPortionOfDrinking';
 import { useMediaQuery } from 'react-responsive';
-
-// import { selectorWaterMonth } from '../../redux/selectors';
+import { getPortion } from '../../redux/selectors';
+import { DayItem } from './MonthItem';
 
 const Month = () => {
   const date = new Date().getFullYear();
@@ -31,35 +28,12 @@ const Month = () => {
     new Date().getMonth()
   );
   const dispath = useDispatch();
-  const [monthData, setMonthData] = useState(['lalala']);
-  // const waterForMonth = useSelector(selectorWaterMonth);
+  const monthData = useSelector(getPortion);
   const currentMonth = months[currentMonthIndex];
 
-  // const getForMonth = (currentMonthIndex) => {
-  //   dispath(thunkPortionGetForMonth(currentMonthIndex));
-  // };
-  // console.log(currentMonthIndex);
-
-  // const monthData = getWaterForMonth(currentMonthIndex);
-  const value = 1000;
-  // const getWaterForMonth = async month => {
-  //   try {
-  //     const data = await instance.get(`/water/month/${month}`);
-  //     console.log(data);
-  //     return data;
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   // dispath(thunkPortionGetForMonth(currentMonthIndex));
-  //   console.log(currentMonthIndex);
-  //   setMonthData(prevState => {
-  //     return dispath(thunkPortionGetForMonth(currentMonthIndex));
-  //   });
-  //   console.log(monthData);
-  // }, [currentMonthIndex]);
+  useEffect(() => {
+    dispath(thunkPortionGetForMonth(currentMonthIndex));
+  }, [currentMonthIndex]);
 
   const year = [
     { January: '31' },
@@ -94,35 +68,28 @@ const Month = () => {
     setCurrentMonthIndex(prevIndex => (prevIndex + 1) % months.length);
   };
 
-  // const getDaysInMonth = () => {
-  //   return new Date(
-  //     currentDate.getFullYear(),
-  //     currentDate.getMonth() + 1,
-  //     0
-  //   ).getDate();
-  // };
-
   const isDesk = useMediaQuery({ query: '(min-width: 1440px)' });
   const isMob = useMediaQuery({ query: '(max-width: 767.98px)' });
   const itemsInRow = isMob ? 5 : isDesk ? 9 : 11;
 
   const renderDays = () => {
-    // const daysInMonth = getDaysInMonth();
-    const days = Array.from({ length: quantityDays }, (_, index) => index + 1);
-    // console.log('lolo');
+    const formatDate = Object.values(quantityDays);
+    const daysInMonth = parseInt(formatDate);
+    const days = Array.from({ length: daysInMonth }, (_, index) => index + 1);
 
     return days.map(day => {
-      const waterPercentage = monthData?.find(item => {
+      const waterPercentage = monthData.amountMonth?.data?.find(item => {
         return Number(item.data.split(',')[0]) === day;
       });
-
       return (
-        <MonthItem
-          // calendarRef={ref}
+        <DayItem
           key={day}
           day={day}
           row={Math.ceil((day + 1) / itemsInRow)}
+          selectedDay={selectedDay}
+          handleClick={handleClick}
           waterPercentage={waterPercentage}
+          selectedMonth={quantityDays}
         />
       );
     });
@@ -169,22 +136,9 @@ const Month = () => {
         </div>
       </div>
 
-      <div className={css.calendar}>
-        {/* {renderDays()} */}
-        <MonthItem
-          quantityDays={quantityDays}
-          value={value}
-          handleClick={handleClick}
-          selectedDay={selectedDay}
-          selectedMonth={currentMonthIndex}
-        />
-      </div>
+      <div className={css.calendar}>{renderDays()}</div>
     </div>
   );
 };
 
 export default Month;
-
-
-  
-

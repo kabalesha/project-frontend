@@ -24,6 +24,7 @@ export const thunkPortionOfDrinkingToday = createAsyncThunk(
   async (_, { rejectWithValue, dispatch }) => {
     try {
       const data = await getPortionOfWaterToday();
+      console.log(data);
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
