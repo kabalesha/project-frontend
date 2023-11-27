@@ -3,8 +3,8 @@ import { setToken } from './ApiAuthUser';
 import { useSelector } from 'react-redux';
 import { getCurrentToken } from '../redux/selectors';
 export const instance = axios.create({
-  // baseURL: 'https://project-backend-7eyy.onrender.com/api',
-  baseURL: 'http://localhost:4000/api',
+  baseURL: 'https://project-backend-7eyy.onrender.com/api',
+  // baseURL: 'http://localhost:4000/api',
 });
 
 export const portonWater = () => {};
