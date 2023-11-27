@@ -1,9 +1,7 @@
-
 import axios from 'axios';
 import { setToken } from './ApiAuthUser';
 import { useSelector } from 'react-redux';
 import { getCurrentToken } from '../redux/selectors';
-
 
 // export const addPortionOfWater = async body => {
 //   const a = setToken(
@@ -31,8 +29,6 @@ export const getWaterForMonth = async month => {
 //     console.log(error);
 //   }
 // };
-
-
 
 export const instance = axios.create({
   baseURL: 'https://project-backend-7eyy.onrender.com/api',
@@ -71,5 +67,13 @@ export const getPortionOfWaterToday = async () => {
   setTokenUser();
 
   const { data } = await instance.get('/water/today');
-};
 
+  return data;
+};
+export const getDalyNorma = async () => {
+  setTokenUser();
+
+  const { data } = await instance.patch('/update/dailyNorma');
+
+  return data;
+};

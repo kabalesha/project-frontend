@@ -1,11 +1,10 @@
-
 import React from 'react';
 import css from './modalDaily.module.css';
 import { useState } from 'react';
 import { imb } from './../../utils/water.js';
 
 const ModalDaily = ({ onClose }) => {
-  const [result, setResult] = useState(null);
+  const [result, setResult] = useState(1.5);
   const [values, setValues] = useState({
     gender: 'girl',
     weight: 0,

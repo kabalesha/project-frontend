@@ -22,8 +22,9 @@ const Setting = () => {
 
   const handelChange = e => {
     const formaData = new FormData();
-    formaData.append('avatarURL', e.target.files[0]);
-    dispatch(updateAvatarThunk(formaData));
+    const a = formaData.append('avatarURL', e.target.files[0]);
+    console.log('formData', a);
+    dispatch(updateAvatarThunk('formaData'));
   };
 
   const handlerClick = () => {

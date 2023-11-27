@@ -15,6 +15,7 @@ const initialState = {
   profile: null,
   portion: [],
   editedPortion: null,
+  amoutMonth: [],
 };
 const handleFulfilledAdd = (state, action) => {
   console.log('action', action.payload);
