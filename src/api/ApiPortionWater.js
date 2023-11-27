@@ -3,7 +3,8 @@ import { setToken } from './ApiAuthUser';
 import { useSelector } from 'react-redux';
 import { getCurrentToken } from '../redux/selectors';
 export const instance = axios.create({
-  baseURL: 'https://project-backend-7eyy.onrender.com/api',
+  // baseURL: 'https://project-backend-7eyy.onrender.com/api',
+  baseURL: 'http://localhost:4000/api',
 });
 
 export const portonWater = () => {};
@@ -20,14 +21,18 @@ export const addPortionOfWater = async body => {
   return data;
 };
 
-export const getWaterForMonth = async body => {
-  const data = await instance.get('/water/month', body);
+export const getWaterForMonth = async month => {
+  const data = await instance.get(`/water/month/${month}`);
   console.log(data);
   return data;
 };
 
 export const getStats = async body => {
-  const data = await instance.get('/water/stats', body);
-  console.log(data);
-  return data;
+  try {
+    const data = await instance.get('/water/stats', body);
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
 };

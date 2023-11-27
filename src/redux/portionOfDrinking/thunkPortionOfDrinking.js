@@ -2,6 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import {
   addPortionOfWater,
   getPortionOfWater,
+  getWaterForMonth,
 } from '../../api/ApiPortionWater';
 
 // export const getProfileThunk = createAsyncThunk('get/profile', () =>
@@ -23,6 +24,18 @@ export const thunkPortionAddDrinking = createAsyncThunk(
   async (body, { rejectWithValue, dispatch }) => {
     try {
       const data = await addPortionOfWater(body);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.response.data.message);
+    }
+  }
+);
+
+export const thunkPortionGetForMonth = createAsyncThunk(
+  'portion/getPortionForMonth',
+  async (body, { rejectWithValue }) => {
+    try {
+      const data = await getWaterForMonth(body);
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);

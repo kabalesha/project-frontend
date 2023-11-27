@@ -1,56 +1,12 @@
-// import React, { useState } from 'react';
-// import MonthItem from './MonthItem';
-// import css from './MontsItem.module.css';
-// const Month = () => {
-//   const date = new Date().getFullYear();
-
-//   const year = [
-//     { January: '31' },
-//     { February: date % 4 === 0 ? 29 : 28 },
-//     { March: '31' },
-//     { April: '30' },
-//     { May: '31' },
-//     { June: '30' },
-//     { July: '31' },
-//     { August: '31' },
-//     { September: '30' },
-//     { October: '31' },
-//     { November: '30' },
-//     { December: '31' },
-//   ];
-//   const currentMonth = new Date().getMonth();
-//   const quantityDays = year[currentMonth];
-//   const arr = Object.keys(year[currentMonth]);
-//   const [month] = arr;
-//    const [selectedDay, setSelectedDay] = useState(null);
-
-//   const value = 100;
-
-//   const handleClick = (day) => {
-//     setSelectedDay(day);
-//   }
-
-//   return (
-//     <div className={css.currentMonth}>
-//       <div className={css.monthWrap}
-//       >
-//         <h2 className={css.monthTitle}>Month</h2>
-//         <p className={css.monthName}> {month}</p>
-//       </div>
-
-//       <div className={css.calendar}>
-//         <MonthItem quantityDays={quantityDays} value={value} handleClick={handleClick} selectedDay={selectedDay}/>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Month;
-
 import React, { useState, useEffect } from 'react';
 import MonthItem from './MonthItem';
 import css from './MontsItem.module.css';
 import { instance, getWaterForMonth } from '../../api/ApiPortionWater';
+import { useDispatch, useSelector } from 'react-redux';
+import { thunkPortionGetForMonth } from '../../redux/portionOfDrinking/thunkPortionOfDrinking';
+import { useMediaQuery } from 'react-responsive';
+
+// import { selectorWaterMonth } from '../../redux/selectors';
 
 const Month = () => {
   const date = new Date().getFullYear();
@@ -73,15 +29,36 @@ const Month = () => {
   const [currentMonthIndex, setCurrentMonthIndex] = useState(
     new Date().getMonth()
   );
-  const [monthData, setMonthData] = useState([]);
+  const dispath = useDispatch();
+  const [monthData, setMonthData] = useState(['lalala']);
+  // const waterForMonth = useSelector(selectorWaterMonth);
   const currentMonth = months[currentMonthIndex];
 
-  useEffect(() => {
-    setMonthData(prevState => {
-      return getWaterForMonth(currentMonthIndex);
-    });
-    console.log(monthData);
-  }, [currentMonth]);
+  // const getForMonth = (currentMonthIndex) => {
+  //   dispath(thunkPortionGetForMonth(currentMonthIndex));
+  // };
+  // console.log(currentMonthIndex);
+
+  // const monthData = getWaterForMonth(currentMonthIndex);
+  const value = 1000;
+  // const getWaterForMonth = async month => {
+  //   try {
+  //     const data = await instance.get(`/water/month/${month}`);
+  //     console.log(data);
+  //     return data;
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   // dispath(thunkPortionGetForMonth(currentMonthIndex));
+  //   console.log(currentMonthIndex);
+  //   setMonthData(prevState => {
+  //     return dispath(thunkPortionGetForMonth(currentMonthIndex));
+  //   });
+  //   console.log(monthData);
+  // }, [currentMonthIndex]);
 
   const year = [
     { January: '31' },
@@ -102,8 +79,6 @@ const Month = () => {
   const arr = Object.keys(year[currentMonthIndex]);
   const [selectedDay, setSelectedDay] = useState(null);
 
-  const value = 100;
-
   const handleClick = day => {
     setSelectedDay(day);
   };
@@ -116,6 +91,40 @@ const Month = () => {
 
   const handleNextMonth = () => {
     setCurrentMonthIndex(prevIndex => (prevIndex + 1) % months.length);
+  };
+
+  // const getDaysInMonth = () => {
+  //   return new Date(
+  //     currentDate.getFullYear(),
+  //     currentDate.getMonth() + 1,
+  //     0
+  //   ).getDate();
+  // };
+
+  const isDesk = useMediaQuery({ query: '(min-width: 1440px)' });
+  const isMob = useMediaQuery({ query: '(max-width: 767.98px)' });
+  const itemsInRow = isMob ? 5 : isDesk ? 9 : 11;
+
+  const renderDays = () => {
+    // const daysInMonth = getDaysInMonth();
+    const days = Array.from({ length: quantityDays }, (_, index) => index + 1);
+    // console.log('lolo');
+
+    return days.map(day => {
+      const waterPercentage = monthData?.find(item => {
+        return Number(item.data.split(',')[0]) === day;
+      });
+
+      return (
+        <MonthItem
+          // calendarRef={ref}
+          key={day}
+          day={day}
+          row={Math.ceil((day + 1) / itemsInRow)}
+          waterPercentage={waterPercentage}
+        />
+      );
+    });
   };
 
   return (
@@ -160,6 +169,7 @@ const Month = () => {
       </div>
 
       <div className={css.calendar}>
+        {/* {renderDays()} */}
         <MonthItem
           quantityDays={quantityDays}
           value={value}
