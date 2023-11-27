@@ -4,11 +4,21 @@ import {
   apiDeleteWater,
   apiRemoveWater,
   getPortionOfWaterToday,
+  getWaterForMonth,
 } from '../../api/ApiPortionWater';
 
-// export const getProfileThunk = createAsyncThunk('get/profile', () =>
-//   getProfile()
-// );
+export const thunkPortionGetForMonth = createAsyncThunk(
+  'portion/getPortionForMonth',
+  async (body, { rejectWithValue }) => {
+    try {
+      const data = await getWaterForMonth(body);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.response.data.message);
+    }
+  }
+);
+
 export const thunkPortionOfDrinkingToday = createAsyncThunk(
   'portion/getPortion',
   async (_, { rejectWithValue, dispatch }) => {
