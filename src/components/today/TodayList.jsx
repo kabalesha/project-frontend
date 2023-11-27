@@ -54,7 +54,11 @@ const TodayList = () => {
               <div className={css.portionInfo}>
                 <Cup className={css.icon} />
                 <div className={css.portion}>{el.amount + ' ml'}</div>
-                <div className={css.time}>{el.date}</div>
+                <div className={css.time}>
+                  {`${new Date(el.date).getHours()}:${new Date(
+                    el.date
+                  ).getMinutes()}`}
+                </div>
               </div>
               <div className={css.btnsWrap}>
                 <Edit
