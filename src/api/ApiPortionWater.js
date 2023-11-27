@@ -40,7 +40,7 @@ export const getPortionOfWaterToday = async () => {
 
   return data;
 };
-export const getPortionOfWaterToday = async () => {
+export const getDalyNorma = async () => {
   setTokenUser();
 
   const { data } = await instance.patch('/update/dailyNorma');
