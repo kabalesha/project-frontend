@@ -19,8 +19,8 @@ const initialState = {
   amoutMonth: [],
 };
 const handleFulfilledAdd = (state, action) => {
-  console.log('action', action.payload);
-  console.log('state', state);
+  // console.log('action', action.payload);
+  // console.log('state', state);
   state.isLoading = false;
   state.portion = [...state.portion, action.payload];
 };
@@ -41,7 +41,7 @@ const handleFulfilledRemove = (state, { payload }) => {
 };
 const handleFulfilledGetPortion = (state, action) => {
   state.drinkingList = action.payload;
-  console.log('state', state.drinkingList);
+  // console.log('state', state.drinkingList);
 };
 
 const handlePending = state => {
