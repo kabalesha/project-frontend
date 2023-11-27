@@ -11,8 +11,8 @@ import { timeUpdate } from '../../utils/time';
 
 const EditForm = ({ addPortion }) => {
   const editingPortion = useSelector(selectEditingItem);
-  const [time, setTime] = useState('5:55');
-  const [counter, setCounter] = useState('editingPortion.amount');
+  const [time, setTime] = useState(editingPortion.date);
+  const [counter, setCounter] = useState(editingPortion.amount);
   const dispath = useDispatch();
 
   const handleSbmit = e => {
