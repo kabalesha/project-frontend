@@ -3,7 +3,7 @@ import css from './MontsItem.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { thunkPortionGetForMonth } from '../../redux/portionOfDrinking/thunkPortionOfDrinking';
 import { useMediaQuery } from 'react-responsive';
-import { getPortion } from '../../redux/selectors';
+import { getPortion, WaterForToday } from '../../redux/selectors';
 import { DayItem } from './MonthItem';
 
 const Month = () => {
@@ -29,11 +29,12 @@ const Month = () => {
   );
   const dispath = useDispatch();
   const monthData = useSelector(getPortion);
+  const drinkingList = useSelector(WaterForToday);
   const currentMonth = months[currentMonthIndex];
 
   useEffect(() => {
     dispath(thunkPortionGetForMonth(currentMonthIndex));
-  }, [currentMonthIndex]);
+  }, [dispath, currentMonthIndex, drinkingList]);
 
   const year = [
     { January: '31' },

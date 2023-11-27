@@ -29,9 +29,13 @@ const TodayList = () => {
       const windowHeight = window.innerHeight;
       listContainer.style.height = `${windowHeight * 0.33}px`;
     }
-    dispath(thunkPortionOfDrinkingToday());
-    console.log(drinkingList);
+    // dispath(thunkPortionOfDrinkingToday());
+    // console.log(drinkingList);
   }, []);
+
+  useEffect(() => {
+    dispath(thunkPortionOfDrinkingToday());
+  }, [dispath, drinkingList]);
 
   const handleRemove = id => {
     const { amount, date, _id } = drinkingList.find(el => el._id === id);
