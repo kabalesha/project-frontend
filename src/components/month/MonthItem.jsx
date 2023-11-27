@@ -6,14 +6,7 @@ import { getNormaSelector } from '../../redux/selectors';
 import { useMediaQuery } from 'react-responsive';
 
 import { getStats } from '../../api/ApiPortionWater';
-const DayItem = ({
-  day,
-  handleClick,
-  selectedDay,
-  row,
-  selectedMonth,
-  waterPercentage,
-}) => {
+
 
 const DayItem = ({ day, handleClick, selectedDay, row }) => {
 
