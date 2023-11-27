@@ -4,7 +4,12 @@ import css from './MontsItem.module.css';
 import { useSelector } from 'react-redux';
 import { getNormaSelector } from '../../redux/selectors';
 import { useMediaQuery } from 'react-responsive';
+
+import { getStats } from '../../api/ApiPortionWater';
+
+
 const DayItem = ({ day, handleClick, selectedDay, row }) => {
+
   const [showAdditionalInfo, setShowAdditionalInfo] = useState(false);
   const normaDaile = useSelector(getNormaSelector);
 
@@ -13,6 +18,18 @@ const DayItem = ({ day, handleClick, selectedDay, row }) => {
       <button
         onClick={() => {
           handleClick(day);
+
+          // setDate(prevSate => {
+          //   const selectedDate = new Date();
+          //   selectedDate.setMonth(selectedMonth);
+          //   selectedDate.setDate(selectedDay);
+          //   return selectedDate;
+          // });
+          // setStats(prevState => {
+          //   return getStats(date);
+          // });
+          // console.log(stats);
+
           setShowAdditionalInfo(true);
         }}
         className={`${css.calendarItem} ${
