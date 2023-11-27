@@ -1,11 +1,13 @@
-export const timeUpdate = value => {
-  const userDate = new Date(value);
+// export const timeUpdate = value => {
+//   console.log('value', value);
 
-  const hour = userDate.getHours();
-  const minets = userDate.getMinutes();
+//   const userDate = new Date();
 
-  const timeForInput = `${hour.toString().padStart(2, '0')}:${minets
-    .toString()
-    .padStart(2, '0')}`;
-  return timeForInput;
-};
+//   const hour = userDate.getHours();
+//   const minets = userDate.getMinutes();
+
+//   const timeForInput = `${hour.toString().padStart(2, '0')}:${minets
+//     .toString()
+//     .padStart(2, '0')}`;
+//   return timeForInput;
+// };
