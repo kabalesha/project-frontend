@@ -14,12 +14,6 @@ import { getCurrentToken } from '../redux/selectors';
 //   return data;
 // };
 
-export const getWaterForMonth = async month => {
-  const data = await instance.get(`/water/month/${month}`);
-  console.log(data);
-  return data;
-};
-
 // export const getStats = async body => {
 //   try {
 //     const data = await instance.get('/water/stats', body);
@@ -31,7 +25,8 @@ export const getWaterForMonth = async month => {
 // };
 
 export const instance = axios.create({
-  baseURL: 'https://project-backend-7eyy.onrender.com/api',
+  // baseURL: 'https://project-backend-7eyy.onrender.com/api',
+  baseURL: 'http://localhost:4000/api',
 });
 
 export const setTokenUser = () => {
@@ -41,6 +36,12 @@ export const setTokenUser = () => {
 };
 
 export const portonWater = () => {};
+
+export const getWaterForMonth = async month => {
+  setTokenUser();
+  const data = await instance.get(`/water/month/${month}`);
+  return data;
+};
 
 export const addPortionOfWater = async body => {
   setTokenUser();
@@ -67,7 +68,7 @@ export const getPortionOfWaterToday = async () => {
   setTokenUser();
 
   const { data } = await instance.get('/water/today');
-
+  console.log(data);
   return data;
 };
 export const getDalyNorma = async () => {

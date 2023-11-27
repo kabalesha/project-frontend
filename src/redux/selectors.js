@@ -1,5 +1,6 @@
 export const showModalSelector = state => state.modal;
 export const quantityDrinkSelector = state => state.portion.portion;
+export const WaterForToday = state => state.portion.drinkingList;
 
 export const currentUserEmailSelector = state => state.auth.profile;
 export const selectUserToken = state => state.auth.token;

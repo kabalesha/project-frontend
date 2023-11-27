@@ -1,7 +1,7 @@
 // TodayList.jsx
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPortion, quantityDrinkSelector } from '../../redux/selectors';
+import { getPortion, WaterForToday } from '../../redux/selectors';
 import {
   del,
   editPortion,
@@ -14,10 +14,14 @@ import { Edit } from './todayForm/Edit.jsx';
 import { DeleteIcon } from './todayForm/DeleteIcon.jsx';
 import { modalName } from '../../redux/changeModal/changeModal';
 import { json } from 'react-router-dom';
-import { thunkPortionDeleteWater } from '../../redux/portionOfDrinking/thunkPortionOfDrinking';
+import {
+  thunkPortionDeleteWater,
+  thunkPortionOfDrinkingToday,
+} from '../../redux/portionOfDrinking/thunkPortionOfDrinking';
 
 const TodayList = () => {
-  const drinkingList = useSelector(quantityDrinkSelector);
+  const drinkingList = useSelector(WaterForToday);
+  const dispath = useDispatch();
 
   useEffect(() => {
     const listContainer = document.querySelector('.listContainer');
@@ -25,6 +29,8 @@ const TodayList = () => {
       const windowHeight = window.innerHeight;
       listContainer.style.height = `${windowHeight * 0.33}px`;
     }
+    dispath(thunkPortionOfDrinkingToday());
+    console.log(drinkingList);
   }, []);
 
   const handleRemove = id => {
@@ -35,16 +41,15 @@ const TodayList = () => {
     dispath(modalShow(true));
   };
 
-  const dispath = useDispatch();
   const handleDelItem = id => {
     dispath(thunkPortionDeleteWater(id));
   };
 
   return (
     <div className={css.listContainer}>
-      {drinkingList && drinkingList.length > 0 ? (
+      {drinkingList ? (
         <div className={css.list}>
-          {drinkingList.map((el, idx) => (
+          {drinkingList.waterInputsForToday.map((el, idx) => (
             <div className={css.itemWrap} key={idx}>
               <div className={css.portionInfo}>
                 <Cup className={css.icon} />

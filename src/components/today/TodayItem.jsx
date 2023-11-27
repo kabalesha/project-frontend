@@ -22,10 +22,24 @@ const Today = () => {
     // const today = new Date();
     // today.setHours(15, 15);
     // const date = AM;
+    console.log(time);
+    if (time === '') {
+      const createDate = new Date();
+      const date = createDate.toISOString();
+      console.log(date);
+      return dispath(thunkPortionAddDrinking({ date, amount }));
+    }
+    const lolo = time.split(':');
+    console.log(lolo);
+    const hours = lolo[0];
+    const minutes = lolo[1];
     // console.log('AM', d.setMonth(time));
-
+    const createDate = new Date();
+    createDate.setHours(hours);
+    createDate.setMinutes(minutes);
+    const date = createDate.toISOString();
     // console.log('time', time);
-    dispath(thunkPortionAddDrinking({ date: time, amount }));
+    dispath(thunkPortionAddDrinking({ date, amount }));
 
     // dispath(add(value));
   };

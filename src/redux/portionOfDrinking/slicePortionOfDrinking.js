@@ -5,6 +5,7 @@ import {
   thunkPortionDeleteWater,
   thunkPortionOfDrinkingToday,
   thunkPortionRemoveWater,
+  thunkPortionGetForMonth,
 } from './thunkPortionOfDrinking';
 import { PendingActions } from '@mui/icons-material';
 
@@ -39,13 +40,19 @@ const handleFulfilledRemove = (state, { payload }) => {
   });
 };
 const handleFulfilledGetPortion = (state, action) => {
-  console.log('state', state);
+  state.drinkingList = action.payload;
+  console.log('state', state.drinkingList);
 };
 
 const handlePending = state => {
   state.isLoading = true;
   state.error = '';
 };
+
+const handleGetForMonth = (state, action) => {
+  state.amountMonth = action.payload;
+};
+
 const handleRejected = (state, { error, payload }) => {
   state.isLoading = false;
   state.error = payload ?? error.message;
@@ -74,6 +81,8 @@ const portionOfDrinkingSlice = createSlice({
       .addCase(thunkPortionDeleteWater.fulfilled, handleFulfilledDelete)
       .addCase(thunkPortionRemoveWater.fulfilled, handleFulfilledRemove)
       .addCase(thunkPortionOfDrinkingToday.fulfilled, handleFulfilledGetPortion)
+      .addCase(thunkPortionGetForMonth.fulfilled, handleGetForMonth)
+
       //   .addCase(getProfileThunk.fulfilled, handleFulfilledProfile)
       .addMatcher(({ type }) => type.endsWith('/pending'), handlePending)
       .addMatcher(({ type }) => type.endsWith('/rejected'), handleRejected);
