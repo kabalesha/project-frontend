@@ -5,7 +5,10 @@ import { add } from '../../redux/portionOfDrinking/slicePortionOfDrinking';
 import Modal from '../modalWindow/Modal';
 import { activModalSelector, showModalSelector } from '../../redux/selectors';
 import TodayList from './TodayList';
-import { thunkPortionAddDrinking } from '../../redux/portionOfDrinking/thunkPortionOfDrinking';
+import {
+  thunkPortionAddDrinking,
+  thunkPortionOfDrinking,
+} from '../../redux/portionOfDrinking/thunkPortionOfDrinking';
 import EditForm from '../today/editForm/EditForm';
 
 const Today = () => {
@@ -14,10 +17,16 @@ const Today = () => {
   const dispath = useDispatch();
   const nameActivModal = useSelector(activModalSelector);
   const addPortion = value => {
-    console.log('value', idx);
-    dispath(thunkPortionAddDrinking(value));
+    const { time, counter: amount } = value;
+    const today = new Date();
+    today.setHours(15, 15);
+    // const date = AM;
+    // console.log('AM', d.setMonth(time));
 
-    dispath(add(value));
+    // console.log('time', time);
+    dispath(thunkPortionAddDrinking({ date: today, amount }));
+
+    // dispath(add(value));
   };
 
   const modalActiv = () => {

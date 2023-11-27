@@ -1,16 +1,44 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { thunkPortionOfDrinking } from './thunkPortionOfDrinking';
+import {
+  thunkPortionAddDrinking,
+  thunkPortionDeleteWater,
+  thunkPortionOfDrinkingToday,
+  thunkPortionRemoveWater,
+} from './thunkPortionOfDrinking';
+import { PendingActions } from '@mui/icons-material';
 
 const initialState = {
   access_token: '',
   isLoading: false,
   error: '',
   profile: null,
+  portion: [],
+  editedPortion: null,
 };
-const handleFulfilled = (state, action) => {
+const handleFulfilledAdd = (state, action) => {
+  console.log('action', action.payload);
+  console.log('state', state);
   state.isLoading = false;
-  //   state.access_token = action.payload.access_token;
+  state.portion = [...state.portion, action.payload];
+};
+const handleFulfilledDelete = (state, action) => {
+  state.portion = state.portion.filter(el => el._id !== action.payload);
+
+  state.isLoading = false;
+};
+const handleFulfilledRemove = (state, { payload }) => {
+  state.portion = state.portion.map(el => {
+    const { date, amount, _id } = payload;
+    if (el._id === _id) {
+      return { ...el, date, amount };
+    } else {
+      return el;
+    }
+  });
+};
+const handleFulfilledGetPortion = (state, action) => {
+  console.log('state', state);
 };
 
 const handlePending = state => {
@@ -23,28 +51,32 @@ const handleRejected = (state, { error, payload }) => {
 };
 const portionOfDrinkingSlice = createSlice({
   name: 'portion',
-  // initialState,
-  initialState: [],
+  initialState,
+  // initialState: [],
   reducers: {
-    add: (state, action) => [...state, action.payload],
-
-    del: (state, action) => state.filter((el, idx) => idx !== action.payload),
-    remove: (state, action) => {
-      state.map((el, i) => {
-        if (i === action.payload) {
-          console.log('aaaa', el.time);
-        }
-      });
+    editPortion: (state, action) => {
+      state.editedPortion = action.payload;
     },
 
-    // extraReducers: builder => {
-    //   builder
-    //     .addCase(thunkPortionOfDrinking.fulfilled, handleFulfilled)
-    //     //   .addCase(getProfileThunk.fulfilled, handleFulfilledProfile)
-    //     .addMatcher(({ type }) => type.endsWith('/pending'), handlePending)
-    //     .addMatcher(({ type }) => type.endsWith('/rejected'), handleRejected);
-    // },
+    //   del: (state, action) => state.filter((el, idx) => idx !== action.payload),
+    //   remove: (state, action) => {
+    //     state.map((el, i) => {
+    //       if (i === action.payload) {
+    //         console.log('aaaa', el.time);
+    //       }
+    //     });
+  },
+
+  extraReducers: builder => {
+    builder
+      .addCase(thunkPortionAddDrinking.fulfilled, handleFulfilledAdd)
+      .addCase(thunkPortionDeleteWater.fulfilled, handleFulfilledDelete)
+      .addCase(thunkPortionRemoveWater.fulfilled, handleFulfilledRemove)
+      .addCase(thunkPortionOfDrinkingToday.fulfilled, handleFulfilledGetPortion)
+      //   .addCase(getProfileThunk.fulfilled, handleFulfilledProfile)
+      .addMatcher(({ type }) => type.endsWith('/pending'), handlePending)
+      .addMatcher(({ type }) => type.endsWith('/rejected'), handleRejected);
   },
 });
 export const portionDrink = portionOfDrinkingSlice.reducer;
-export const { add, del, drink, remove } = portionOfDrinkingSlice.actions;
+export const { editPortion } = portionOfDrinkingSlice.actions;

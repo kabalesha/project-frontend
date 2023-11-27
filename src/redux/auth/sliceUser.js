@@ -7,7 +7,6 @@ import {
   thunkSignIn,
   updateUserThunk,
 } from './thunkUser';
-
 const initialState = {
   access_token: '',
   isLoading: false,
@@ -33,16 +32,14 @@ const handleFulfilledRefresh = (state, action) => {
     state.access_token = '';
     state.error = '';
     state.profile = null;
-
-    // state.isLoggedIn = true;
   } else {
+    // state.isLoggedIn = false;
     return;
   }
 };
 const handleFulfilledUpdateUser = (state, action) => {
   state.isLoading = false;
   state.access_token = action.payload.token;
-
   state.profile = {
     ...state.profile,
     name: action.payload.name,
@@ -55,13 +52,11 @@ const handleFulfilledUpdateAvatarUser = (state, action) => {
   // console.log('action', action.payload);
   state.isLoading = false;
   state.avatar = action.payload;
-
   // state.profile = {
   //   ...state.profile,
   //   avatar: action.payload.file,
   // };
 };
-
 const handlePending = state => {
   state.isLoading = true;
   state.error = '';

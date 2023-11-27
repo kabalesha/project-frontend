@@ -1,8 +1,10 @@
+
 import React, { useState } from 'react';
 import css from './MontsItem.module.css';
 import { useSelector } from 'react-redux';
 import { getNormaSelector } from '../../redux/selectors';
 import { useMediaQuery } from 'react-responsive';
+
 import { getStats } from '../../api/ApiPortionWater';
 const DayItem = ({
   day,
@@ -12,16 +14,18 @@ const DayItem = ({
   selectedMonth,
   waterPercentage,
 }) => {
+
+const DayItem = ({ day, handleClick, selectedDay, row }) => {
+
   const [showAdditionalInfo, setShowAdditionalInfo] = useState(false);
   const normaDaile = useSelector(getNormaSelector);
-  const [date, setDate] = useState(new Date());
-  const [stats, setStats] = useState(null);
 
   return (
     <div className={css.calendarWrapper} key={day}>
       <button
         onClick={() => {
           handleClick(day);
+
           setDate(prevSate => {
             const selectedDate = new Date();
             selectedDate.setMonth(selectedMonth);
@@ -32,6 +36,7 @@ const DayItem = ({
           //   return getStats(date);
           // });
           console.log(stats);
+
           setShowAdditionalInfo(true);
         }}
         className={`${css.calendarItem} ${
@@ -68,9 +73,9 @@ const DayItem = ({
                 <path
                   d="M4 12L12 4M4 4L12 12"
                   stroke="#407BFF"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </svg>
             </button>
@@ -81,12 +86,7 @@ const DayItem = ({
   );
 };
 
-const MonthItem = ({
-  quantityDays,
-  handleClick,
-  selectedDay,
-  selectedMonth,
-}) => {
+const MonthItem = ({ quantityDays, handleClick, selectedDay }) => {
   const arr = Object.values(quantityDays);
   const [day] = arr;
   const i = [];
@@ -105,7 +105,6 @@ const MonthItem = ({
       day={el}
       handleClick={handleClick}
       selectedDay={selectedDay}
-      selectedMonth={selectedMonth}
     />
   ));
 };
