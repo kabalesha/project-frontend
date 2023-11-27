@@ -19,16 +19,16 @@ const DayItem = ({ day, handleClick, selectedDay, row }) => {
         onClick={() => {
           handleClick(day);
 
-          setDate(prevSate => {
-            const selectedDate = new Date();
-            selectedDate.setMonth(selectedMonth);
-            selectedDate.setDate(selectedDay);
-            return selectedDate;
-          });
+          // setDate(prevSate => {
+          //   const selectedDate = new Date();
+          //   selectedDate.setMonth(selectedMonth);
+          //   selectedDate.setDate(selectedDay);
+          //   return selectedDate;
+          // });
           // setStats(prevState => {
           //   return getStats(date);
           // });
-          console.log(stats);
+          // console.log(stats);
 
           setShowAdditionalInfo(true);
         }}
