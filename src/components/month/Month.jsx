@@ -29,12 +29,12 @@ const Month = () => {
   );
   const dispath = useDispatch();
   const monthData = useSelector(getPortion);
-  const drinkingList = useSelector(WaterForToday);
+  // const drinkingList = useSelector(WaterForToday);
   const currentMonth = months[currentMonthIndex];
 
   useEffect(() => {
     dispath(thunkPortionGetForMonth(currentMonthIndex));
-  }, [dispath, currentMonthIndex, drinkingList]);
+  }, [dispath, currentMonthIndex]);
 
   const year = [
     { January: '31' },
