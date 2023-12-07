@@ -22,3 +22,7 @@ water consumption.
 - Swagger
 
 ### [Swagger API Documentation](https://project-backend-7eyy.onrender.com/api-docs/)
+
+## `Demo`
+
+![Demo1](./public/demo_1.png) ![Demo2](./public/demo_2.png)
