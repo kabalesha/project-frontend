@@ -28,7 +28,7 @@ const TodayForm = ({ addPortion }) => {
     addPortion({ time, counter });
     setTime('');
     // setCounter('');
-    dispath(modalShow(false));
+      dispath(modalShow(false));
   };
   return (
     <div className={css.backdrop}>
